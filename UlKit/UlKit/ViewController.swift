@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print("ViewController")
         print("Hello, world")
+        print("Swift")
     }
 
 
