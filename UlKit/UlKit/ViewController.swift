@@ -1,21 +1,13 @@
-//
-//  ViewController.swift
-//  UlKit
-//
-//  Created by Евгений Л on 05.02.2024.
-//
+// ViewController.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ViewController")
         print("Hello, world")
         print("Swift")
     }
-
-
 }
-
