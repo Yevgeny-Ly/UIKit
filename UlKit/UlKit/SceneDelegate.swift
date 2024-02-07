@@ -6,7 +6,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
-    /// гпгшпрощжлошг
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
