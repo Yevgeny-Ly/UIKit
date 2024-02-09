@@ -3,10 +3,15 @@
 
 import UIKit
 
+/// описывает второй экран приложения
 class GameViewController: UIViewController {
+    // MARK: - Private stored property
+
     var passTheWord: String?
 
-    lazy var inputWordLabel: UILabel = {
+    // MARK: - Private closure
+
+    private lazy var inputWordLabel: UILabel = {
         let label = UILabel()
         label.sizeToFit()
         label.text = "Вы ввели слово"
@@ -16,7 +21,7 @@ class GameViewController: UIViewController {
         return label
     }()
 
-    var writtenWordLabel: UILabel = {
+    private var writtenWordLabel: UILabel = {
         let label = UILabel()
         label.sizeToFit()
         label.textColor = .systemGray4
@@ -24,7 +29,7 @@ class GameViewController: UIViewController {
         return label
     }()
 
-    var infoLabel: UILabel = {
+    private var infoLabel: UILabel = {
         let label = UILabel()
         label.text = "А вот что получится, \n если читать справа налево"
         label.textColor = .black
@@ -34,14 +39,14 @@ class GameViewController: UIViewController {
         return label
     }()
 
-    var writtenWordReverseLabel: UILabel = {
+    private var writtenWordReverseLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray4
         label.font = UIFont(name: "Verdana", size: 16)
         return label
     }()
 
-    lazy var startButton: UIButton = {
+    private lazy var startButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = #colorLiteral(red: 0.2979461551, green: 0.8465514779, blue: 0.399361372, alpha: 1)
         button.setTitle("Начать", for: .normal)
@@ -51,6 +56,8 @@ class GameViewController: UIViewController {
         button.addTarget(self, action: #selector(respondsPressureStartButton), for: .touchUpInside)
         return button
     }()
+
+    // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +70,9 @@ class GameViewController: UIViewController {
         adjustsTheFrame()
     }
 
-    func adjustsTheFrame() {
+    // MARK: - Private method
+
+    private func adjustsTheFrame() {
         inputWordLabel.frame = CGRect(x: 120, y: 106, width: 275, height: 57)
         writtenWordLabel.frame = CGRect(x: 110, y: 163, width: 275, height: 57)
         infoLabel.frame = CGRect(x: 50, y: 282, width: 275, height: 57)
@@ -71,7 +80,7 @@ class GameViewController: UIViewController {
         startButton.frame = CGRect(x: 20, y: 598, width: 335, height: 44)
     }
 
-    func addsOnView() {
+    private func addsOnView() {
         view.backgroundColor = .white
         view.addSubview(inputWordLabel)
         view.addSubview(writtenWordLabel)
@@ -79,6 +88,8 @@ class GameViewController: UIViewController {
         view.addSubview(writtenWordReverseLabel)
         view.addSubview(startButton)
     }
+
+    // MARK: - @objc method
 
     @objc
     func respondsPressureStartButton() {
