@@ -5,12 +5,12 @@ import UIKit
 
 /// описывает взаимодействие view и controller
 final class ViewController: UIViewController {
-    // MARK: - Private stored properties
+    // MARK: - Type
 
     private var backgroundTextView = UIView()
     private var consistencyNumbers = [Int]()
 
-    // MARK: - Stored closure
+    // MARK: - Private Properties
 
     private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
@@ -55,7 +55,7 @@ final class ViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +74,7 @@ final class ViewController: UIViewController {
         adjustsTheFrame()
     }
 
-    // MARK: - Private func
+    // MARK: - Private Methods
 
     private func fulfillsLoop() {
         for _ in 0 ..< 5 {
@@ -121,10 +121,8 @@ final class ViewController: UIViewController {
         present(alertController, animated: true)
     }
 
-    // MARK: - @objc func
-
     @objc
-    func pressButtonGuessNumber() {
+    private func pressButtonGuessNumber() {
         let alertController = UIAlertController(
             title: "Угадайте число от 1 до 10",
             message: nil,
@@ -166,7 +164,7 @@ final class ViewController: UIViewController {
     }
 
     @objc
-    func pressButtonCalculator() {
+    private func pressButtonCalculator() {
         let calculatorAlertController = UIAlertController(
             title: "Введите ваши числа",
             message: nil,
