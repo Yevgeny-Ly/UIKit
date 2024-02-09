@@ -5,8 +5,8 @@ import UIKit
 
 /// Описывает начальный экран решистрации
 class ViewController: UIViewController {
-    
-    
+    // MARK: - IBOutlet
+
     @IBOutlet var logoCafeImage: UIImageView!
     @IBOutlet var nameCafeLabel: UILabel!
     @IBOutlet var authorizationLabel: UILabel!
@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet var logoEyes: UIImageView!
     @IBOutlet var startutton: UIButton!
 
-    //MARK: -Life cycle
+    // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         adjustsTextField()
@@ -30,7 +31,8 @@ class ViewController: UIViewController {
         adjustsFrame()
     }
 
-    //MARK: -Private method
+    // MARK: - Private method
+
     private func adjustsFrame() {
         logoCafeImage.frame = CGRect(x: 100, y: 52, width: 175, height: 164.39)
         nameCafeLabel.frame = CGRect(x: 100, y: 223, width: 175, height: 22)
@@ -44,8 +46,9 @@ class ViewController: UIViewController {
         logoEyes.frame = CGRect(x: 330, y: 419, width: 22, height: 19)
         startutton.frame = CGRect(x: 20, y: 671, width: 335, height: 44)
     }
-    
-    //MARK: -Private method
+
+    // MARK: - Private method
+
     private func adjustsTextField() {
         passwordTextField.isSecureTextEntry = true
     }

@@ -204,9 +204,12 @@
                                 <rect key="frame" x="314" y="456" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1B4-Ap-Q4J">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1B4-Ap-Q4J">
                                 <rect key="frame" x="314" y="515" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchChanges:" destination="ZwC-fR-o4A" eventType="valueChanged" id="hgI-AX-4YK"/>
+                                </connections>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Укажите количество гостей" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NeR-AH-AcQ">
                                 <rect key="frame" x="26" y="245" width="250" height="17"/>
@@ -245,12 +248,15 @@
                         <outlet property="invoiceButton" destination="mcu-Ht-9Oc" id="yzi-JD-u7c"/>
                         <outlet property="numberGuests" destination="ILA-2Z-fPX" id="h7R-1g-Mai"/>
                         <outlet property="prepaymentLabel" destination="xxD-te-XzQ" id="tnk-f0-bIK"/>
+                        <outlet property="prepaymentSwitch" destination="Mq0-Bc-fUh" id="gGE-VN-NPW"/>
                         <outlet property="reservationLabel" destination="ifh-qD-ppJ" id="y0B-Ng-iBi"/>
+                        <outlet property="reservationSwitch" destination="ubC-9n-lkP" id="Zez-lY-EZG"/>
                         <outlet property="secondLineView" destination="RXF-e0-tPS" id="Dfl-v4-Vxc"/>
                         <outlet property="tableNumberLabel" destination="dmD-aV-SGc" id="e8j-BT-HFn"/>
                         <outlet property="tableNumberTextField" destination="9Ha-FT-ltR" id="elt-4F-VUt"/>
                         <outlet property="thirdLineView" destination="Um3-aq-4qA" id="6Lg-lQ-gf9"/>
                         <outlet property="vipRoomLabel" destination="CvW-yf-XwW" id="cNh-W8-HOg"/>
+                        <outlet property="vipRoomSwitch" destination="1B4-Ap-Q4J" id="o9d-wI-anj"/>
                         <segue destination="23L-UZ-NHU" kind="show" identifier="checkViewController" id="d59-7z-kgk"/>
                     </connections>
                 </viewController>

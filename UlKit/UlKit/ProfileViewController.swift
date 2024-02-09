@@ -5,6 +5,8 @@ import UIKit
 
 /// Описывает детальный экран кафе
 class ProfileViewController: UIViewController {
+    // MARK: - IBOutlet
+
     @IBOutlet var initialsUserLabel: UILabel!
     @IBOutlet var inputInitialsTextField: UITextField!
     @IBOutlet var firstLineView: UIView!
@@ -18,18 +20,19 @@ class ProfileViewController: UIViewController {
     @IBOutlet var prepaymentLabel: UILabel!
     @IBOutlet var vipRoomLabel: UILabel!
     @IBOutlet var invoiceButton: UIButton!
+    @IBOutlet var reservationSwitch: UISwitch!
+    @IBOutlet var prepaymentSwitch: UISwitch!
+    @IBOutlet var vipRoomSwitch: UISwitch!
 
-    //MARK: -Life cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    // MARK: - Life cycle
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         adjustsFrame()
     }
 
-    //MARK: -Private method
+    // MARK: - Private method
+
     private func adjustsFrame() {
         initialsUserLabel.frame = CGRect(x: 20, y: 110, width: 175, height: 19)
         inputInitialsTextField.frame = CGRect(x: 20, y: 139, width: 250, height: 17)
@@ -44,9 +47,13 @@ class ProfileViewController: UIViewController {
         prepaymentLabel.frame = CGRect(x: 20, y: 444, width: 250, height: 35)
         vipRoomLabel.frame = CGRect(x: 20, y: 501, width: 250, height: 35)
         invoiceButton.frame = CGRect(x: 20, y: 671, width: 335, height: 44)
+        reservationSwitch.frame = CGRect(x: 305, y: 385, width: 31, height: 31)
+        prepaymentSwitch.frame = CGRect(x: 305, y: 442, width: 31, height: 31)
+        vipRoomSwitch.frame = CGRect(x: 305, y: 503, width: 31, height: 31)
     }
 
-    //MARK: -Method UIAlertController
+    // MARK: - Method UIAlertController
+
     @IBAction func showСheckAlertAction(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Выставить счет?", message: nil, preferredStyle: .alert)
         let check = UIAlertAction(title: "Чек", style: .default) { _ in
