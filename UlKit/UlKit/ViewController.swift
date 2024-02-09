@@ -3,17 +3,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    var backgroundTextView = UIView()
-    var consistencyNumbers = [Int]()
-
-    let backgroundImage: UIImageView = {
+/// описывает взаимодействие view и controller
+final class ViewController: UIViewController {
+    
+    //MARK: - Private stored properties
+    private var backgroundTextView = UIView()
+    private var consistencyNumbers = [Int]()
+    
+    //MARK: - Stored closure
+    private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "background")
+        imageView.image = UIImage(named: "Background")
         return imageView
     }()
 
-    var greetingsLabel: UILabel = {
+    private var greetingsLabel: UILabel = {
         let label = UILabel()
         label.text = ""
         label.textColor = .white
@@ -22,7 +26,7 @@ class ViewController: UIViewController {
         return label
     }()
 
-    lazy var playGuessNumberButton: UIButton = {
+    private lazy var playGuessNumberButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = #colorLiteral(red: 0.6101519465, green: 0.4977072477, blue: 0.7082346082, alpha: 1)
         button.setTitle("Угадай \n число", for: .normal)
@@ -36,7 +40,7 @@ class ViewController: UIViewController {
         return button
     }()
 
-    lazy var playCalculatorButton: UIButton = {
+    private lazy var playCalculatorButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = #colorLiteral(red: 0.3939370811, green: 0.7096473575, blue: 0.5092409849, alpha: 1)
         button.setTitle("Калькулятор", for: .normal)
@@ -50,6 +54,7 @@ class ViewController: UIViewController {
         return button
     }()
 
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         addsView()
@@ -67,20 +72,21 @@ class ViewController: UIViewController {
         adjustsTheFrame()
     }
 
-    func fulfillsLoop() {
+    //MARK: - Private func
+    private func fulfillsLoop() {
         for _ in 0 ..< 5 {
             consistencyNumbers.append(Int.random(in: 1 ... 10))
         }
     }
 
-    func adjustsTheFrame() {
+    private func adjustsTheFrame() {
         greetingsLabel.textAlignment = .center
         greetingsLabel.frame = CGRect(x: 50, y: 51, width: 275, height: 80)
         playGuessNumberButton.frame = CGRect(x: 82, y: 264, width: 150, height: 150)
         playCalculatorButton.frame = CGRect(x: 132, y: 470, width: 200, height: 200)
     }
 
-    func addsView() {
+    private func addsView() {
         view.backgroundColor = .white
         view.addSubview(backgroundImage)
         view.addSubview(backgroundTextView)
@@ -89,7 +95,7 @@ class ViewController: UIViewController {
         view.addSubview(playCalculatorButton)
     }
 
-    func customizesAlert(title: String, message: String?, preferredStyle: UIAlertController.Style) {
+    private func customizesAlert(title: String, message: String?, preferredStyle: UIAlertController.Style) {
         let alertController = UIAlertController(
             title: title,
             message: message,
@@ -112,6 +118,7 @@ class ViewController: UIViewController {
         present(alertController, animated: true)
     }
 
+    //MARK: - @objc func
     @objc
     func pressButtonGuessNumber() {
         let alertController = UIAlertController(

@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// описывает жизненный цикл приложения
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
