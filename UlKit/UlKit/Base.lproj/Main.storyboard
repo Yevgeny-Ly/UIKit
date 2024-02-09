@@ -298,8 +298,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Салат &quot;Цезарь&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a09-C3-6i8">
-                                <rect key="frame" x="28" y="224" width="129" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Салат &quot;Греческий&quot;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a09-C3-6i8">
+                                <rect key="frame" x="28" y="224" width="156" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -350,6 +350,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="nZi-jg-31C"/>
+                    <connections>
+                        <outlet property="finalButton" destination="wxg-Wk-gfq" id="dpn-42-BJB"/>
+                        <outlet property="firstArrow" destination="5kg-rS-d1c" id="O0s-H3-Vyz"/>
+                        <outlet property="firstCheckItemLabel" destination="BJO-wI-kvG" id="ywy-KA-aFh"/>
+                        <outlet property="firstDishDescription" destination="ksN-9k-Hpv" id="6KW-h6-MNH"/>
+                        <outlet property="firstLineView" destination="Ocx-jy-bFn" id="zGy-r3-4dr"/>
+                        <outlet property="firstMealPriceLabel" destination="CNR-mh-AOD" id="bAV-ZJ-Gvw"/>
+                        <outlet property="imageCheckView" destination="NWB-QB-nI1" id="mYA-OR-4iH"/>
+                        <outlet property="secondArrow" destination="vTA-8g-oMd" id="QG3-6g-yfN"/>
+                        <outlet property="secondCheckItemLabel" destination="a09-C3-6i8" id="igp-yo-wFL"/>
+                        <outlet property="secondDishDescription" destination="7J9-ig-e1r" id="yDN-ba-ca2"/>
+                        <outlet property="secondLineView" destination="6Yz-Lh-5Dq" id="rBR-qG-Rvu"/>
+                        <outlet property="secondMealPriceLabel" destination="sT9-Ir-dZy" id="9vJ-UU-pmJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AE1-Fj-Loa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

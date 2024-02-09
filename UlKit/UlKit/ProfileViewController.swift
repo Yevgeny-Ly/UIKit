@@ -4,7 +4,7 @@
 import UIKit
 
 /// Описывает детальный экран кафе
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var initialsUserLabel: UILabel!
@@ -24,14 +24,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet var prepaymentSwitch: UISwitch!
     @IBOutlet var vipRoomSwitch: UISwitch!
 
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         adjustsFrame()
     }
 
-    // MARK: - Private method
+    // MARK: - Private Methods
 
     private func adjustsFrame() {
         initialsUserLabel.frame = CGRect(x: 20, y: 110, width: 175, height: 19)
@@ -52,9 +52,7 @@ class ProfileViewController: UIViewController {
         vipRoomSwitch.frame = CGRect(x: 305, y: 503, width: 31, height: 31)
     }
 
-    // MARK: - Method UIAlertController
-
-    @IBAction func showСheckAlertAction(_ sender: UIButton) {
+    @IBAction private func showСheckAlertAction(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Выставить счет?", message: nil, preferredStyle: .alert)
         let check = UIAlertAction(title: "Чек", style: .default) { _ in
             self.performSegue(withIdentifier: "checkViewController", sender: nil)
