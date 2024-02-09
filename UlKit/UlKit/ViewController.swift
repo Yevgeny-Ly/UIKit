@@ -5,12 +5,13 @@ import UIKit
 
 /// описывает взаимодействие view и controller
 final class ViewController: UIViewController {
-    
-    //MARK: - Private stored properties
+    // MARK: - Private stored properties
+
     private var backgroundTextView = UIView()
     private var consistencyNumbers = [Int]()
-    
-    //MARK: - Stored closure
+
+    // MARK: - Stored closure
+
     private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Background")
@@ -54,7 +55,8 @@ final class ViewController: UIViewController {
         return button
     }()
 
-    //MARK: - Life cycle
+    // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addsView()
@@ -72,7 +74,8 @@ final class ViewController: UIViewController {
         adjustsTheFrame()
     }
 
-    //MARK: - Private func
+    // MARK: - Private func
+
     private func fulfillsLoop() {
         for _ in 0 ..< 5 {
             consistencyNumbers.append(Int.random(in: 1 ... 10))
@@ -118,7 +121,8 @@ final class ViewController: UIViewController {
         present(alertController, animated: true)
     }
 
-    //MARK: - @objc func
+    // MARK: - @objc func
+
     @objc
     func pressButtonGuessNumber() {
         let alertController = UIAlertController(
@@ -139,11 +143,9 @@ final class ViewController: UIViewController {
                 return
             }
 
-            for number in self.consistencyNumbers {
-                if number == userInputNumber {
-                    guessedNumber = true
-                    break
-                }
+            for number in self.consistencyNumbers where number == userInputNumber {
+                guessedNumber = true
+                break
             }
 
             if guessedNumber {
