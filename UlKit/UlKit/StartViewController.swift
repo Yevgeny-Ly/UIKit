@@ -6,7 +6,7 @@ import UIKit
 /// описывает начальный экран приложения
 class StartViewController: UIViewController {
     // MARK: - Private closure
-    
+
     lazy var startButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = #colorLiteral(red: 0.2979461551, green: 0.8465514779, blue: 0.399361372, alpha: 1)
@@ -19,7 +19,7 @@ class StartViewController: UIViewController {
     }()
 
     // MARK: - Life cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addsOnView()
@@ -31,7 +31,7 @@ class StartViewController: UIViewController {
     }
 
     // MARK: - Private method
-    
+
     func adjustsTheFrame() {
         startButton.frame = CGRect(x: 20, y: 406, width: 335, height: 44)
     }
@@ -42,7 +42,7 @@ class StartViewController: UIViewController {
     }
 
     // MARK: - @objc method
-    
+
     @objc
     func respondsPressureStartButton() {
         let alertController = UIAlertController(
