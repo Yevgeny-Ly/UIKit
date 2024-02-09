@@ -3,13 +3,13 @@
 
 import UIKit
 
-/// описывает второй экран приложения
-class GameViewController: UIViewController {
-    // MARK: - Private stored property
+/// описывает игровой процесс
+final class GameViewController: UIViewController {
+    // MARK: - Types
 
     var passTheWord: String?
 
-    // MARK: - Private closure
+    // MARK: - Private Properties
 
     private lazy var inputWordLabel: UILabel = {
         let label = UILabel()
@@ -89,10 +89,8 @@ class GameViewController: UIViewController {
         view.addSubview(startButton)
     }
 
-    // MARK: - @objc method
-
     @objc
-    func respondsPressureStartButton() {
+    private func respondsPressureStartButton() {
         guard let word = passTheWord, !word.isEmpty else {
             return
         }

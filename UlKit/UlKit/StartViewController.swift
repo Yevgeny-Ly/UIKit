@@ -3,11 +3,11 @@
 
 import UIKit
 
-/// описывает начальный экран приложения
-class StartViewController: UIViewController {
-    // MARK: - Private closure
+/// описывает настройку начального экрана приложения
+final class StartViewController: UIViewController {
+    // MARK: - Private Properties
 
-    lazy var startButton: UIButton = {
+    private lazy var startButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = #colorLiteral(red: 0.2979461551, green: 0.8465514779, blue: 0.399361372, alpha: 1)
         button.setTitle("Начать", for: .normal)
@@ -30,21 +30,19 @@ class StartViewController: UIViewController {
         adjustsTheFrame()
     }
 
-    // MARK: - Private method
+    // MARK: - Private methods
 
-    func adjustsTheFrame() {
+    private func adjustsTheFrame() {
         startButton.frame = CGRect(x: 20, y: 406, width: 335, height: 44)
     }
 
-    func addsOnView() {
+    private func addsOnView() {
         view.backgroundColor = .white
         view.addSubview(startButton)
     }
 
-    // MARK: - @objc method
-
     @objc
-    func respondsPressureStartButton() {
+    private func respondsPressureStartButton() {
         let alertController = UIAlertController(
             title: "Введите ваше слово",
             message: nil,
