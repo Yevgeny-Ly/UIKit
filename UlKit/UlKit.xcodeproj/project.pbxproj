@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		939AECFE2B7570D2000F90D3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939AECFD2B7570D2000F90D3 /* ProfileViewController.swift */; };
+		93CF5AF52B759C47003B8B60 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CF5AF42B759C47003B8B60 /* CheckViewController.swift */; };
 		93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1642B71134500D2D339 /* AppDelegate.swift */; };
 		93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1662B71134500D2D339 /* SceneDelegate.swift */; };
 		93DDD1692B71134500D2D339 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		939AECFD2B7570D2000F90D3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		93CF5AF42B759C47003B8B60 /* CheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		93DDD1612B71134500D2D339 /* UlKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DDD1642B71134500D2D339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DDD1662B71134500D2D339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				93DDD1642B71134500D2D339 /* AppDelegate.swift */,
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
 				93DDD1682B71134500D2D339 /* ViewController.swift */,
+				939AECFD2B7570D2000F90D3 /* ProfileViewController.swift */,
+				93CF5AF42B759C47003B8B60 /* CheckViewController.swift */,
 				93DDD16A2B71134500D2D339 /* Main.storyboard */,
 				93DDD16D2B71134600D2D339 /* Assets.xcassets */,
 				93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */,
@@ -183,6 +189,8 @@
 			files = (
 				93DDD1692B71134500D2D339 /* ViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
+				939AECFE2B7570D2000F90D3 /* ProfileViewController.swift in Sources */,
+				93CF5AF52B759C47003B8B60 /* CheckViewController.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
