@@ -5,6 +5,8 @@ import UIKit
 
 /// описывает экран регистрации пользователя
 class RegistrationViewController: UIViewController {
+    // MARK: - Private Properties
+
     private var birthdayIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "imageBirthday")
@@ -93,7 +95,7 @@ class RegistrationViewController: UIViewController {
         button.isEnabled = false
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
-        button.addTarget(self, action: #selector(method), for: .touchUpInside)
+        button.addTarget(self, action: #selector(goToNextController), for: .touchUpInside)
         return button
     }()
 
@@ -104,6 +106,8 @@ class RegistrationViewController: UIViewController {
         return useSwitch
     }()
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -113,6 +117,8 @@ class RegistrationViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         arrangesSize()
     }
+
+    // MARK: - Private Methods
 
     private func addingOnView() {
         view.addSubview(birthdayIconImageView)
@@ -150,14 +156,23 @@ class RegistrationViewController: UIViewController {
     private func textFieldDidChange() {
         if typingEmailTextField.text != "", typingPasswordTextField.text != "" {
             inputButton.isEnabled = true
-            inputButton.backgroundColor = #colorLiteral(red: 0.9931142926, green: 0.1881311536, blue: 0.3572800756, alpha: 1)
+            inputButton.backgroundColor = #colorLiteral(red: 0.9931142926, green: 0.1881311536, blue: 0.3572800756,
+                                            alpha: 1)
             useFaceLabel.isHidden = false
             useFaceSwitch.isHidden = false
         } else {
             inputButton.isEnabled = false
-            inputButton.backgroundColor = #colorLiteral(red: 0.9638293386, green: 0.7112590671, blue: 0.7471126914, alpha: 1)
+            inputButton.backgroundColor = #colorLiteral(red: 0.9638293386, green: 0.7112590671, blue: 0.7471126914,
+                                            alpha: 1)
             useFaceLabel.isHidden = true
             useFaceSwitch.isHidden = true
         }
+    }
+
+    @objc
+    private func goToNextController() {
+        let nextViewController = BirthdayListViewController()
+        nextViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

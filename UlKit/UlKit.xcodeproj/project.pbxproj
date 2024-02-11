@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		935F7AAB2B78EA0800A9AFCE /* HumanAdditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F7AAA2B78EA0800A9AFCE /* HumanAdditionViewController.swift */; };
 		93BE58682B767AB70019AFEF /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BE58672B767AB70019AFEF /* UIFont+Extension.swift */; };
+		93BE586F2B76C28F0019AFEF /* BirthdayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BE586E2B76C28F0019AFEF /* BirthdayListViewController.swift */; };
 		93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1642B71134500D2D339 /* AppDelegate.swift */; };
 		93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1662B71134500D2D339 /* SceneDelegate.swift */; };
 		93DDD1692B71134500D2D339 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* RegistrationViewController.swift */; };
@@ -17,11 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		935F7AAA2B78EA0800A9AFCE /* HumanAdditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanAdditionViewController.swift; sourceTree = "<group>"; };
 		93BE58672B767AB70019AFEF /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		93BE586A2B7683680019AFEF /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
 		93BE586B2B7683680019AFEF /* Verdana-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Italic.ttf"; sourceTree = "<group>"; };
 		93BE586C2B7683680019AFEF /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
 		93BE586D2B7683680019AFEF /* Verdana-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-BoldItalic.ttf"; sourceTree = "<group>"; };
+		93BE586E2B76C28F0019AFEF /* BirthdayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayListViewController.swift; sourceTree = "<group>"; };
 		93DDD1612B71134500D2D339 /* UlKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DDD1642B71134500D2D339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DDD1662B71134500D2D339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				93DDD1642B71134500D2D339 /* AppDelegate.swift */,
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
 				93DDD1682B71134500D2D339 /* RegistrationViewController.swift */,
+				93BE586E2B76C28F0019AFEF /* BirthdayListViewController.swift */,
+				935F7AAA2B78EA0800A9AFCE /* HumanAdditionViewController.swift */,
 				93BE58662B767A850019AFEF /* Extension */,
 				93BE58692B7683020019AFEF /* Fonts */,
 				93DDD16A2B71134500D2D339 /* Main.storyboard */,
@@ -208,9 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935F7AAB2B78EA0800A9AFCE /* HumanAdditionViewController.swift in Sources */,
 				93DDD1692B71134500D2D339 /* RegistrationViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
 				93BE58682B767AB70019AFEF /* UIFont+Extension.swift in Sources */,
+				93BE586F2B76C28F0019AFEF /* BirthdayListViewController.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
