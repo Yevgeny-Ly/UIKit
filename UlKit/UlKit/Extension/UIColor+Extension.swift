@@ -1,9 +1,5 @@
-//
-//  UIColor+Extension.swift
-//  UlKit
-//
-//  Created by Евгений Л on 12.02.2024.
-//
+// UIColor+Extension.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 

@@ -1,15 +1,10 @@
-//
-//  UIFont+Extension.swift
-//  UlKit
-//
-//  Created by Евгений Л on 12.02.2024.
-//
+// UIFont+Extension.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 extension UIFont {
-    
-    ///Verdana
+    /// Verdana
     static func verdana14() -> UIFont? {
         UIFont(name: "Verdana", size: 14)
     }
@@ -34,7 +29,7 @@ extension UIFont {
         UIFont(name: "Verdana", size: 48)
     }
 
-    ///Verdana Bold
+    /// Verdana Bold
     static func verdanaBold12() -> UIFont? {
         UIFont(name: "Verdana-Bold", size: 12)
     }
@@ -67,7 +62,7 @@ extension UIFont {
         UIFont(name: "Verdana-Bold", size: 26)
     }
 
-    ///Verdana Italic
+    /// Verdana Italic
     static func verdanaItalic14() -> UIFont? {
         UIFont(name: "Verdana-Italic", size: 14)
     }
