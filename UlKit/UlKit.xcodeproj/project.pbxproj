@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		939B9B502B7A7FED00AE5817 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B9B4F2B7A7FED00AE5817 /* UIColor+Extension.swift */; };
+		939B9B562B7A841400AE5817 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B9B552B7A841400AE5817 /* UIFont+Extension.swift */; };
 		93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1642B71134500D2D339 /* AppDelegate.swift */; };
 		93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1662B71134500D2D339 /* SceneDelegate.swift */; };
 		93DDD1692B71134500D2D339 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* ViewController.swift */; };
@@ -17,6 +18,11 @@
 
 /* Begin PBXFileReference section */
 		939B9B4F2B7A7FED00AE5817 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		939B9B512B7A83BA00AE5817 /* Verdana-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-BoldItalic.ttf"; sourceTree = "<group>"; };
+		939B9B522B7A83BA00AE5817 /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
+		939B9B532B7A83BA00AE5817 /* Verdana-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Italic.ttf"; sourceTree = "<group>"; };
+		939B9B542B7A83BA00AE5817 /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
+		939B9B552B7A841400AE5817 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		93DDD1612B71134500D2D339 /* UlKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DDD1642B71134500D2D339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DDD1662B71134500D2D339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +46,10 @@
 		939B9B4D2B7A7F9600AE5817 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				939B9B522B7A83BA00AE5817 /* Verdana-Bold.ttf */,
+				939B9B512B7A83BA00AE5817 /* Verdana-BoldItalic.ttf */,
+				939B9B532B7A83BA00AE5817 /* Verdana-Italic.ttf */,
+				939B9B542B7A83BA00AE5817 /* Verdana.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -48,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				939B9B4F2B7A7FED00AE5817 /* UIColor+Extension.swift */,
+				939B9B552B7A841400AE5817 /* UIFont+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -71,14 +82,14 @@
 		93DDD1632B71134500D2D339 /* UlKit */ = {
 			isa = PBXGroup;
 			children = (
-				939B9B4E2B7A7FD100AE5817 /* Extension */,
-				939B9B4D2B7A7F9600AE5817 /* Fonts */,
 				93DDD1642B71134500D2D339 /* AppDelegate.swift */,
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
 				93DDD1682B71134500D2D339 /* ViewController.swift */,
 				93DDD16D2B71134600D2D339 /* Assets.xcassets */,
 				93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */,
 				93DDD1722B71134600D2D339 /* Info.plist */,
+				939B9B4E2B7A7FD100AE5817 /* Extension */,
+				939B9B4D2B7A7F9600AE5817 /* Fonts */,
 			);
 			path = UlKit;
 			sourceTree = "<group>";
@@ -199,6 +210,7 @@
 				93DDD1692B71134500D2D339 /* ViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
+				939B9B562B7A841400AE5817 /* UIFont+Extension.swift in Sources */,
 				939B9B502B7A7FED00AE5817 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
