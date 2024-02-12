@@ -57,22 +57,24 @@ final class GameViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addsOnView()
+        addSubview()
         writtenWordLabel.text = passTheWord
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        adjustsTheFrame()
+        setupSubviews()
     }
 
-    // MARK: - Private method
+    // MARK: - Private methods
 
-    private func adjustsTheFrame() {
+    private func setupSubviews() {
+        view.backgroundColor = .white
+        
         inputWordLabel.frame = CGRect(x: 120, y: 106, width: 275, height: 57)
         writtenWordLabel.frame = CGRect(x: 110, y: 163, width: 275, height: 57)
         infoLabel.frame = CGRect(x: 50, y: 282, width: 275, height: 57)
@@ -80,8 +82,7 @@ final class GameViewController: UIViewController {
         startButton.frame = CGRect(x: 20, y: 598, width: 335, height: 44)
     }
 
-    private func addsOnView() {
-        view.backgroundColor = .white
+    private func addSubview() {
         view.addSubview(inputWordLabel)
         view.addSubview(writtenWordLabel)
         view.addSubview(infoLabel)

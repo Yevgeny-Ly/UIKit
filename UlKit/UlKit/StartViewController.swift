@@ -18,7 +18,7 @@ final class StartViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Life cycle
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
