@@ -32,12 +32,36 @@ final class CoffeeConfiguratorViewController: UIViewController {
         return control
     }()
 
+    private lazy var modificationsSectionLabel = makeBoldLabel(
+        text: "Модификация",
+        frame: CGRect(x: 15, y: 432, width: 345, height: 30)
+    )
+    private lazy var priceSectionLabel = makeBoldLabel(
+        text: priceString,
+        frame: CGRect(x: 15, y: 669, width: 345, height: 30),
+        alignment: .right
+    )
+
+    private lazy var roastingControl = makeModificatorControl(origin: CGPoint(x: 15, y: 482))
+    private lazy var additionsControl = makeModificatorControl(
+        origin: CGPoint(x: 195, y: 482),
+        label: "Дополнительные\nингредіенты"
+    )
+
     // MARK: - Private Properties
 
     private var coffeConfigurator = CoffeeConfigurator()
     private var allCoffeTypes = CoffeeConfigurator.CoffeType.allCases
     private var selectedCoffeTypeIndex: Int {
         allCoffeTypes.firstIndex(of: coffeConfigurator.coffeeType) ?? -1
+    }
+
+    private var priceString: String {
+        "Цѣна - \(coffeConfigurator.price) руб"
+    }
+
+    private var hasAdditions: Bool {
+        !coffeConfigurator.additions.isEmpty
     }
 
     // MARK: - Life Cycle
@@ -54,9 +78,18 @@ final class CoffeeConfiguratorViewController: UIViewController {
         imageContainerView.addSubview(coffeImage)
         view.addSubview(imageContainerView)
         view.addSubview(coffeTypeControl)
+        view.addSubview(modificationsSectionLabel)
+        view.addSubview(priceSectionLabel)
+        view.addSubview(roastingControl)
+        view.addSubview(additionsControl)
+
+        roastingControl.addTapHandler(target: self, action: #selector(changeRoasting))
+        additionsControl.addTapHandler(target: self, action: #selector(changeAdditions))
 
         updateCoffeImage()
         updateCofeeTypeControl()
+        updateRoastingControl()
+        updateAdditionsControl()
     }
 
     private func setupNav() {}
@@ -77,11 +110,51 @@ final class CoffeeConfiguratorViewController: UIViewController {
         coffeTypeControl.selectedSegmentIndex = selectedCoffeTypeIndex
     }
 
+    private func updateRoastingControl() {
+        switch coffeConfigurator.roasting {
+        case .dark:
+            roastingControl.setImage(.darkRoast)
+            roastingControl.setLabelText("Темная\nобжарка")
+        case .light:
+            roastingControl.setImage(.lightRoast)
+            roastingControl.setLabelText("Свѣтлая\nобжарка")
+        }
+    }
+
+    private func updateAdditionsControl() {
+        additionsControl.setImage(hasAdditions ? .checkIcon : .plusIcon)
+    }
+
+    private func makeBoldLabel(text: String, frame: CGRect, alignment: NSTextAlignment = .left) -> UILabel {
+        let label = UILabel(frame: frame)
+        label.font = UIFont.verdanaBold18()
+        label.text = text
+        label.textAlignment = alignment
+        return label
+    }
+
+    private func makeModificatorControl(origin: CGPoint, label: String? = nil) -> ModificatorControl {
+        let control = ModificatorControl()
+        control.frame.origin = origin
+        if let label {
+            control.setLabelText(label)
+        }
+        return control
+    }
+
     @objc private func selectCoffeType(_ coffeeTypeControl: UISegmentedControl) {
         if coffeeTypeControl.selectedSegmentIndex != -1 {
             coffeConfigurator.coffeeType = allCoffeTypes[coffeeTypeControl.selectedSegmentIndex]
             updateCofeeTypeControl()
             updateCoffeImage()
         }
+    }
+
+    @objc private func changeRoasting() {
+        print("open popover for additions modofication")
+    }
+
+    @objc private func changeAdditions() {
+        print("open popover for additions modification")
     }
 }
