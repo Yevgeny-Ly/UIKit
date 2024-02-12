@@ -27,10 +27,10 @@ struct CoffeeConfigurator {
     ]
 
     /// Варинты кофейных напитков
-    enum CoffeType {
-        case americano
-        case capuccino
-        case latte
+    enum CoffeType: String, CaseIterable {
+        case americano = "Американо"
+        case capuccino = "Капучино"
+        case latte = "Латте"
     }
 
     /// Варианты обжарок зерен
