@@ -128,16 +128,16 @@ class BirthdayListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customizesNavigationController()
-        addsOnView()
+        addSubview()
     }
 
     override func viewWillLayoutSubviews() {
-        arrangesSize()
+        setupSubviews()
     }
 
     // MARK: - Private Methods
 
-    private func addsOnView() {
+    private func addSubview() {
         view.backgroundColor = .white
         view.addSubview(firstBirthdayImageView)
         view.addSubview(initialsFirstPersonLabel)
@@ -157,7 +157,7 @@ class BirthdayListViewController: UIViewController {
         view.addSubview(daysBeforeFourthBirthdayLabel)
     }
 
-    private func arrangesSize() {
+    private func setupSubviews() {
         firstBirthdayImageView.frame = CGRect(x: 19, y: 105, width: 75, height: 75)
         initialsFirstPersonLabel.frame = CGRect(x: 102, y: 119, width: 209, height: 20)
         dataFirstBirthday.frame = CGRect(x: 102, y: 147, width: 209, height: 20)

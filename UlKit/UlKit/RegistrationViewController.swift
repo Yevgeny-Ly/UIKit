@@ -111,16 +111,16 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        addingOnView()
+        addSubview()
     }
 
     override func viewWillLayoutSubviews() {
-        arrangesSize()
+        setupSubviews()
     }
 
     // MARK: - Private Methods
 
-    private func addingOnView() {
+    private func addSubview() {
         view.addSubview(birthdayIconImageView)
         view.addSubview(reminderLabel)
         view.addSubview(signInLabel)
@@ -136,7 +136,7 @@ class RegistrationViewController: UIViewController {
         view.addSubview(useFaceSwitch)
     }
 
-    private func arrangesSize() {
+    private func setupSubviews() {
         birthdayIconImageView.frame = CGRect(x: 125, y: 70, width: 125, height: 125)
         reminderLabel.frame = CGRect(x: 100, y: 200, width: 175, height: 44)
         signInLabel.frame = CGRect(x: 20, y: 266, width: 175, height: 31)

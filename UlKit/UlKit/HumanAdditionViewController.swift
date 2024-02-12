@@ -13,7 +13,7 @@ class HumanAdditionViewController: UIViewController {
     private let numbers = Array(1 ... 100)
     private let genders = ["male", "female"]
 
-    let toolBar = UIToolbar()
+    private let toolBar = UIToolbar()
 
     private lazy var cancelButton: UIButton = {
         let button = UIButton(type: .system)
@@ -166,7 +166,7 @@ class HumanAdditionViewController: UIViewController {
     }
 
     override func viewWillLayoutSubviews() {
-        arrangesSize()
+        setupSubviews()
     }
 
     // MARK: - Private Methods
@@ -194,7 +194,7 @@ class HumanAdditionViewController: UIViewController {
         view.addSubview(fifthLineView)
     }
 
-    private func arrangesSize() {
+    private func setupSubviews() {
         cancelButton.frame = CGRect(x: 20, y: 20, width: 50, height: 20)
         addButton.frame = CGRect(x: 325, y: 20, width: 30, height: 20)
         photoPersonImageView.frame = CGRect(x: 125, y: 50, width: 125, height: 125)
@@ -276,6 +276,8 @@ class HumanAdditionViewController: UIViewController {
         genderTextField.resignFirstResponder()
     }
 }
+
+// MARK: - Extension
 
 extension HumanAdditionViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
