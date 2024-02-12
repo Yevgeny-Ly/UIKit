@@ -59,7 +59,7 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addsView()
+        addSubview()
         customizesAlert(title: "Пожалуйста, \n представьтесь", message: nil, preferredStyle: .alert)
         fulfillsLoop()
     }
@@ -89,7 +89,7 @@ final class ViewController: UIViewController {
         playCalculatorButton.frame = CGRect(x: 132, y: 470, width: 200, height: 200)
     }
 
-    private func addsView() {
+    private func addSubview() {
         view.backgroundColor = .white
         view.addSubview(backgroundImage)
         view.addSubview(backgroundTextView)
