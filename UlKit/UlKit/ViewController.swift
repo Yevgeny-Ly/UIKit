@@ -1,9 +1,12 @@
-// PlaylistViewController.swift
+// ViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
+/// описывает экран где находится начальный плейлист
 class ViewController: UIViewController {
+    // MARK: - IBOutlet
+
     @IBOutlet var playlistLabel: UILabel!
     @IBOutlet var firstPerformerImageView: UIImageView?
     @IBOutlet var firstExecutorLabel: UILabel?
@@ -23,21 +26,43 @@ class ViewController: UIViewController {
     @IBOutlet var thirdDurationTrackLabel: UILabel?
     @IBOutlet var thirdLineView: UIView?
 
+    // MARK: - Public Properties
+
+    let songTitle: String? = "Let it Be"
+    let artistTitle: String? = "The Beatles"
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dimensioningSubview()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "YourSegueIdentifier" {
-            if let destinationVC = segue.destination as? PlayerViewController {
-                destinationVC.songTitle = firstExecutorLabel?.text
+    // MARK: - Public Methods
+
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        if let image = firstPerformerImageView?.image,
+           let songName = songTitle,
+           let artistTitle = artistTitle
+        {
+            if let playerViewController = storyboard?
+                .instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController
+            {
+                playerViewController.albumPicture = image
+                playerViewController.songNameTitle = songName
+                playerViewController.artistNameTitle = artistTitle
+                present(playerViewController, animated: true, completion: nil)
             }
         }
     }
 
+    // MARK: - Private Methods
+
     private func dimensioningSubview() {
-        playlistLabel.frame = CGRect(x: 130, y: 47, width: 175, height: 22)
+        playlistLabel.frame = CGRect(x: 155, y: 47, width: 175, height: 22)
 
         firstPerformerImageView?.frame = CGRect(x: 20, y: 100, width: 75, height: 75)
         firstExecutorLabel?.frame = CGRect(x: 103, y: 112, width: 175, height: 19)
