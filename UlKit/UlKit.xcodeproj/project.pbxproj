@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		935F7AAD2B7971D100A9AFCE /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F7AAC2B7971D100A9AFCE /* PlayerViewController.swift */; };
+		939B9B4A2B7A317B00AE5817 /* cat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 939B9B492B7A317B00AE5817 /* cat.mp3 */; };
+		939B9B4C2B7A31AA00AE5817 /* rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 939B9B4B2B7A31AA00AE5817 /* rain.mp3 */; };
 		93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1642B71134500D2D339 /* AppDelegate.swift */; };
 		93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1662B71134500D2D339 /* SceneDelegate.swift */; };
 		93DDD1692B71134500D2D339 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		935F7AAC2B7971D100A9AFCE /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		939B9B492B7A317B00AE5817 /* cat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cat.mp3; sourceTree = "<group>"; };
+		939B9B4B2B7A31AA00AE5817 /* rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rain.mp3; sourceTree = "<group>"; };
 		93DDD1612B71134500D2D339 /* UlKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DDD1642B71134500D2D339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DDD1662B71134500D2D339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,9 +62,12 @@
 		93DDD1632B71134500D2D339 /* UlKit */ = {
 			isa = PBXGroup;
 			children = (
+				939B9B4B2B7A31AA00AE5817 /* rain.mp3 */,
+				939B9B492B7A317B00AE5817 /* cat.mp3 */,
 				93DDD1642B71134500D2D339 /* AppDelegate.swift */,
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
 				93DDD1682B71134500D2D339 /* ViewController.swift */,
+				935F7AAC2B7971D100A9AFCE /* PlayerViewController.swift */,
 				93DDD16A2B71134500D2D339 /* Main.storyboard */,
 				93DDD16D2B71134600D2D339 /* Assets.xcassets */,
 				93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */,
@@ -128,6 +137,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DDD1712B71134600D2D339 /* LaunchScreen.storyboard in Resources */,
+				939B9B4C2B7A31AA00AE5817 /* rain.mp3 in Resources */,
+				939B9B4A2B7A317B00AE5817 /* cat.mp3 in Resources */,
 				93DDD16E2B71134600D2D339 /* Assets.xcassets in Resources */,
 				93DDD16C2B71134500D2D339 /* Main.storyboard in Resources */,
 			);
@@ -182,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DDD1692B71134500D2D339 /* ViewController.swift in Sources */,
+				935F7AAD2B7971D100A9AFCE /* PlayerViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
 			);
