@@ -17,6 +17,7 @@
 		93DDD1712B71134600D2D339 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */; };
 		DA4BF5682B7AA7BD00298F6C /* CoffeeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BF5672B7AA7BD00298F6C /* CoffeeConfigurator.swift */; };
 		DA4BF56C2B7ABADA00298F6C /* ModificatorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */; };
+		DA4BF5702B7B7CBE00298F6C /* RoastingSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BF56F2B7B7CBE00298F6C /* RoastingSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		93DDD1722B71134600D2D339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA4BF5672B7AA7BD00298F6C /* CoffeeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeConfigurator.swift; sourceTree = "<group>"; };
 		DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModificatorControl.swift; sourceTree = "<group>"; };
+		DA4BF56F2B7B7CBE00298F6C /* RoastingSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoastingSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,12 +92,13 @@
 			children = (
 				93DDD1642B71134500D2D339 /* AppDelegate.swift */,
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
-				9390FDF52B7B489D0069E778 /* CustomButton.swift */,
 				93DDD1682B71134500D2D339 /* CoffeeConfiguratorViewController.swift */,
+				DA4BF56F2B7B7CBE00298F6C /* RoastingSelectViewController.swift */,
 				DA4BF5672B7AA7BD00298F6C /* CoffeeConfigurator.swift */,
+				9390FDF52B7B489D0069E778 /* CustomButton.swift */,
+				DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */,
 				93DDD16D2B71134600D2D339 /* Assets.xcassets */,
 				93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */,
-				DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */,
 				93DDD1722B71134600D2D339 /* Info.plist */,
 				939B9B4E2B7A7FD100AE5817 /* Extension */,
 				939B9B4D2B7A7F9600AE5817 /* Fonts */,
@@ -221,6 +224,7 @@
 				DA4BF56C2B7ABADA00298F6C /* ModificatorControl.swift in Sources */,
 				DA4BF5682B7AA7BD00298F6C /* CoffeeConfigurator.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
+				DA4BF5702B7B7CBE00298F6C /* RoastingSelectViewController.swift in Sources */,
 				939B9B562B7A841400AE5817 /* UIFont+Extension.swift in Sources */,
 				939B9B502B7A7FED00AE5817 /* UIColor+Extension.swift in Sources */,
 				9390FDF62B7B489D0069E778 /* CustomButton.swift in Sources */,

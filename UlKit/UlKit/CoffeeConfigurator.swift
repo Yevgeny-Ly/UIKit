@@ -34,7 +34,7 @@ struct CoffeeConfigurator {
     }
 
     /// Варианты обжарок зерен
-    enum Roasting {
+    enum Roasting: CaseIterable {
         case dark
         case light
     }

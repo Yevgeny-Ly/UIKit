@@ -91,8 +91,8 @@ final class CoffeeConfiguratorViewController: UIViewController {
         view.addSubview(additionsControl)
         view.addSubview(orderButton)
 
-        roastingControl.addTapHandler(target: self, action: #selector(changeRoasting))
-        additionsControl.addTapHandler(target: self, action: #selector(changeAdditions))
+        roastingControl.tapHandler = changeRoasting
+        additionsControl.tapHandler = changeAdditions
 
         updateCoffeImage()
         updateCofeeTypeControl()
@@ -173,11 +173,18 @@ final class CoffeeConfiguratorViewController: UIViewController {
         }
     }
 
-    @objc private func changeRoasting() {
-        print("open popover for additions modofication")
+    @objc private func changeRoasting(_ control: ModificatorControl) {
+        let roastingVC = RoastingSelectViewController()
+        roastingVC.selectedRoasting = coffeConfigurator.roasting
+        roastingVC.updateRoastingSelection = { [weak self] in
+            self?.coffeConfigurator.roasting = $0
+            self?.updateRoastingControl()
+        }
+        roastingVC.modalPresentationStyle = .formSheet
+        present(UINavigationController(rootViewController: roastingVC), animated: true)
     }
 
-    @objc private func changeAdditions() {
+    @objc private func changeAdditions(_ control: ModificatorControl) {
         print("open popover for additions modification")
     }
 

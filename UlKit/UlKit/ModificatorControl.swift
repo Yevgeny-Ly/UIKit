@@ -29,6 +29,18 @@ final class ModificatorControl: UIView {
         }
     }
 
+    var tapHandler: ((_ control: ModificatorControl) -> ())? {
+        didSet {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectModificator))
+            tapGesture.numberOfTapsRequired = 1
+            addGestureRecognizer(tapGesture)
+        }
+    }
+
+    @objc private func selectModificator() {
+        tapHandler?(self)
+    }
+
     // MARK: - Initializers
 
     override init(frame: CGRect) {
@@ -51,11 +63,7 @@ final class ModificatorControl: UIView {
         modificatorLabel.text = text
     }
 
-    func addTapHandler(target: Any, action: Selector) {
-        let tapGesture = UITapGestureRecognizer(target: target, action: action)
-        tapGesture.numberOfTapsRequired = 1
-        addGestureRecognizer(tapGesture)
-    }
+    func addTapHandler(target: Any, action: Selector) {}
 
     // MARK: - Private Methods
 
