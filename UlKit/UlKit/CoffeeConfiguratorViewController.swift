@@ -48,6 +48,13 @@ final class CoffeeConfiguratorViewController: UIViewController {
         label: "Дополнительные\nингредіенты"
     )
 
+    private lazy var orderButton: UIButton = {
+        let button = CustomButton()
+        button.frame.origin = CGPoint(x: 15, y: 717)
+        button.titleText = "Заказать"
+        return button
+    }()
+
     // MARK: - Private Properties
 
     private var coffeConfigurator = CoffeeConfigurator()
@@ -82,6 +89,7 @@ final class CoffeeConfiguratorViewController: UIViewController {
         view.addSubview(priceSectionLabel)
         view.addSubview(roastingControl)
         view.addSubview(additionsControl)
+        view.addSubview(orderButton)
 
         roastingControl.addTapHandler(target: self, action: #selector(changeRoasting))
         additionsControl.addTapHandler(target: self, action: #selector(changeAdditions))

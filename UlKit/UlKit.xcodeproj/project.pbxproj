@@ -12,9 +12,11 @@
 		939B9B562B7A841400AE5817 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B9B552B7A841400AE5817 /* UIFont+Extension.swift */; };
 		93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1642B71134500D2D339 /* AppDelegate.swift */; };
 		93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1662B71134500D2D339 /* SceneDelegate.swift */; };
-		93DDD1692B71134500D2D339 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* ViewController.swift */; };
+		93DDD1692B71134500D2D339 /* CoffeeConfiguratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* CoffeeConfiguratorViewController.swift */; };
 		93DDD16E2B71134600D2D339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16D2B71134600D2D339 /* Assets.xcassets */; };
 		93DDD1712B71134600D2D339 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */; };
+		DA4BF5682B7AA7BD00298F6C /* CoffeeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BF5672B7AA7BD00298F6C /* CoffeeConfigurator.swift */; };
+		DA4BF56C2B7ABADA00298F6C /* ModificatorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +30,12 @@
 		93DDD1612B71134500D2D339 /* UlKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DDD1642B71134500D2D339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DDD1662B71134500D2D339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		93DDD1682B71134500D2D339 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		93DDD1682B71134500D2D339 /* CoffeeConfiguratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeConfiguratorViewController.swift; sourceTree = "<group>"; };
 		93DDD16D2B71134600D2D339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93DDD1702B71134600D2D339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93DDD1722B71134600D2D339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA4BF5672B7AA7BD00298F6C /* CoffeeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeConfigurator.swift; sourceTree = "<group>"; };
+		DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModificatorControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +90,12 @@
 			children = (
 				93DDD1642B71134500D2D339 /* AppDelegate.swift */,
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
-				93DDD1682B71134500D2D339 /* ViewController.swift */,
 				9390FDF52B7B489D0069E778 /* CustomButton.swift */,
+				93DDD1682B71134500D2D339 /* CoffeeConfiguratorViewController.swift */,
+				DA4BF5672B7AA7BD00298F6C /* CoffeeConfigurator.swift */,
 				93DDD16D2B71134600D2D339 /* Assets.xcassets */,
 				93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */,
+				DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */,
 				93DDD1722B71134600D2D339 /* Info.plist */,
 				939B9B4E2B7A7FD100AE5817 /* Extension */,
 				939B9B4D2B7A7F9600AE5817 /* Fonts */,
@@ -210,8 +216,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93DDD1692B71134500D2D339 /* ViewController.swift in Sources */,
+				93DDD1692B71134500D2D339 /* CoffeeConfiguratorViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
+				DA4BF56C2B7ABADA00298F6C /* ModificatorControl.swift in Sources */,
+				DA4BF5682B7AA7BD00298F6C /* CoffeeConfigurator.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
 				939B9B562B7A841400AE5817 /* UIFont+Extension.swift in Sources */,
 				939B9B502B7A7FED00AE5817 /* UIColor+Extension.swift in Sources */,
@@ -359,6 +367,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6352LWX99R;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UlKit/Info.plist;
@@ -386,6 +395,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6352LWX99R;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UlKit/Info.plist;
