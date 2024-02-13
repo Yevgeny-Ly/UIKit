@@ -7,19 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		935F7AAB2B78EA0800A9AFCE /* HumanAdditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F7AAA2B78EA0800A9AFCE /* HumanAdditionViewController.swift */; };
+		93BE58682B767AB70019AFEF /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BE58672B767AB70019AFEF /* UIFont+Extension.swift */; };
+		93BE586F2B76C28F0019AFEF /* BirthdayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BE586E2B76C28F0019AFEF /* BirthdayListViewController.swift */; };
 		93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1642B71134500D2D339 /* AppDelegate.swift */; };
 		93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1662B71134500D2D339 /* SceneDelegate.swift */; };
-		93DDD1692B71134500D2D339 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* ViewController.swift */; };
+		93DDD1692B71134500D2D339 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* RegistrationViewController.swift */; };
 		93DDD16C2B71134500D2D339 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16A2B71134500D2D339 /* Main.storyboard */; };
 		93DDD16E2B71134600D2D339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16D2B71134600D2D339 /* Assets.xcassets */; };
 		93DDD1712B71134600D2D339 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		935F7AAA2B78EA0800A9AFCE /* HumanAdditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanAdditionViewController.swift; sourceTree = "<group>"; };
+		93BE58672B767AB70019AFEF /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		93BE586A2B7683680019AFEF /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
+		93BE586B2B7683680019AFEF /* Verdana-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Italic.ttf"; sourceTree = "<group>"; };
+		93BE586C2B7683680019AFEF /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
+		93BE586D2B7683680019AFEF /* Verdana-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-BoldItalic.ttf"; sourceTree = "<group>"; };
+		93BE586E2B76C28F0019AFEF /* BirthdayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayListViewController.swift; sourceTree = "<group>"; };
 		93DDD1612B71134500D2D339 /* UlKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DDD1642B71134500D2D339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DDD1662B71134500D2D339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		93DDD1682B71134500D2D339 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		93DDD1682B71134500D2D339 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		93DDD16B2B71134500D2D339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93DDD16D2B71134600D2D339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93DDD1702B71134600D2D339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +47,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93BE58662B767A850019AFEF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				93BE58672B767AB70019AFEF /* UIFont+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		93BE58692B7683020019AFEF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				93BE586C2B7683680019AFEF /* Verdana-Bold.ttf */,
+				93BE586D2B7683680019AFEF /* Verdana-BoldItalic.ttf */,
+				93BE586B2B7683680019AFEF /* Verdana-Italic.ttf */,
+				93BE586A2B7683680019AFEF /* Verdana.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		93DDD1582B71134500D2D339 = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +87,11 @@
 			children = (
 				93DDD1642B71134500D2D339 /* AppDelegate.swift */,
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
-				93DDD1682B71134500D2D339 /* ViewController.swift */,
+				93DDD1682B71134500D2D339 /* RegistrationViewController.swift */,
+				93BE586E2B76C28F0019AFEF /* BirthdayListViewController.swift */,
+				935F7AAA2B78EA0800A9AFCE /* HumanAdditionViewController.swift */,
+				93BE58662B767A850019AFEF /* Extension */,
+				93BE58692B7683020019AFEF /* Fonts */,
 				93DDD16A2B71134500D2D339 /* Main.storyboard */,
 				93DDD16D2B71134600D2D339 /* Assets.xcassets */,
 				93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */,
@@ -181,8 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93DDD1692B71134500D2D339 /* ViewController.swift in Sources */,
+				935F7AAB2B78EA0800A9AFCE /* HumanAdditionViewController.swift in Sources */,
+				93DDD1692B71134500D2D339 /* RegistrationViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
+				93BE58682B767AB70019AFEF /* UIFont+Extension.swift in Sources */,
+				93BE586F2B76C28F0019AFEF /* BirthdayListViewController.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
