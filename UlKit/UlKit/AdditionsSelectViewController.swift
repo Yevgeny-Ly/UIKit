@@ -81,7 +81,7 @@ final class AdditionsSelectViewController: UIViewController {
 
         let labelString = NSMutableAttributedString(
             string: name,
-            attributes: [.font: UIFont.verdana16() ?? UIFont.systemFont(ofSize: 18)]
+            attributes: [.font: UIFont.verdana18() ?? UIFont.systemFont(ofSize: 18)]
         )
         let priceString = NSAttributedString(
             string: " +\(price) руб",
