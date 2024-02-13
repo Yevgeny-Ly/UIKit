@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// Настройка  шрифтов
 extension UIFont {
     static func verdana14() -> UIFont? {
         UIFont(name: "Verdana", size: 14)

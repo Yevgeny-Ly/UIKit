@@ -4,7 +4,7 @@
 import UIKit
 
 /// описывает экран списка именинников
-class BirthdayListViewController: UIViewController {
+final class BirthdayListViewController: UIViewController {
     // MARK: - Private Properties
 
     private var firstBirthdayImageView: UIImageView = {

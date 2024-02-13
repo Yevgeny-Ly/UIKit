@@ -4,7 +4,7 @@
 import UIKit
 
 /// описывает экран регистрации пользователя
-class RegistrationViewController: UIViewController {
+final class RegistrationViewController: UIViewController {
     // MARK: - Private Properties
 
     private var birthdayIconImageView: UIImageView = {

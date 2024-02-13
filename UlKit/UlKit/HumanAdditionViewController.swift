@@ -4,7 +4,7 @@
 import UIKit
 
 /// описывает экран добавления именинников в список
-class HumanAdditionViewController: UIViewController {
+final class HumanAdditionViewController: UIViewController {
     // MARK: - Private Properties
 
     private let agePickerView = UIPickerView()
