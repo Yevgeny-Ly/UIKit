@@ -36,7 +36,7 @@ final class CoffeeConfiguratorViewController: UIViewController {
         text: "Модификация",
         frame: CGRect(x: 15, y: 432, width: 345, height: 30)
     )
-    private lazy var priceSectionLabel = makeBoldLabel(
+    private lazy var priceLabel = makeBoldLabel(
         text: priceString,
         frame: CGRect(x: 15, y: 669, width: 345, height: 30),
         alignment: .right
@@ -86,7 +86,7 @@ final class CoffeeConfiguratorViewController: UIViewController {
         view.addSubview(imageContainerView)
         view.addSubview(coffeTypeControl)
         view.addSubview(modificationsSectionLabel)
-        view.addSubview(priceSectionLabel)
+        view.addSubview(priceLabel)
         view.addSubview(roastingControl)
         view.addSubview(additionsControl)
         view.addSubview(orderButton)
@@ -148,6 +148,10 @@ final class CoffeeConfiguratorViewController: UIViewController {
         additionsControl.setImage(hasAdditions ? .checkIcon : .plusIcon)
     }
 
+    private func updatePriceLabel() {
+        priceLabel.text = priceString
+    }
+
     private func makeBoldLabel(text: String, frame: CGRect, alignment: NSTextAlignment = .left) -> UILabel {
         let label = UILabel(frame: frame)
         label.font = UIFont.verdanaBold18()
@@ -185,7 +189,14 @@ final class CoffeeConfiguratorViewController: UIViewController {
     }
 
     @objc private func changeAdditions(_ control: ModificatorControl) {
-        print("open popover for additions modification")
+        let additionsVC = AdditionsSelectViewController()
+        additionsVC.selectedAdditions = coffeConfigurator.additions
+        additionsVC.updateAdditionsSelection = { [weak self] in
+            self?.coffeConfigurator.additions = $0
+            self?.updateAdditionsControl()
+            self?.updatePriceLabel()
+        }
+        present(UINavigationController(rootViewController: additionsVC), animated: true)
     }
 
     @objc private func sharePromoCode() {

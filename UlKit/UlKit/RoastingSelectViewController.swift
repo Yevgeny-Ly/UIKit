@@ -4,11 +4,12 @@
 import UIKit
 
 /// Экран выбора обжарки кофе
-class RoastingSelectViewController: UIViewController {
+final class RoastingSelectViewController: UIViewController {
     // MARK: - Visual Components
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 40, y: 53, width: 294, height: 30))
+        label.text = "Уточните обжарку зеренъ"
         label.textAlignment = .center
         label.font = UIFont.verdanaBold18()
 
@@ -18,7 +19,7 @@ class RoastingSelectViewController: UIViewController {
     // MARK: - Public Properties
 
     var selectedRoasting: CoffeeConfigurator.Roasting?
-    var updateRoastingSelection: ((CoffeeConfigurator.Roasting) -> ())?
+    var updateRoastingSelection: ((CoffeeConfigurator.Roasting) -> Void)?
 
     // MARK: - Private Properties
 

@@ -18,6 +18,7 @@
 		DA4BF5682B7AA7BD00298F6C /* CoffeeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BF5672B7AA7BD00298F6C /* CoffeeConfigurator.swift */; };
 		DA4BF56C2B7ABADA00298F6C /* ModificatorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */; };
 		DA4BF5702B7B7CBE00298F6C /* RoastingSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BF56F2B7B7CBE00298F6C /* RoastingSelectViewController.swift */; };
+		DA4BF5722B7B8A8500298F6C /* AdditionsSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BF5712B7B8A8500298F6C /* AdditionsSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DA4BF5672B7AA7BD00298F6C /* CoffeeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeConfigurator.swift; sourceTree = "<group>"; };
 		DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModificatorControl.swift; sourceTree = "<group>"; };
 		DA4BF56F2B7B7CBE00298F6C /* RoastingSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoastingSelectViewController.swift; sourceTree = "<group>"; };
+		DA4BF5712B7B8A8500298F6C /* AdditionsSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionsSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
 				93DDD1682B71134500D2D339 /* CoffeeConfiguratorViewController.swift */,
 				DA4BF56F2B7B7CBE00298F6C /* RoastingSelectViewController.swift */,
+				DA4BF5712B7B8A8500298F6C /* AdditionsSelectViewController.swift */,
 				DA4BF5672B7AA7BD00298F6C /* CoffeeConfigurator.swift */,
 				9390FDF52B7B489D0069E778 /* CustomButton.swift */,
 				DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */,
@@ -221,6 +224,7 @@
 			files = (
 				93DDD1692B71134500D2D339 /* CoffeeConfiguratorViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
+				DA4BF5722B7B8A8500298F6C /* AdditionsSelectViewController.swift in Sources */,
 				DA4BF56C2B7ABADA00298F6C /* ModificatorControl.swift in Sources */,
 				DA4BF5682B7AA7BD00298F6C /* CoffeeConfigurator.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,

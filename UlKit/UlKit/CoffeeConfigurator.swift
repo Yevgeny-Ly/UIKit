@@ -18,10 +18,10 @@ struct CoffeeConfigurator {
     }
 
     /// Таблица цен доп ингридиентов
-    private static let additionsPriceMap = [
+    static let additionsPriceMap = [
         Addition.milk: 50,
         .syrop: 20,
-        .soyMink: 50,
+        .soyMilk: 50,
         .almondMilk: 70,
         .extraShot: 50
     ]
@@ -40,11 +40,11 @@ struct CoffeeConfigurator {
     }
 
     /// Доступные дополнительные ингридиенты
-    enum Addition {
-        case milk
-        case syrop
-        case soyMink
-        case almondMilk
-        case extraShot
+    enum Addition: String, CaseIterable {
+        case milk = "Молоко"
+        case syrop = "Сироп"
+        case soyMilk = "Молоко соевое"
+        case almondMilk = "Молоко миндальное"
+        case extraShot = "Эспрессо 50мл"
     }
 }

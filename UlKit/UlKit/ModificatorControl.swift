@@ -29,7 +29,7 @@ final class ModificatorControl: UIView {
         }
     }
 
-    var tapHandler: ((_ control: ModificatorControl) -> ())? {
+    var tapHandler: ((_ control: ModificatorControl) -> Void)? {
         didSet {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectModificator))
             tapGesture.numberOfTapsRequired = 1
