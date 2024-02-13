@@ -4,7 +4,7 @@
 import UIKit
 
 /// описывает экран где находится начальный плейлист
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var playlistLabel: UILabel!

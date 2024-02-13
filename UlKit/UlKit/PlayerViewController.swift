@@ -5,7 +5,7 @@ import AVFoundation
 import UIKit
 
 /// описывает воспроизведение трека в плейлисте
-class PlayerViewController: UIViewController {
+final class PlayerViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var crossButton: UIButton?
@@ -47,7 +47,7 @@ class PlayerViewController: UIViewController {
         dimensioningSubview()
         settingSubviews()
         assignsData()
-        customizesPlayer()
+        configurePlayer()
         switchesTracks()
     }
 
@@ -85,7 +85,7 @@ class PlayerViewController: UIViewController {
         albumPictureImageView?.layer.borderColor = UIColor.white.cgColor
     }
 
-    private func customizesPlayer() {
+    private func configurePlayer() {
         if let urlOne = Bundle.main.url(forResource: "rain", withExtension: "mp3") {
             let playerItem = AVPlayerItem(url: urlOne)
             playerOne = AVPlayer(playerItem: playerItem)
@@ -156,7 +156,7 @@ class PlayerViewController: UIViewController {
     }
 
     @IBAction
-    private func backward(_ sender: UIButton) {
+    private func flipsBackward(_ sender: UIButton) {
         if currentActivePlayer == playerOne {
             playerOne?.pause()
             currentActivePlayer = playerTwo
