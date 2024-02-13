@@ -3,11 +3,14 @@
 
 import UIKit
 
-class CustomButton: UIButton {
+/// Базовая кнопка с жирным шрифтом и зеленым цветом
+final class CustomButton: UIButton {
     var titleText: String? {
         didSet {
-            setTitle(titleText, for: .normal)
-            setTitleColor(.white, for: .normal)
+            setAttributedTitle(NSAttributedString(string: titleText ?? "", attributes: [
+                .font: UIFont.verdanaBold18() ?? UIFont.boldSystemFont(ofSize: 18),
+                .foregroundColor: UIColor.white
+            ]), for: .normal)
         }
     }
 
@@ -24,7 +27,7 @@ class CustomButton: UIButton {
         setup()
     }
 
-    func setup() {
+    private func setup() {
         layer.cornerRadius = 12
         frame.size.width = 345
         frame.size.height = 53
