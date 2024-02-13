@@ -92,7 +92,22 @@ final class CoffeeConfiguratorViewController: UIViewController {
         updateAdditionsControl()
     }
 
-    private func setupNav() {}
+    private func setupNav() {
+        let shareButton = UIBarButtonItem(
+            image: .paperPlane.withRenderingMode(.alwaysOriginal),
+            style: .plain,
+            target: self,
+            action: #selector(sharePromoCode)
+        )
+        let backButton = UIBarButtonItem(
+            image: .backIcon.withRenderingMode(.alwaysOriginal),
+            style: .plain,
+            target: self,
+            action: #selector(goBack)
+        )
+        navigationItem.setRightBarButton(shareButton, animated: false)
+        navigationItem.setLeftBarButton(backButton, animated: false)
+    }
 
     // Update UI methods
     private func updateCoffeImage() {
@@ -156,5 +171,15 @@ final class CoffeeConfiguratorViewController: UIViewController {
 
     @objc private func changeAdditions() {
         print("open popover for additions modification")
+    }
+
+    @objc private func sharePromoCode() {
+        let promoCode = "Лови промокод roadmaplove на любой напиток из Кофейнов"
+        let activityVC = UIActivityViewController(activityItems: [promoCode], applicationActivities: nil)
+        present(activityVC, animated: true, completion: nil)
+    }
+
+    @objc private func goBack() {
+        navigationController?.popViewController(animated: true)
     }
 }
