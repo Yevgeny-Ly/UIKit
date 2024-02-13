@@ -3,6 +3,7 @@
 
 import UIKit
 
+///описывает экран где располагается личный кабинет и меню кафе
 class MenuViewController: UIViewController {
     private var logoImageView: UIImageView = {
         let imageView = UIImageView()

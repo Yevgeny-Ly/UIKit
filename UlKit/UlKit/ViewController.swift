@@ -82,7 +82,7 @@ class ViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Войти", for: .normal)
         button.backgroundColor = .specialGreen
-        button.alpha = 0.5
+        button.alpha = 0.3
 //        button.isEnabled = false
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 14
@@ -148,7 +148,7 @@ class ViewController: UIViewController {
 //            inputButton.alpha = 1
 //        } else {
 //            inputButton.isEnabled = false
-//            inputButton.alpha = 0.5
+//            inputButton.alpha = 0.3
 //        }
     }
 
