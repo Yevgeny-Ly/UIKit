@@ -14,16 +14,19 @@ final class CustomButton: UIButton {
         }
     }
 
+    override var isEnabled: Bool {
+        didSet {
+            alpha = isEnabled ? 1.0 : 0.3
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
         setup()
     }
 
