@@ -110,7 +110,7 @@ final class CoffeeConfiguratorViewController: UIViewController {
             action: #selector(sharePromoCode)
         )
         let backButton = UIBarButtonItem(
-            image: .backIcon.withRenderingMode(.alwaysOriginal),
+            image: .backCircleIcon.withRenderingMode(.alwaysOriginal),
             style: .plain,
             target: self,
             action: #selector(goBack)
@@ -222,7 +222,6 @@ final class CoffeeConfiguratorViewController: UIViewController {
         }
 //        orderVC.orderItems = orderItems
 //        orderVS.orderSum = coffeConfigurator.price
-//        orderVC.modalPresentationStyle = .fullScreen
 //        present(orderVC, animated: true)
     }
 }
