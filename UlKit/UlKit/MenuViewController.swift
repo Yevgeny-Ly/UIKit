@@ -3,8 +3,10 @@
 
 import UIKit
 
-///описывает экран где располагается личный кабинет и меню кафе
+/// Описывает экран где располагается  меню кафе
 class MenuViewController: UIViewController {
+    // MARK: - Private Properties
+
     private var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "logoCofeinov")
@@ -22,8 +24,8 @@ class MenuViewController: UIViewController {
 
     private var iconPersonButton: UIButton = {
         let button = UIButton()
+        button.backgroundColor = #colorLiteral(red: 0.3438587189, green: 0.7463406324, blue: 0.7798846364, alpha: 1)
         button.setTitleColor(.white, for: .normal)
-        button.setImage(UIImage(named: "iconPerson"), for: .normal)
         button.setTitle("Г", for: .normal)
         button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 16)
         return button
@@ -111,9 +113,11 @@ class MenuViewController: UIViewController {
         button.setImage(image, for: .normal)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: -310, bottom: 0, right: -10)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 245, bottom: 0, right: 10)
-        button.addTarget(self, action: #selector(goToNextViewController), for: .touchUpInside)
+        button.addTarget(self, action: #selector(toTheСoffeeSelection), for: .touchUpInside)
         return button
     }()
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +128,8 @@ class MenuViewController: UIViewController {
         super.viewWillLayoutSubviews()
         setupViews()
     }
+
+    // MARK: - Private Methods
 
     private func addSubviews() {
         view.backgroundColor = .specialdarkBrown
@@ -154,12 +160,14 @@ class MenuViewController: UIViewController {
         pieButton.frame = CGRect(x: 20, y: 470, width: 335, height: 80)
         beveragesButton.frame = CGRect(x: 20, y: 570, width: 335, height: 80)
         coffeeButton.frame = CGRect(x: 20, y: 665, width: 335, height: 80)
+
+        iconPersonButton.layer.cornerRadius = iconPersonButton.layer.frame.height / 2
     }
 
     @objc
-    private func goToNextViewController() {
-//        let nextViewController = NextViewController()
-//        let navigationController = UINavigationController(rootViewController: nextViewController)
-//        present(navigationController, animated: true, completion: nil)
+    private func toTheСoffeeSelection() {
+        let coffeeConfiguratorViewController = CoffeeConfiguratorViewController()
+        let navigationController = UINavigationController(rootViewController: coffeeConfiguratorViewController())
+        present(navigationController, animated: true, completion: nil)
     }
 }

@@ -3,15 +3,19 @@
 
 import UIKit
 
-/// описывает экран оплаты заказа
+/// Описывает экран оплаты заказа
 class OrderViewController: UIViewController {
+    // MARK: - Public Properties
 
     var orderItems: [(String, Int)]?
+    var orderSum: Int?
 
-    var labels: [UILabel] = []
-    var labelWidth: CGFloat = 280
-    var labelHeight: CGFloat = 30
-    var yOffset: CGFloat = 155
+    // MARK: - Private Properties
+
+    private var labels: [UILabel] = []
+    private var labelWidth: CGFloat = 280
+    private var labelHeight: CGFloat = 30
+    private var offsetSubview: CGFloat = 155
 
     private lazy var closesButton: UIButton = {
         let image = UIImage(named: "clear")
@@ -43,7 +47,6 @@ class OrderViewController: UIViewController {
 
     private var finalCostLabel: UILabel = {
         let label = UILabel()
-        label.text = "Цъна - 200 руб"
         label.font = .verdanaBold18()
         label.textColor = .black
         return label
@@ -62,18 +65,46 @@ class OrderViewController: UIViewController {
         button.frame.origin.x = 15
         button.setTitleColor(.white, for: .normal)
         button.frame.origin.y = 600
-        button.addTarget(self, action: #selector(goToNextViewController), for: .touchUpInside)
+        button.addTarget(self, action: #selector(thanksTheOrder), for: .touchUpInside)
         return button
     }()
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
+        setupLabel()
+    }
 
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        setupViews()
+    }
+
+    // MARK: - Private Methods
+
+    private func addSubviews() {
+        view.backgroundColor = .white
+        view.addSubview(leftPatternImageView)
+        view.addSubview(closesButton)
+        view.addSubview(rightPatternImageView)
+        view.addSubview(orderLabel)
+        view.addSubview(finalCostLabel)
+        view.addSubview(patternLogoImageView)
+        view.addSubview(payButton)
+    }
+
+    private func setupLabel() {
         if let additions = orderItems {
             for (index, (ingredient, price)) in additions.enumerated() {
-                let priceLabel = UILabel(frame: CGRect(x: 225, y: yOffset, width: 130, height: labelHeight))
-                let ingredientLabel = UILabel(frame: CGRect(x: 20, y: yOffset, width: labelWidth, height: labelHeight))
+                let priceLabel = UILabel(frame: CGRect(x: 225, y: offsetSubview, width: 130, height: labelHeight))
+                let ingredientLabel = UILabel(frame: CGRect(
+                    x: 20,
+                    y: offsetSubview,
+                    width: labelWidth,
+                    height: labelHeight
+                ))
                 ingredientLabel.text = "\(ingredient)"
                 priceLabel.text = "\(price) руб"
                 priceLabel.textAlignment = .right
@@ -87,34 +118,16 @@ class OrderViewController: UIViewController {
                 }
 
                 labels.append(ingredientLabel)
-                yOffset += labelHeight + 10
+                offsetSubview += labelHeight + 10
 
                 view.addSubview(ingredientLabel)
                 view.addSubview(priceLabel)
             }
         }
-    }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        setupViews()
-    }
-
-    private func addSubviews() {
-        view.backgroundColor = .white
-        view.addSubview(leftPatternImageView)
-        view.addSubview(closesButton)
-        view.addSubview(rightPatternImageView)
-        view.addSubview(orderLabel)
-//        view.addSubview(itemCheckLabel)
-//        view.addSubview(priceFirstLabel)
-//        view.addSubview(firstAdditionLabel)
-//        view.addSubview(priceSecondLabel)
-//        view.addSubview(secondAdditionLabel)
-//        view.addSubview(priceThirdLabel)
-        view.addSubview(finalCostLabel)
-        view.addSubview(patternLogoImageView)
-        view.addSubview(payButton)
+        if let sum = orderSum {
+            finalCostLabel.text = "Цъна - \(sum) руб"
+        }
     }
 
     private func setupViews() {
@@ -122,12 +135,6 @@ class OrderViewController: UIViewController {
         closesButton.frame = CGRect(x: 15, y: 21, width: 24, height: 24)
         rightPatternImageView.frame = CGRect(x: 250, y: 50, width: 100, height: 72)
         orderLabel.frame = CGRect(x: 120, y: 100, width: 140, height: 30)
-//        itemCheckLabel.frame = CGRect(x: 20, y: 155, width: 150, height: 30)
-//        priceFirstLabel.frame = CGRect(x: 285, y: 155, width: 130, height: 30)
-//        firstAdditionLabel.frame = CGRect(x: 20, y: 191, width: 150, height: 30)
-//        priceSecondLabel.frame = CGRect(x: 300, y: 191, width: 130, height: 30)
-//        secondAdditionLabel.frame = CGRect(x: 20, y: 227, width: 150, height: 30)
-//        priceThirdLabel.frame = CGRect(x: 300, y: 227, width: 130, height: 30)
         finalCostLabel.frame = CGRect(x: 105, y: 400, width: 231, height: 30)
         patternLogoImageView.frame = CGRect(x: 135, y: 430, width: 100, height: 40)
     }
@@ -138,9 +145,9 @@ class OrderViewController: UIViewController {
     }
 
     @objc
-    private func goToNextViewController() {
-        let nextViewController = ThankViewController()
-        nextViewController.modalPresentationStyle = .fullScreen
-        present(nextViewController, animated: true)
+    private func thanksTheOrder() {
+        let thankViewController = ThankViewController()
+        thankViewController.modalPresentationStyle = .fullScreen
+        present(thankViewController, animated: true)
     }
 }

@@ -3,13 +3,14 @@
 
 import UIKit
 
-/// описывает экран благодарности
-
+/// Описывает экран благодарности
 protocol DelegateProtocol: AnyObject {
     func yourDelegateMethod()
 }
 
 final class ThankViewController: UIViewController {
+    // MARK: - Private Properties
+
     private lazy var closesButton: UIButton = {
         let image = UIImage(named: "clear")
         let button = UIButton()
@@ -30,21 +31,20 @@ final class ThankViewController: UIViewController {
         return imageView
     }()
 
-    private lazy var homeScreenButton: CustomButton = {
+    lazy var homeScreenButton: CustomButton = {
         let button = CustomButton(type: .system)
         button.setTitle("Хорошо", for: .normal)
         button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 18)
         button.frame.origin.x = 15
         button.setTitleColor(.white, for: .normal)
         button.frame.origin.y = 600
-        button.addTarget(self, action: #selector(goToHomeViewController), for: .touchUpInside)
+        button.addTarget(self, action: #selector(backToMenu), for: .touchUpInside)
         return button
     }()
 
     private var messageLabel: UILabel = {
         let label = UILabel()
-        label
-            .text =
+        label.text =
             "Разскажи о насъ другу, отправь ему \n промокодъ \n на безплатный напитокъ и получи скидку 10% на сльедубщiй заказъ"
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -52,6 +52,8 @@ final class ThankViewController: UIViewController {
         label.textColor = .systemGray3
         return label
     }()
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +64,8 @@ final class ThankViewController: UIViewController {
         super.viewWillLayoutSubviews()
         setupViews()
     }
+
+    // MARK: - Private Methods
 
     private func addSubviews() {
         view.backgroundColor = .white
@@ -85,13 +89,9 @@ final class ThankViewController: UIViewController {
     }
 
     @objc
-    private func goToHomeViewController() {
-        dismiss(animated: true) {
-            if let presentingNavController = self.presentingViewController as? UINavigationController {
-                if let delegate = presentingNavController.topViewController as? DelegateProtocol {
-                    delegate.yourDelegateMethod()
-                }
-            }
-        }
+    private func backToMenu() {
+        let menuViewController = MenuViewController()
+        menuViewController.modalPresentationStyle = .fullScreen
+        present(menuViewController, animated: true)
     }
 }

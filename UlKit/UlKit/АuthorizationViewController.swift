@@ -3,8 +3,10 @@
 
 import UIKit
 
-/// описывает экран авторизации пользователя
+/// Описывает экран авторизации пользователя
 class АuthorizationViewController: UIViewController {
+    // MARK: - Private Properties
+
     private var isPasswordVisible = false
 
     private var logoImageView: UIImageView = {
@@ -83,12 +85,14 @@ class АuthorizationViewController: UIViewController {
         button.setTitle("Войти", for: .normal)
         button.backgroundColor = .specialGreen
         button.alpha = 0.3
-//        button.isEnabled = false
+        button.isEnabled = false
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 14
-        button.addTarget(self, action: #selector(goToNextViewController), for: .touchUpInside)
+        button.addTarget(self, action: #selector(transfersToMenu), for: .touchUpInside)
         return button
     }()
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +103,8 @@ class АuthorizationViewController: UIViewController {
         super.viewWillLayoutSubviews()
         setupViews()
     }
+
+    // MARK: - Private Methods
 
     private func addSubviews() {
         view.backgroundColor = .specialdarkBrown
@@ -143,17 +149,17 @@ class АuthorizationViewController: UIViewController {
 
     @objc
     private func textFieldDidChange() {
-//        if loginTextField.text != "", passwordTextField.text != "" {
-//            inputButton.isEnabled = true
-//            inputButton.alpha = 1
-//        } else {
-//            inputButton.isEnabled = false
-//            inputButton.alpha = 0.3
-//        }
+        if loginTextField.text != "", passwordTextField.text != "" {
+            inputButton.isEnabled = true
+            inputButton.alpha = 1
+        } else {
+            inputButton.isEnabled = false
+            inputButton.alpha = 0.3
+        }
     }
 
     @objc
-    private func goToNextViewController() {
+    private func transfersToMenu() {
         let menuViewController = MenuViewController()
         menuViewController.modalPresentationStyle = .fullScreen
         present(menuViewController, animated: true)
