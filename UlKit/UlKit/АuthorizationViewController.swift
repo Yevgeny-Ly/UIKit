@@ -4,18 +4,14 @@
 import UIKit
 
 /// Описывает экран авторизации пользователя
-class АuthorizationViewController: UIViewController {
+final class АuthorizationViewController: UIViewController {
     // MARK: - Private Properties
 
     private var isPasswordVisible = false
 
-    private var logoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "logoCofeinov")
-        return imageView
-    }()
+    private var logoImageView = UIImageView(image: .logoCofeinov)
 
-    private var backUIView: UIView = {
+    private var background: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 20
@@ -80,15 +76,13 @@ class АuthorizationViewController: UIViewController {
         return view
     }()
 
-    private lazy var inputButton: UIButton = {
-        let button = UIButton(type: .system)
+    private lazy var inputButton: CustomButton = {
+        let button = CustomButton(type: .system)
         button.setTitle("Войти", for: .normal)
-        button.backgroundColor = .specialGreen
         button.alpha = 0.3
         button.isEnabled = false
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 14
-        button.addTarget(self, action: #selector(transfersToMenu), for: .touchUpInside)
+        button.addTarget(self, action: #selector(transferToMenu), for: .touchUpInside)
         return button
     }()
 
@@ -109,7 +103,7 @@ class АuthorizationViewController: UIViewController {
     private func addSubviews() {
         view.backgroundColor = .specialdarkBrown
         view.addSubview(logoImageView)
-        view.addSubview(backUIView)
+        view.addSubview(background)
         view.addSubview(authorizationLabel)
         view.addSubview(loginLabel)
         view.addSubview(loginTextField)
@@ -123,7 +117,7 @@ class АuthorizationViewController: UIViewController {
 
     private func setupViews() {
         logoImageView.frame = CGRect(x: 100, y: 135, width: 175, height: 50)
-        backUIView.frame = CGRect(x: 0, y: 300, width: 375, height: 564)
+        background.frame = CGRect(x: 0, y: 300, width: 375, height: 564)
         authorizationLabel.frame = CGRect(x: 20, y: 320, width: 195, height: 31)
         loginLabel.frame = CGRect(x: 20, y: 370, width: 175, height: 19)
         loginTextField.frame = CGRect(x: 20, y: 400, width: 175, height: 17)
@@ -137,14 +131,8 @@ class АuthorizationViewController: UIViewController {
 
     @objc
     private func changeEncapsulatesPassword() {
-        isPasswordVisible.toggle()
-        if isPasswordVisible {
-            passwordTextField.isSecureTextEntry = false
-            encapsulationEyeButton.setImage(UIImage(named: "eye"), for: .normal)
-        } else {
-            passwordTextField.isSecureTextEntry = true
-            encapsulationEyeButton.setImage(UIImage(named: "eyeClosed"), for: .normal)
-        }
+        passwordTextField.isSecureTextEntry = !isPasswordVisible
+        encapsulationEyeButton.setImage(isPasswordVisible ? .eye : .eyeClosed, for: .normal)
     }
 
     @objc
@@ -159,9 +147,9 @@ class АuthorizationViewController: UIViewController {
     }
 
     @objc
-    private func transfersToMenu() {
-        let menuViewController = MenuViewController()
-        menuViewController.modalPresentationStyle = .fullScreen
-        present(menuViewController, animated: true)
+    private func transferToMenu() {
+        let navigationViewController = UINavigationController(rootViewController: MenuViewController())
+        navigationViewController.modalPresentationStyle = .fullScreen
+        present(navigationViewController, animated: true)
     }
 }

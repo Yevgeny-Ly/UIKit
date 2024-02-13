@@ -4,7 +4,7 @@
 import UIKit
 
 /// Описывает экран оплаты заказа
-class OrderViewController: UIViewController {
+final class OrderViewController: UIViewController {
     // MARK: - Public Properties
 
     var orderItems: [(String, Int)]?
@@ -12,30 +12,24 @@ class OrderViewController: UIViewController {
 
     // MARK: - Private Properties
 
+    private var dissmissClosure: (() -> Void)?
+
     private var labels: [UILabel] = []
     private var labelWidth: CGFloat = 280
     private var labelHeight: CGFloat = 30
     private var offsetSubview: CGFloat = 155
 
-    private lazy var closesButton: UIButton = {
+    private lazy var closeButton: UIButton = {
         let image = UIImage(named: "clear")
         let button = UIButton()
         button.setImage(image, for: .normal)
-        button.addTarget(self, action: #selector(closesViewController), for: .touchUpInside)
+        button.addTarget(self, action: #selector(closeViewController), for: .touchUpInside)
         return button
     }()
 
-    private var leftPatternImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "leftPattern")
-        return imageView
-    }()
+    private var leftPatternImageView = UIImageView(image: .leftPattern)
 
-    private var rightPatternImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "rightPattern")
-        return imageView
-    }()
+    private var rightPatternImageView = UIImageView(image: .rightPattern)
 
     private var orderLabel: UILabel = {
         let label = UILabel()
@@ -61,11 +55,10 @@ class OrderViewController: UIViewController {
     private lazy var payButton: CustomButton = {
         let button = CustomButton(type: .system)
         button.setTitle("Оплатить", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 18)
-        button.frame.origin.x = 15
+        button.titleLabel?.font = .verdanaBold18()
         button.setTitleColor(.white, for: .normal)
-        button.frame.origin.y = 600
-        button.addTarget(self, action: #selector(thanksTheOrder), for: .touchUpInside)
+        button.frame.origin = CGPoint(x: 15, y: 600)
+        button.addTarget(self, action: #selector(goToNextViewController), for: .touchUpInside)
         return button
     }()
 
@@ -74,7 +67,7 @@ class OrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
-        setupLabel()
+        setupLabels()
     }
 
     override func viewWillLayoutSubviews() {
@@ -87,7 +80,7 @@ class OrderViewController: UIViewController {
     private func addSubviews() {
         view.backgroundColor = .white
         view.addSubview(leftPatternImageView)
-        view.addSubview(closesButton)
+        view.addSubview(closeButton)
         view.addSubview(rightPatternImageView)
         view.addSubview(orderLabel)
         view.addSubview(finalCostLabel)
@@ -95,7 +88,7 @@ class OrderViewController: UIViewController {
         view.addSubview(payButton)
     }
 
-    private func setupLabel() {
+    private func setupLabels() {
         if let additions = orderItems {
             for (index, (ingredient, price)) in additions.enumerated() {
                 let priceLabel = UILabel(frame: CGRect(x: 225, y: offsetSubview, width: 130, height: labelHeight))
@@ -132,7 +125,7 @@ class OrderViewController: UIViewController {
 
     private func setupViews() {
         leftPatternImageView.frame = CGRect(x: 20, y: 50, width: 100, height: 72)
-        closesButton.frame = CGRect(x: 15, y: 21, width: 24, height: 24)
+        closeButton.frame = CGRect(x: 15, y: 21, width: 24, height: 24)
         rightPatternImageView.frame = CGRect(x: 250, y: 50, width: 100, height: 72)
         orderLabel.frame = CGRect(x: 120, y: 100, width: 140, height: 30)
         finalCostLabel.frame = CGRect(x: 105, y: 400, width: 231, height: 30)
@@ -140,12 +133,12 @@ class OrderViewController: UIViewController {
     }
 
     @objc
-    private func closesViewController() {
+    private func closeViewController() {
         dismiss(animated: true)
     }
 
     @objc
-    private func thanksTheOrder() {
+    private func goToNextViewController() {
         let thankViewController = ThankViewController()
         thankViewController.modalPresentationStyle = .fullScreen
         present(thankViewController, animated: true)
