@@ -10,7 +10,7 @@ struct CoffeeConfigurator {
     var roasting = Roasting.dark
     var additions = [Addition]()
 
-    private let basePrice = 100
+    let basePrice = 100
 
     /// Вычисляемое значение цены на основе базовый цены кофе + цены допов
     var price: Int {

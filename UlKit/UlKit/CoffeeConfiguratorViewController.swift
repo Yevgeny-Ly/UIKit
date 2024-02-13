@@ -94,6 +94,8 @@ final class CoffeeConfiguratorViewController: UIViewController {
         roastingControl.tapHandler = changeRoasting
         additionsControl.tapHandler = changeAdditions
 
+        orderButton.addTarget(self, action: #selector(summarizeOrder), for: .touchUpInside)
+
         updateCoffeImage()
         updateCofeeTypeControl()
         updateRoastingControl()
@@ -207,5 +209,20 @@ final class CoffeeConfiguratorViewController: UIViewController {
 
     @objc private func goBack() {
         navigationController?.popViewController(animated: true)
+    }
+
+    @objc private func summarizeOrder() {
+//        let orderVC = OrderViewController()
+        var orderItems = [(coffeConfigurator.coffeeType.rawValue, coffeConfigurator.basePrice)]
+        for addition in coffeConfigurator.additions {
+            orderItems.append((
+                addition.rawValue,
+                CoffeeConfigurator.additionsPriceMap[addition, default: 0]
+            ))
+        }
+//        orderVC.orderItems = orderItems
+//        orderVS.orderSum = coffeConfigurator.price
+//        orderVC.modalPresentationStyle = .fullScreen
+//        present(orderVC, animated: true)
     }
 }
