@@ -13,7 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let navigationController = UINavigationController(rootViewController: ViewController())
+        window?.backgroundColor = .white
+        let navigationController = UINavigationController(rootViewController: CoffeeConfiguratorViewController())
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
