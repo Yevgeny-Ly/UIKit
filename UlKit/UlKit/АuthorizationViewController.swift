@@ -4,31 +4,43 @@
 import UIKit
 
 /// Описывает экран авторизации пользователя
+
+enum AuthorizationNomenclature {
+    static let authorization = "Авторизация"
+    static let login = "Логин"
+    static let enterMail = "Введите почту"
+    static let password = "Пароль"
+    static let enterPassword = "Введите пароль"
+    static let inlet = "Войти"
+}
+
 final class АuthorizationViewController: UIViewController {
     // MARK: - Private Properties
 
-    private var isPasswordVisible = false
+    private let isPasswordVisible = false
 
-    private var logoImageView = UIImageView(image: .logoCofeinov)
+    private let logoImageView = UIImageView(image: .logoCofeinov)
 
-    private var background: UIView = {
+    // MARK: - Visual Components
+
+    private let background: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 20
         return view
     }()
 
-    private var authorizationLabel: UILabel = {
+    private let authorizationLabel: UILabel = {
         let label = UILabel()
-        label.text = "Авторизация"
+        label.text = AuthorizationNomenclature.authorization
         label.font = .verdanaBold26()
         label.textColor = .black
         return label
     }()
 
-    private var loginLabel: UILabel = {
+    private let loginLabel: UILabel = {
         let label = UILabel()
-        label.text = "Логин"
+        label.text = AuthorizationNomenclature.login
         label.font = .verdanaBold16()
         label.textColor = .black
         return label
@@ -36,20 +48,20 @@ final class АuthorizationViewController: UIViewController {
 
     private lazy var loginTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Введите почту"
+        textField.placeholder = AuthorizationNomenclature.enterMail
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         return textField
     }()
 
-    private var lineLoginView: UIView = {
+    private let lineLoginView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray3
         return view
     }()
 
-    private var passwordLabel: UILabel = {
+    private let passwordLabel: UILabel = {
         let label = UILabel()
-        label.text = "Пароль"
+        label.text = AuthorizationNomenclature.password
         label.textColor = .black
         label.font = .verdanaBold16()
         return label
@@ -57,7 +69,7 @@ final class АuthorizationViewController: UIViewController {
 
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Введите пароль"
+        textField.placeholder = AuthorizationNomenclature.enterPassword
         textField.isSecureTextEntry = true
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         return textField
@@ -70,7 +82,7 @@ final class АuthorizationViewController: UIViewController {
         return button
     }()
 
-    private var passwordLineView: UIView = {
+    private let passwordLineView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray3
         return view
@@ -78,7 +90,7 @@ final class АuthorizationViewController: UIViewController {
 
     private lazy var inputButton: CustomButton = {
         let button = CustomButton(type: .system)
-        button.setTitle("Войти", for: .normal)
+        button.setTitle(AuthorizationNomenclature.inlet, for: .normal)
         button.alpha = 0.3
         button.isEnabled = false
         button.setTitleColor(.white, for: .normal)

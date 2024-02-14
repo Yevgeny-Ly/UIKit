@@ -3,7 +3,13 @@
 
 import UIKit
 
-/// Описывает экран оплаты заказа
+/// Экран оплаты заказа
+
+enum TextsForUser {
+    static let yourOrder = "Вашъ Заказъ"
+    static let order = "Оплатить"
+}
+
 final class OrderViewController: UIViewController {
     // MARK: - Public Properties
 
@@ -12,14 +18,15 @@ final class OrderViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private var dissmissClosure: (() -> Void)?
-
     private var labels: [UILabel] = []
-    
-    private var labelWidth: CGFloat = 130
-    private var labelHeight: CGFloat = 30
-    private var offsetXSubview: CGFloat = 225
+
+    private let labelWidth: CGFloat = 130
+    private let labelHeight: CGFloat = 30
+    private let offsetXSubview: CGFloat = 225
     private var offsetYSubview: CGFloat = 175
+    private let buttonSpacing: CGFloat = 10
+
+    // MARK: - Visual Components
 
     private lazy var closeButton: UIButton = {
         let image = UIImage(named: "clear")
@@ -29,26 +36,26 @@ final class OrderViewController: UIViewController {
         return button
     }()
 
-    private var leftPatternImageView = UIImageView(image: .leftPattern)
+    private let leftPatternImageView = UIImageView(image: .leftPattern)
 
-    private var rightPatternImageView = UIImageView(image: .rightPattern)
+    private let rightPatternImageView = UIImageView(image: .rightPattern)
 
-    private var orderLabel: UILabel = {
+    private let orderLabel: UILabel = {
         let label = UILabel()
-        label.text = "Вашъ Заказъ"
+        label.text = TextsForUser.yourOrder
         label.font = .verdanaBold18()
         label.textColor = .black
         return label
     }()
 
-    private var finalCostLabel: UILabel = {
+    private let finalCostLabel: UILabel = {
         let label = UILabel()
         label.font = .verdanaBold18()
         label.textColor = .black
         return label
     }()
 
-    private var patternLogoImageView: UIImageView = {
+    private let patternLogoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "menu_pic")
         return imageView
@@ -56,7 +63,7 @@ final class OrderViewController: UIViewController {
 
     private lazy var payButton: CustomButton = {
         let button = CustomButton(type: .system)
-        button.setTitle("Оплатить", for: .normal)
+        button.setTitle(TextsForUser.order, for: .normal)
         button.titleLabel?.font = .verdanaBold18()
         button.setTitleColor(.white, for: .normal)
         button.frame.origin = CGPoint(x: 15, y: 600)
@@ -93,7 +100,12 @@ final class OrderViewController: UIViewController {
     private func setupLabels() {
         if let additions = orderItems {
             for (index, (ingredient, price)) in additions.enumerated() {
-                let priceLabel = UILabel(frame: CGRect(x: offsetXSubview, y: offsetYSubview, width: labelWidth, height: labelHeight))
+                let priceLabel = UILabel(frame: CGRect(
+                    x: offsetXSubview,
+                    y: offsetYSubview,
+                    width: labelWidth,
+                    height: labelHeight
+                ))
                 let ingredientLabel = UILabel(frame: CGRect(
                     x: offsetXSubview,
                     y: offsetYSubview,
@@ -113,7 +125,7 @@ final class OrderViewController: UIViewController {
                 }
 
                 labels.append(ingredientLabel)
-                offsetYSubview += labelHeight + 10
+                offsetYSubview += labelHeight + buttonSpacing
 
                 view.addSubview(ingredientLabel)
                 view.addSubview(priceLabel)

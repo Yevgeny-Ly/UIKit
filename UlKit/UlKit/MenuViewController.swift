@@ -4,25 +4,36 @@
 import UIKit
 
 /// Описывает экран где располагается  меню кафе
-final class MenuViewController: UIViewController {
-    // MARK: - Private Properties
 
-    private var logoImageView: UIImageView = {
+enum StringValues {
+    static let fontVerdana = "Verdana"
+    static let verdanaBoldItalic = "Verdana-BoldItalic"
+    static let welcome = "Добро пожаловать, \nГость"
+    static let adress = "Адреса Кофеен"
+    static let privatePolice = "Разрьшите доступъ къ геолокацiи для поиска ближайшей кофейни"
+    static let hotDrinks = "Горячiя напитки"
+    static let pie = "Пти пате аля «РюcЪ»"
+}
+
+final class MenuViewController: UIViewController {
+    // MARK: - Visual Components
+
+    private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = .logoCofeinov
         return imageView
     }()
 
-    private var greetingLabel: UILabel = {
+    private let greetingLabel: UILabel = {
         let label = UILabel()
-        label.text = "Добро пожаловать, \nГость"
+        label.text = StringValues.welcome
         label.numberOfLines = 0
         label.textColor = .white
         label.font = .verdanaBold16()
         return label
     }()
 
-    private var avatarButton: UIButton = {
+    private let avatarButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .specialGreen
         button.setTitleColor(.white, for: .normal)
@@ -31,44 +42,46 @@ final class MenuViewController: UIViewController {
         return button
     }()
 
-    private var backgroundPanelView: UIView = {
+    private let backgroundPanelView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 20
         return view
     }()
 
-    private var backgroundAddressUIView: UIView = {
+    private let backgroundAddressUIView: UIView = {
         let view = UIView()
         view.backgroundColor = .backgroundPanelAdress
         view.layer.cornerRadius = 16
         return view
     }()
 
-    private var addressLabel: UILabel = {
+    private let addressLabel: UILabel = {
         let label = UILabel()
-        label.text = "Адреса Кофеен"
+        label.text = StringValues.adress
         label.font = .verdanaBold12()
         label.textColor = .black
         return label
     }()
 
-    private var privacyPolicyLabel: UILabel = {
+    private let privacyPolicyLabel: UILabel = {
         let label = UILabel()
-        label.text = "Разрьшите доступъ къ геолокацiи для поиска ближайшей кофейни"
+        label.text = StringValues.privatePolice
         label.numberOfLines = 0
-        label.font = UIFont(name: "Verdana", size: 12)
+        label.font = UIFont(name: StringValues.fontVerdana, size: 12)
         label.textColor = .systemGray2
         return label
     }()
 
-    private var locationImageView = UIImageView(image: .logoLocation)
+    // MARK: - Private Properties
 
-    private var logoMenuImageView = UIImageView(image: .menu)
+    private let locationImageView = UIImageView(image: .logoLocation)
 
-    private lazy var pieButton: UIButton = createButton(title: "Пти пате аля «РюcЪ»", imageName: "pie")
+    private let logoMenuImageView = UIImageView(image: .menu)
 
-    private lazy var beveragesButton: UIButton = createButton(title: "Горячiя напитки", imageName: "cup")
+    private lazy var pieButton: UIButton = createButton(title: StringValues.pie, imageName: "pie")
+
+    private lazy var beveragesButton: UIButton = createButton(title: StringValues.hotDrinks, imageName: "cup")
 
     private lazy var coffeeButton: UIButton = createButton(
         title: "Кофий",
@@ -115,7 +128,7 @@ final class MenuViewController: UIViewController {
         button.setTitle(title, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .specialСappuccino
-        button.titleLabel?.font = UIFont(name: "Verdana-BoldItalic", size: 18)
+        button.titleLabel?.font = UIFont(name: StringValues.verdanaBoldItalic, size: 18)
         button.setImage(image, for: .normal)
         if let action = action {
             button.addTarget(self, action: action, for: .touchUpInside)
@@ -154,7 +167,7 @@ final class MenuViewController: UIViewController {
 
     @objc
     private func toTheСoffeeSelection() {
-//        let coffeeConfiguratorViewController = CoffeeConfiguratorViewController()
-//        navigationController?.pushViewController(coffeeConfiguratorViewController, animated: true)
+        let coffeeConfiguratorViewController = CoffeeConfiguratorViewController()
+        navigationController?.pushViewController(coffeeConfiguratorViewController, animated: true)
     }
 }

@@ -4,8 +4,16 @@
 import UIKit
 
 /// Описывает экран благодарности
+
+enum TextValues {
+    static let yourOpinion =
+        "Разскажи о насъ другу, отправь ему \n промокодъ \n на безплатный напитокъ и получи скидку 10% на сльедубщiй заказъ"
+    static let agreementButton = "Хорошо"
+    static let patternName = "finalPattern"
+}
+
 final class ThankViewController: UIViewController {
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     private lazy var closeButton: UIButton = {
         let image = UIImage(named: "clear")
@@ -15,17 +23,17 @@ final class ThankViewController: UIViewController {
         return button
     }()
 
-    private var finalPatternImageView: UIImageView = {
+    private let finalPatternImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "finalPattern")
+        imageView.image = UIImage(named: TextValues.patternName)
         return imageView
     }()
 
-    private var thankImageView = UIImageView(image: .thank)
+    private let thankImageView = UIImageView(image: .thank)
 
     lazy var homeScreenButton: CustomButton = {
         let button = CustomButton(type: .system)
-        button.setTitle("Хорошо", for: .normal)
+        button.setTitle(TextValues.agreementButton, for: .normal)
         button.titleLabel?.font = .verdanaBold18()
         button.setTitleColor(.white, for: .normal)
         button.frame.origin = CGPoint(x: 15, y: 600)
@@ -33,10 +41,9 @@ final class ThankViewController: UIViewController {
         return button
     }()
 
-    private var messageLabel: UILabel = {
+    private let messageLabel: UILabel = {
         let label = UILabel()
-        label.text =
-            "Разскажи о насъ другу, отправь ему \n промокодъ \n на безплатный напитокъ и получи скидку 10% на сльедубщiй заказъ"
+        label.text = TextValues.yourOpinion
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = .verdana16()
