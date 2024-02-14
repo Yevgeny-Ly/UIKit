@@ -13,6 +13,10 @@ extension UIFont {
         UIFont(name: "Verdana", size: 16)
     }
 
+    static func verdana18() -> UIFont? {
+        UIFont(name: "Verdana", size: 18)
+    }
+
     static func verdana20() -> UIFont? {
         UIFont(name: "Verdana", size: 20)
     }
