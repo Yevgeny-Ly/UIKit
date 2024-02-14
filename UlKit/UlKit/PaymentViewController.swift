@@ -3,13 +3,23 @@
 
 import UIKit
 
-/// Экран, запршивающий код из смс
+/// Экран запршивающий код из смс
 final class PaymentViewController: UIViewController {
+    // MARK: - Constants
+
+    enum Constants {
+        static let enterCodeLabel = "Введите кодъ изъ смс, чтобы подтвердить оплату"
+        static let confirmLabel = "Подтвердить"
+        static let doneButtonLabel = "Готово"
+        static let resendButtonLabel = "Отправить снова"
+        static let pageTitle = "Кодъ из СМС"
+    }
+
     // MARK: - Visual Components
 
     private lazy var promptLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 35, y: 146, width: 315, height: 44))
-        label.text = "Введите кодъ изъ смс, чтобы подтвердить оплату"
+        label.text = Constants.enterCodeLabel
         label.numberOfLines = 0
         label.font = .verdana16()
         label.textAlignment = .center
@@ -19,7 +29,7 @@ final class PaymentViewController: UIViewController {
     private lazy var confirmButton: UIButton = {
         let button = CustomButton()
         button.frame.origin = CGPoint(x: 20, y: 632)
-        button.titleText = "Подтвердить"
+        button.titleText = Constants.confirmLabel
         button.isEnabled = false
         return button
     }()
@@ -35,7 +45,7 @@ final class PaymentViewController: UIViewController {
         let toolbar = UIToolbar()
         toolbar.barStyle = .default
         let doneButton = UIBarButtonItem(
-            title: "Done",
+            title: Constants.doneButtonLabel,
             style: .plain,
             target: self,
             action: #selector(returnFromTextField)
@@ -53,7 +63,7 @@ final class PaymentViewController: UIViewController {
         button.backgroundColor = .grayLight
         button.setAttributedTitle(
             NSAttributedString(
-                string: "Отправить снова",
+                string: Constants.resendButtonLabel,
                 attributes: [
                     .font: UIFont.verdana16() ?? UIFont.systemFont(ofSize: 16),
                     .foregroundColor: UIColor.specialGreen
@@ -75,7 +85,7 @@ final class PaymentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNav()
+        setupNavigationItem()
         setupView()
     }
 
@@ -91,8 +101,8 @@ final class PaymentViewController: UIViewController {
         confirmButton.addTarget(self, action: #selector(confirmPayment), for: .touchUpInside)
     }
 
-    private func setupNav() {
-        navigationItem.title = "Кодъ из СМС"
+    private func setupNavigationItem() {
+        navigationItem.title = Constants.pageTitle
         navigationController?.navigationBar
             .titleTextAttributes = [.font: UIFont.verdanaBold18() ?? UIFont.boldSystemFont(ofSize: 18)]
         let backButton = UIBarButtonItem(
@@ -119,8 +129,8 @@ final class PaymentViewController: UIViewController {
     }
 
     @objc private func confirmPayment() {
-//        let gratitudeVC = FinalViewController()
-//        gratitudeVC.presentationStyle = .fullScreen
-//        present(gratitudeVC, animated: true)
+        let gratitudeViewController = ThankViewController()
+        gratitudeViewController.presentationStyle = .fullScreen
+        present(gratitudeViewController, animated: true)
     }
 }

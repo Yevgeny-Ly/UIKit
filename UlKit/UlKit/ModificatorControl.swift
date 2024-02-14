@@ -7,7 +7,7 @@ import UIKit
 final class ModificatorControl: UIView {
     // MARK: - Visual Components
 
-    private lazy var imageView: UIImageView = {
+    private lazy var modificatorImageView: UIImageView = {
         let image = UIImageView(frame: CGRect(x: 32, y: 17, width: 100, height: 100))
         image.contentMode = .scaleAspectFit
         return image
@@ -37,10 +37,6 @@ final class ModificatorControl: UIView {
         }
     }
 
-    @objc private func selectModificator() {
-        tapHandler?(self)
-    }
-
     // MARK: - Initializers
 
     override init(frame: CGRect) {
@@ -56,20 +52,17 @@ final class ModificatorControl: UIView {
     // MARK: - Public Methods
 
     func setImage(_ image: UIImage) {
-        imageView.image = image
+        modificatorImageView.image = image
     }
 
     func setLabelText(_ text: String) {
         modificatorLabel.text = text
     }
 
-    func addTapHandler(target: Any, action: Selector) {}
-
     // MARK: - Private Methods
 
     private func setupView() {
         isUserInteractionEnabled = true
-
         frame.size = CGSize(width: 165, height: 165)
         isUserInteractionEnabled = true
         layer.cornerRadius = 12
@@ -77,7 +70,11 @@ final class ModificatorControl: UIView {
         layer.borderColor = UIColor.grayLight.cgColor
         backgroundColor = .grayLight
 
-        addSubview(imageView)
+        addSubview(modificatorImageView)
         addSubview(modificatorLabel)
+    }
+
+    @objc private func selectModificator() {
+        tapHandler?(self)
     }
 }

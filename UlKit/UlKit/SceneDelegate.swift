@@ -14,9 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .white
-        let navigationController = UINavigationController(rootViewController: CoffeeConfiguratorViewController())
-        window?.rootViewController = navigationController
+        window?.rootViewController = createRootNavigationController()
         window?.makeKeyAndVisible()
+    }
+
+    private func createRootNavigationController() -> UINavigationController {
+        UINavigationController(rootViewController: CoffeeConfiguratorViewController())
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {}

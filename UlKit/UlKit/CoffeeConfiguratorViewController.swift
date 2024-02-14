@@ -3,8 +3,21 @@
 
 import UIKit
 
-/// Конфигуратор кофе с возможностью выбора типа напитка и перехода на экраны выбора обжарки и доп-ингридиентов
+/// Экран конфигурации кофе
 final class CoffeeConfiguratorViewController: UIViewController {
+    // MARK: - Constants
+
+    enum Constants {
+        static let modificationsLabel = "Модификация"
+        static let additionsLabel = "Дополнительные\nингредіенты"
+        static let orderButtonLabel = "Заказать"
+        static let priceLabel = "Цѣна -"
+        static let currencyRublesLabel = "руб"
+        static let darkRoastingLable = "Темная\nобжарка"
+        static let lightRoastingLabel = "Свѣтлая\nобжарка"
+        static let promoCodeLabel = "Лови промокод roadmaplove на любой напиток из Кофейнов"
+    }
+
     // MARK: - Visual Components
 
     private lazy var imageContainerView: UIView = {
@@ -15,7 +28,7 @@ final class CoffeeConfiguratorViewController: UIViewController {
         return view
     }()
 
-    private lazy var coffeImage: UIImageView = {
+    private lazy var coffeImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 112, y: 128, width: 150, height: 150)
         image.contentMode = .scaleAspectFit
@@ -33,7 +46,7 @@ final class CoffeeConfiguratorViewController: UIViewController {
     }()
 
     private lazy var modificationsSectionLabel = makeBoldLabel(
-        text: "Модификация",
+        text: Constants.modificationsLabel,
         frame: CGRect(x: 15, y: 432, width: 345, height: 30)
     )
     private lazy var priceLabel = makeBoldLabel(
@@ -45,13 +58,13 @@ final class CoffeeConfiguratorViewController: UIViewController {
     private lazy var roastingControl = makeModificatorControl(origin: CGPoint(x: 15, y: 482))
     private lazy var additionsControl = makeModificatorControl(
         origin: CGPoint(x: 195, y: 482),
-        label: "Дополнительные\nингредіенты"
+        label: Constants.additionsLabel
     )
 
     private lazy var orderButton: UIButton = {
         let button = CustomButton()
         button.frame.origin = CGPoint(x: 15, y: 717)
-        button.titleText = "Заказать"
+        button.titleText = Constants.orderButtonLabel
         return button
     }()
 
@@ -64,7 +77,7 @@ final class CoffeeConfiguratorViewController: UIViewController {
     }
 
     private var priceString: String {
-        "Цѣна - \(coffeConfigurator.price) руб"
+        "\(Constants.priceLabel) \(coffeConfigurator.price) \(Constants.currencyRublesLabel)"
     }
 
     private var hasAdditions: Bool {
@@ -76,13 +89,13 @@ final class CoffeeConfiguratorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setupNav()
+        setupNavigationItem()
     }
 
     // MARK: - Private Methods
 
     private func setupView() {
-        imageContainerView.addSubview(coffeImage)
+        imageContainerView.addSubview(coffeImageView)
         view.addSubview(imageContainerView)
         view.addSubview(coffeTypeControl)
         view.addSubview(modificationsSectionLabel)
@@ -102,7 +115,7 @@ final class CoffeeConfiguratorViewController: UIViewController {
         updateAdditionsControl()
     }
 
-    private func setupNav() {
+    private func setupNavigationItem() {
         let shareButton = UIBarButtonItem(
             image: .paperPlane.withRenderingMode(.alwaysOriginal),
             style: .plain,
@@ -123,11 +136,11 @@ final class CoffeeConfiguratorViewController: UIViewController {
     private func updateCoffeImage() {
         switch coffeConfigurator.coffeeType {
         case .americano:
-            coffeImage.image = .colorCoffee
+            coffeImageView.image = .colorCoffee
         case .capuccino:
-            coffeImage.image = .cappuccino
+            coffeImageView.image = .cappuccino
         case .latte:
-            coffeImage.image = .latte
+            coffeImageView.image = .latte
         }
     }
 
@@ -139,10 +152,10 @@ final class CoffeeConfiguratorViewController: UIViewController {
         switch coffeConfigurator.roasting {
         case .dark:
             roastingControl.setImage(.darkRoast)
-            roastingControl.setLabelText("Темная\nобжарка")
+            roastingControl.setLabelText(Constants.darkRoastingLable)
         case .light:
             roastingControl.setImage(.lightRoast)
-            roastingControl.setLabelText("Свѣтлая\nобжарка")
+            roastingControl.setLabelText(Constants.lightRoastingLabel)
         }
     }
 
@@ -180,31 +193,31 @@ final class CoffeeConfiguratorViewController: UIViewController {
     }
 
     @objc private func changeRoasting(_ control: ModificatorControl) {
-        let roastingVC = RoastingSelectViewController()
-        roastingVC.selectedRoasting = coffeConfigurator.roasting
-        roastingVC.updateRoastingSelection = { [weak self] in
+        let roastingViewController = RoastingSelectViewController()
+        roastingViewController.selectedRoasting = coffeConfigurator.roasting
+        roastingViewController.updateRoastingSelectionHandler = { [weak self] in
             self?.coffeConfigurator.roasting = $0
             self?.updateRoastingControl()
         }
-        roastingVC.modalPresentationStyle = .formSheet
-        present(UINavigationController(rootViewController: roastingVC), animated: true)
+        roastingViewController.modalPresentationStyle = .formSheet
+        present(UINavigationController(rootViewController: roastingViewController), animated: true)
     }
 
     @objc private func changeAdditions(_ control: ModificatorControl) {
-        let additionsVC = AdditionsSelectViewController()
-        additionsVC.selectedAdditions = coffeConfigurator.additions
-        additionsVC.updateAdditionsSelection = { [weak self] in
+        let additionsViewController = AdditionsSelectViewController()
+        additionsViewController.selectedAdditions = coffeConfigurator.additions
+        additionsViewController.updateAdditionsSelectionHandler = { [weak self] in
             self?.coffeConfigurator.additions = $0
             self?.updateAdditionsControl()
             self?.updatePriceLabel()
         }
-        present(UINavigationController(rootViewController: additionsVC), animated: true)
+        present(UINavigationController(rootViewController: additionsViewController), animated: true)
     }
 
     @objc private func sharePromoCode() {
-        let promoCode = "Лови промокод roadmaplove на любой напиток из Кофейнов"
-        let activityVC = UIActivityViewController(activityItems: [promoCode], applicationActivities: nil)
-        present(activityVC, animated: true, completion: nil)
+        let promoCode = Constants.promoCodeLabel
+        let activityViewController = UIActivityViewController(activityItems: [promoCode], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
 
     @objc private func goBack() {
@@ -212,7 +225,7 @@ final class CoffeeConfiguratorViewController: UIViewController {
     }
 
     @objc private func summarizeOrder() {
-//        let orderVC = OrderViewController()
+        let orderViewController = OrderViewController()
         var orderItems = [(coffeConfigurator.coffeeType.rawValue, coffeConfigurator.basePrice)]
         for addition in coffeConfigurator.additions {
             orderItems.append((
@@ -220,8 +233,8 @@ final class CoffeeConfiguratorViewController: UIViewController {
                 CoffeeConfigurator.additionsPriceMap[addition, default: 0]
             ))
         }
-//        orderVC.orderItems = orderItems
-//        orderVS.orderSum = coffeConfigurator.price
-//        present(orderVC, animated: true)
+        orderViewController.orderItems = orderItems
+        orderViewController.orderSum = coffeConfigurator.price
+        present(orderViewController, animated: true)
     }
 }

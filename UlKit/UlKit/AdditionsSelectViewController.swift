@@ -5,11 +5,18 @@ import UIKit
 
 /// Экран выбора дополнительных ингридиентов
 final class AdditionsSelectViewController: UIViewController {
+    // MARK: - Constants
+
+    enum Constants {
+        static let chooseIngredientsLabel = "Выберите дополнительные ингредіенты"
+        static let currencyRublesLabel = "руб"
+    }
+
     // MARK: - Visual Components
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 40, y: 53, width: 294, height: 44))
-        label.text = "Выберите дополнительные ингредіенты"
+        label.text = Constants.chooseIngredientsLabel
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont.verdanaBold18()
@@ -20,7 +27,7 @@ final class AdditionsSelectViewController: UIViewController {
     // MARK: - Public Properties
 
     var selectedAdditions: [CoffeeConfigurator.Addition]?
-    var updateAdditionsSelection: (([CoffeeConfigurator.Addition]) -> Void)?
+    var updateAdditionsSelectionHandler: (([CoffeeConfigurator.Addition]) -> Void)?
 
     // MARK: - Private Properties
 
@@ -30,9 +37,8 @@ final class AdditionsSelectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
-        setupNav()
+        setupNavigationItem()
     }
 
     // MARK: - Private Methods
@@ -42,23 +48,23 @@ final class AdditionsSelectViewController: UIViewController {
         view.addSubview(titleLabel)
 
         for (index, add) in CoffeeConfigurator.Addition.allCases.enumerated() {
-            let addition = makeAddition(add)
+            let addition = makeAdditionView(add)
             addition.frame = CGRect(x: 20, y: 124 + index * 50, width: 355, height: 50)
             view.addSubview(addition)
         }
     }
 
-    private func setupNav() {
+    private func setupNavigationItem() {
         let crossButton = UIBarButtonItem(
             image: .closeIcon.withRenderingMode(.alwaysOriginal),
             style: .plain,
             target: self,
-            action: #selector(saveAndClose)
+            action: #selector(saveSelectionAndClose)
         )
         navigationItem.setLeftBarButton(crossButton, animated: false)
     }
 
-    private func makeAddition(_ addition: CoffeeConfigurator.Addition) -> UIView {
+    private func makeAdditionView(_ addition: CoffeeConfigurator.Addition) -> UIView {
         let view = UIView()
         let label = makeAdditionLabel(
             name: addition.rawValue,
@@ -84,7 +90,7 @@ final class AdditionsSelectViewController: UIViewController {
             attributes: [.font: UIFont.verdana18() ?? UIFont.systemFont(ofSize: 18)]
         )
         let priceString = NSAttributedString(
-            string: " +\(price) руб",
+            string: " +\(price) \(Constants.currencyRublesLabel)",
             attributes: [
                 .font: UIFont.verdana16() ?? UIFont.systemFont(ofSize: 18),
                 .foregroundColor: UIColor.greenMain
@@ -106,9 +112,9 @@ final class AdditionsSelectViewController: UIViewController {
         }
     }
 
-    @objc private func saveAndClose() {
+    @objc private func saveSelectionAndClose() {
         if let selectedAdditions {
-            updateAdditionsSelection?(selectedAdditions)
+            updateAdditionsSelectionHandler?(selectedAdditions)
         }
         dismiss(animated: true)
     }

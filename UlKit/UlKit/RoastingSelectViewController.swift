@@ -5,6 +5,13 @@ import UIKit
 
 /// Экран выбора обжарки кофе
 final class RoastingSelectViewController: UIViewController {
+    // MARK: - Constants
+
+    enum Constants {
+        static let darkRoastingLable = "Темная\nобжарка"
+        static let lightRoastingLabel = "Свѣтлая\nобжарка"
+    }
+
     // MARK: - Visual Components
 
     private lazy var titleLabel: UILabel = {
@@ -19,7 +26,7 @@ final class RoastingSelectViewController: UIViewController {
     // MARK: - Public Properties
 
     var selectedRoasting: CoffeeConfigurator.Roasting?
-    var updateRoastingSelection: ((CoffeeConfigurator.Roasting) -> Void)?
+    var updateRoastingSelectionHandler: ((CoffeeConfigurator.Roasting) -> Void)?
 
     // MARK: - Private Properties
 
@@ -63,11 +70,11 @@ final class RoastingSelectViewController: UIViewController {
         switch roasting {
         case .dark:
             control.setImage(.darkRoast)
-            control.setLabelText("Темная\nобжарка")
+            control.setLabelText(Constants.darkRoastingLable)
             control.frame.origin = CGPoint(x: 15, y: 102)
         case .light:
             control.setImage(.lightRoast)
-            control.setLabelText("Свѣтлая\nобжарка")
+            control.setLabelText(Constants.lightRoastingLabel)
             control.frame.origin = CGPoint(x: 195, y: 102)
         }
         return control
@@ -83,7 +90,7 @@ final class RoastingSelectViewController: UIViewController {
 
     @objc private func saveAndClose() {
         if let selectedRoasting {
-            updateRoastingSelection?(selectedRoasting)
+            updateRoastingSelectionHandler?(selectedRoasting)
         }
         dismiss(animated: true)
     }
