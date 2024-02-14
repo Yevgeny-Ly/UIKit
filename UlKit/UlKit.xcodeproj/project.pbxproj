@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9354C97D2B7AB67400355BC7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9354C97C2B7AB67400355BC7 /* MenuViewController.swift */; };
 		9390FDF62B7B489D0069E778 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390FDF52B7B489D0069E778 /* CustomButton.swift */; };
+		9390FDFA2B7B7D450069E778 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390FDF92B7B7D450069E778 /* OrderViewController.swift */; };
+		9390FDFE2B7B94040069E778 /* ThankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9390FDFD2B7B94040069E778 /* ThankViewController.swift */; };
 		939B9B502B7A7FED00AE5817 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B9B4F2B7A7FED00AE5817 /* UIColor+Extension.swift */; };
 		939B9B562B7A841400AE5817 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939B9B552B7A841400AE5817 /* UIFont+Extension.swift */; };
 		93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1642B71134500D2D339 /* AppDelegate.swift */; };
 		93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1662B71134500D2D339 /* SceneDelegate.swift */; };
 		93DDD1692B71134500D2D339 /* CoffeeConfiguratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* CoffeeConfiguratorViewController.swift */; };
+		93DDD1692B71134500D2D339 /* АuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* АuthorizationViewController.swift */; };
 		93DDD16E2B71134600D2D339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16D2B71134600D2D339 /* Assets.xcassets */; };
 		93DDD1712B71134600D2D339 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */; };
 		DA312ABC2B7BE5E60099FF36 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ABB2B7BE5E60099FF36 /* PaymentViewController.swift */; };
@@ -23,7 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9354C97C2B7AB67400355BC7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		9390FDF52B7B489D0069E778 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		9390FDF92B7B7D450069E778 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		9390FDFD2B7B94040069E778 /* ThankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankViewController.swift; sourceTree = "<group>"; };
 		939B9B4F2B7A7FED00AE5817 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		939B9B512B7A83BA00AE5817 /* Verdana-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-BoldItalic.ttf"; sourceTree = "<group>"; };
 		939B9B522B7A83BA00AE5817 /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
@@ -34,6 +41,7 @@
 		93DDD1642B71134500D2D339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DDD1662B71134500D2D339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		93DDD1682B71134500D2D339 /* CoffeeConfiguratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeConfiguratorViewController.swift; sourceTree = "<group>"; };
+		93DDD1682B71134500D2D339 /* АuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "АuthorizationViewController.swift"; sourceTree = "<group>"; };
 		93DDD16D2B71134600D2D339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93DDD1702B71134600D2D339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93DDD1722B71134600D2D339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,6 +109,10 @@
 				DA4BF5712B7B8A8500298F6C /* AdditionsSelectViewController.swift */,
 				DA312ABB2B7BE5E60099FF36 /* PaymentViewController.swift */,
 				DA4BF5672B7AA7BD00298F6C /* CoffeeConfigurator.swift */,
+				93DDD1682B71134500D2D339 /* АuthorizationViewController.swift */,
+				9354C97C2B7AB67400355BC7 /* MenuViewController.swift */,
+				9390FDF92B7B7D450069E778 /* OrderViewController.swift */,
+				9390FDFD2B7B94040069E778 /* ThankViewController.swift */,
 				9390FDF52B7B489D0069E778 /* CustomButton.swift */,
 				DA4BF56B2B7ABADA00298F6C /* ModificatorControl.swift */,
 				93DDD16D2B71134600D2D339 /* Assets.xcassets */,
@@ -226,16 +238,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DDD1692B71134500D2D339 /* CoffeeConfiguratorViewController.swift in Sources */,
-				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
 				DA4BF5722B7B8A8500298F6C /* AdditionsSelectViewController.swift in Sources */,
 				DA4BF56C2B7ABADA00298F6C /* ModificatorControl.swift in Sources */,
 				DA4BF5682B7AA7BD00298F6C /* CoffeeConfigurator.swift in Sources */,
+				93DDD1692B71134500D2D339 /* АuthorizationViewController.swift in Sources */,
+				9354C97D2B7AB67400355BC7 /* MenuViewController.swift in Sources */,
+				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
+				9390FDFE2B7B94040069E778 /* ThankViewController.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
 				DA312ABC2B7BE5E60099FF36 /* PaymentViewController.swift in Sources */,
 				DA4BF5702B7B7CBE00298F6C /* RoastingSelectViewController.swift in Sources */,
 				939B9B562B7A841400AE5817 /* UIFont+Extension.swift in Sources */,
 				939B9B502B7A7FED00AE5817 /* UIColor+Extension.swift in Sources */,
 				9390FDF62B7B489D0069E778 /* CustomButton.swift in Sources */,
+				9390FDFA2B7B7D450069E778 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
