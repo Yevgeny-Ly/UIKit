@@ -14,8 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
-        let tabBarVC = MarketplaceAppTabBarController()
-        window?.rootViewController = tabBarVC
+        window?.rootViewController = MarketplaceAppTabBarController()
         window?.makeKeyAndVisible()
     }
 }
