@@ -4,7 +4,6 @@
 import UIKit
 
 /// Описывает экран благодарности
-
 final class ThankViewController: UIViewController {
     // MARK: - Private Properties
 
@@ -28,6 +27,7 @@ final class ThankViewController: UIViewController {
         let button = CustomButton(type: .system)
         button.setTitle("Хорошо", for: .normal)
         button.titleLabel?.font = .verdanaBold18()
+        button.setTitleColor(.white, for: .normal)
         button.frame.origin = CGPoint(x: 15, y: 600)
         button.addTarget(self, action: #selector(returnToMenu), for: .touchUpInside)
         return button
@@ -81,8 +81,9 @@ final class ThankViewController: UIViewController {
 
     @objc
     private func returnToMenu() {
-        let menuViewController = MenuViewController()
-        menuViewController.modalPresentationStyle = .fullScreen
-        present(menuViewController, animated: true)
+        if let navigationController = navigationController {
+            let menuViewController = MenuViewController()
+            navigationController.setViewControllers([menuViewController], animated: true)
+        }
     }
 }

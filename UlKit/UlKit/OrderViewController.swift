@@ -15,9 +15,11 @@ final class OrderViewController: UIViewController {
     private var dissmissClosure: (() -> Void)?
 
     private var labels: [UILabel] = []
-    private var labelWidth: CGFloat = 280
+    
+    private var labelWidth: CGFloat = 130
     private var labelHeight: CGFloat = 30
-    private var offsetSubview: CGFloat = 155
+    private var offsetXSubview: CGFloat = 225
+    private var offsetYSubview: CGFloat = 175
 
     private lazy var closeButton: UIButton = {
         let image = UIImage(named: "clear")
@@ -91,10 +93,10 @@ final class OrderViewController: UIViewController {
     private func setupLabels() {
         if let additions = orderItems {
             for (index, (ingredient, price)) in additions.enumerated() {
-                let priceLabel = UILabel(frame: CGRect(x: 225, y: offsetSubview, width: 130, height: labelHeight))
+                let priceLabel = UILabel(frame: CGRect(x: offsetXSubview, y: offsetYSubview, width: labelWidth, height: labelHeight))
                 let ingredientLabel = UILabel(frame: CGRect(
-                    x: 20,
-                    y: offsetSubview,
+                    x: offsetXSubview,
+                    y: offsetYSubview,
                     width: labelWidth,
                     height: labelHeight
                 ))
@@ -111,7 +113,7 @@ final class OrderViewController: UIViewController {
                 }
 
                 labels.append(ingredientLabel)
-                offsetSubview += labelHeight + 10
+                offsetYSubview += labelHeight + 10
 
                 view.addSubview(ingredientLabel)
                 view.addSubview(priceLabel)
@@ -124,12 +126,12 @@ final class OrderViewController: UIViewController {
     }
 
     private func setupViews() {
-        leftPatternImageView.frame = CGRect(x: 20, y: 50, width: 100, height: 72)
-        closeButton.frame = CGRect(x: 15, y: 21, width: 24, height: 24)
-        rightPatternImageView.frame = CGRect(x: 250, y: 50, width: 100, height: 72)
-        orderLabel.frame = CGRect(x: 120, y: 100, width: 140, height: 30)
-        finalCostLabel.frame = CGRect(x: 105, y: 400, width: 231, height: 30)
-        patternLogoImageView.frame = CGRect(x: 135, y: 430, width: 100, height: 40)
+        closeButton.frame = CGRect(x: 15, y: 40, width: 24, height: 24)
+        leftPatternImageView.frame = CGRect(x: 20, y: 70, width: 100, height: 72)
+        rightPatternImageView.frame = CGRect(x: 250, y: 70, width: 100, height: 72)
+        orderLabel.frame = CGRect(x: 120, y: 120, width: 140, height: 30)
+        finalCostLabel.frame = CGRect(x: 105, y: 430, width: 231, height: 30)
+        patternLogoImageView.frame = CGRect(x: 135, y: 470, width: 100, height: 40)
     }
 
     @objc
