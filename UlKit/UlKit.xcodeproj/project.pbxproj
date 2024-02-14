@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93358DA02B7D015000880259 /* DetailsShoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93358D9F2B7D015000880259 /* DetailsShoesViewController.swift */; };
 		93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1642B71134500D2D339 /* AppDelegate.swift */; };
 		93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1662B71134500D2D339 /* SceneDelegate.swift */; };
 		93DDD1692B71134500D2D339 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* CatalogViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93358D9F2B7D015000880259 /* DetailsShoesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsShoesViewController.swift; sourceTree = "<group>"; };
 		93DDD1612B71134500D2D339 /* UlKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DDD1642B71134500D2D339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DDD1662B71134500D2D339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
 				DA312AC32B7CCE740099FF36 /* MarketplaceAppTabBarController.swift */,
 				93DDD1682B71134500D2D339 /* CatalogViewController.swift */,
+				93358D9F2B7D015000880259 /* DetailsShoesViewController.swift */,
 				DA312ABF2B7CCB9C0099FF36 /* CartViewController.swift */,
 				DA312AC12B7CCBD80099FF36 /* ProfileViewController.swift */,
 				93DDD16A2B71134500D2D339 /* Main.storyboard */,
@@ -205,6 +208,7 @@
 				DA312AC72B7CD3CE0099FF36 /* UIFont+Verdana.swift in Sources */,
 				93DDD1692B71134500D2D339 /* CatalogViewController.swift in Sources */,
 				DA312AC22B7CCBD80099FF36 /* ProfileViewController.swift in Sources */,
+				93358DA02B7D015000880259 /* DetailsShoesViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
 				DA312AC42B7CCE740099FF36 /* MarketplaceAppTabBarController.swift in Sources */,
