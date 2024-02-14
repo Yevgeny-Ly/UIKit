@@ -12,9 +12,9 @@ final class MarketplaceAppTabBarController: UITabBarController {
 
     private func setupTabBar() {
         viewControllers = [
-            createCatalogNavController(),
-            createCartNavController(),
-            createProfileNavController()
+            createCatalogNavigationController(),
+            createCartNavigationController(),
+            createProfileNavigationController()
         ]
         UITabBar.appearance().tintColor = .pinkMain
         UITabBarItem.appearance().setTitleTextAttributes(
@@ -23,24 +23,24 @@ final class MarketplaceAppTabBarController: UITabBarController {
         )
     }
 
-    private func createCatalogNavController() -> UINavigationController {
-        let catalogVC = CatalogViewController()
-        let catalogNC = UINavigationController(rootViewController: catalogVC)
-        catalogNC.tabBarItem = UITabBarItem(title: "Каталог", image: .catalogBarItem, tag: 0)
-        return catalogNC
+    private func createCatalogNavigationController() -> UINavigationController {
+        let catalogViewController = CatalogViewController()
+        let catalogNavigationController = UINavigationController(rootViewController: catalogViewController)
+        catalogNavigationController.tabBarItem = UITabBarItem(title: "Каталог", image: .catalogBarItem, tag: 0)
+        return catalogNavigationController
     }
 
-    private func createCartNavController() -> UINavigationController {
-        let cartVC = CartViewController()
-        let cartNC = UINavigationController(rootViewController: cartVC)
-        cartNC.tabBarItem = UITabBarItem(title: "Корзина", image: .cartBarIcon, tag: 1)
-        return cartNC
+    private func createCartNavigationController() -> UINavigationController {
+        let cartViewController = CartViewController()
+        let cartNavigationController = UINavigationController(rootViewController: cartViewController)
+        cartNavigationController.tabBarItem = UITabBarItem(title: "Корзина", image: .cartBarIcon, tag: 1)
+        return cartNavigationController
     }
 
-    private func createProfileNavController() -> UINavigationController {
-        let profileVC = ProfileViewController()
-        let profileNC = UINavigationController(rootViewController: profileVC)
-        profileNC.tabBarItem = UITabBarItem(title: "Профиль", image: .profileBarItem, tag: 2)
-        return profileNC
+    private func createProfileNavigationController() -> UINavigationController {
+        let profileViewController = ProfileViewController()
+        let profileNavigationController = UINavigationController(rootViewController: profileViewController)
+        profileNavigationController.tabBarItem = UITabBarItem(title: "Профиль", image: .profileBarItem, tag: 2)
+        return profileNavigationController
     }
 }
