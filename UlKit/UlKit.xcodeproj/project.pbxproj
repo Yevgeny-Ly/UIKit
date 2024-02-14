@@ -17,6 +17,10 @@
 		DA312AC42B7CCE740099FF36 /* MarketplaceAppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AC32B7CCE740099FF36 /* MarketplaceAppTabBarController.swift */; };
 		DA312AC72B7CD3CE0099FF36 /* UIFont+Verdana.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AC62B7CD3CE0099FF36 /* UIFont+Verdana.swift */; };
 		DA312AC92B7D3C8B0099FF36 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AC82B7D3C8B0099FF36 /* ProductCardView.swift */; };
+		DA312ACC2B7D55BC0099FF36 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ACB2B7D55BC0099FF36 /* Product.swift */; };
+		DA312ACF2B7D59B10099FF36 /* ShoesProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ACE2B7D59B10099FF36 /* ShoesProduct.swift */; };
+		DA312AD12B7D624B0099FF36 /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD02B7D624B0099FF36 /* CartItemView.swift */; };
+		DA312AD32B7D65DC0099FF36 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD22B7D65DC0099FF36 /* CartItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		DA312AC32B7CCE740099FF36 /* MarketplaceAppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceAppTabBarController.swift; sourceTree = "<group>"; };
 		DA312AC62B7CD3CE0099FF36 /* UIFont+Verdana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Verdana.swift"; sourceTree = "<group>"; };
 		DA312AC82B7D3C8B0099FF36 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
+		DA312ACB2B7D55BC0099FF36 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		DA312ACE2B7D59B10099FF36 /* ShoesProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesProduct.swift; sourceTree = "<group>"; };
+		DA312AD02B7D624B0099FF36 /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
+		DA312AD22B7D65DC0099FF36 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,7 @@
 		93DDD1632B71134500D2D339 /* UlKit */ = {
 			isa = PBXGroup;
 			children = (
+				DA312ACD2B7D59930099FF36 /* models */,
 				DA312ACA2B7D3C910099FF36 /* components */,
 				DA312AC52B7CD3AD0099FF36 /* extensions */,
 				93DDD1642B71134500D2D339 /* AppDelegate.swift */,
@@ -91,8 +100,19 @@
 			isa = PBXGroup;
 			children = (
 				DA312AC82B7D3C8B0099FF36 /* ProductCardView.swift */,
+				DA312AD02B7D624B0099FF36 /* CartItemView.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		DA312ACD2B7D59930099FF36 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				DA312ACB2B7D55BC0099FF36 /* Product.swift */,
+				DA312ACE2B7D59B10099FF36 /* ShoesProduct.swift */,
+				DA312AD22B7D65DC0099FF36 /* CartItem.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,11 +230,15 @@
 			files = (
 				DA312AC02B7CCB9C0099FF36 /* CartViewController.swift in Sources */,
 				DA312AC72B7CD3CE0099FF36 /* UIFont+Verdana.swift in Sources */,
+				DA312ACF2B7D59B10099FF36 /* ShoesProduct.swift in Sources */,
+				DA312ACC2B7D55BC0099FF36 /* Product.swift in Sources */,
 				93DDD1692B71134500D2D339 /* CatalogViewController.swift in Sources */,
 				DA312AC22B7CCBD80099FF36 /* ProfileViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
+				DA312AD12B7D624B0099FF36 /* CartItemView.swift in Sources */,
 				DA312AC92B7D3C8B0099FF36 /* ProductCardView.swift in Sources */,
+				DA312AD32B7D65DC0099FF36 /* CartItem.swift in Sources */,
 				DA312AC42B7CCE740099FF36 /* MarketplaceAppTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
