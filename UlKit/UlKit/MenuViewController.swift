@@ -24,7 +24,7 @@ final class MenuViewController: UIViewController {
 
     private var avatarButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = #colorLiteral(red: 0.3438587189, green: 0.7463406324, blue: 0.7798846364, alpha: 1)
+        button.backgroundColor = .specialGreen
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Г", for: .normal)
         button.titleLabel?.font = .verdanaBold16()
@@ -40,7 +40,7 @@ final class MenuViewController: UIViewController {
 
     private var backgroundAddressUIView: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.921222508, green: 0.9661542773, blue: 0.9696832299, alpha: 1)
+        view.backgroundColor = .backgroundPanelAdress
         view.layer.cornerRadius = 16
         return view
     }()
@@ -66,54 +66,22 @@ final class MenuViewController: UIViewController {
 
     private var logoMenuImageView = UIImageView(image: .menu)
 
-    private var pieButton: UIButton = {
-        let image = UIImage(named: "pie")
-        let button = UIButton()
-        button.layer.cornerRadius = 16
-        button.setTitle("Пти пате аля «РюcЪ»", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .specialСappuccino
-        button.titleLabel?.font = UIFont(name: "Verdana-BoldItalic", size: 18)
-        button.setImage(image, for: .normal)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: -170, bottom: 0, right: -10)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 245, bottom: 0, right: 10)
-        return button
-    }()
+    private lazy var pieButton: UIButton = createButton(title: "Пти пате аля «РюcЪ»", imageName: "pie")
 
-    private var beveragesButton: UIButton = {
-        let image = UIImage(named: "cup")
-        let button = UIButton()
-        button.layer.cornerRadius = 16
-        button.setTitle("Горячiя напитки", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .specialСappuccino
-        button.titleLabel?.font = UIFont(name: "Verdana-BoldItalic", size: 18)
-        button.setImage(image, for: .normal)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: -220, bottom: 0, right: -10)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 245, bottom: 0, right: 10)
-        return button
-    }()
+    private lazy var beveragesButton: UIButton = createButton(title: "Горячiя напитки", imageName: "cup")
 
-    private lazy var coffeeButton: UIButton = {
-        let image = UIImage(named: "coffee")
-        let button = UIButton()
-        button.layer.cornerRadius = 16
-        button.setTitle("Кофий", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .specialСappuccino
-        button.titleLabel?.font = UIFont(name: "Verdana-BoldItalic", size: 18)
-        button.setImage(image, for: .normal)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: -310, bottom: 0, right: -10)
-        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 245, bottom: 0, right: 10)
-        button.addTarget(self, action: #selector(toTheСoffeeSelection), for: .touchUpInside)
-        return button
-    }()
+    private lazy var coffeeButton: UIButton = createButton(
+        title: "Кофий",
+        imageName: "coffee",
+        action: #selector(toTheСoffeeSelection)
+    )
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
+        configurationElementsButton()
     }
 
     override func viewWillLayoutSubviews() {
@@ -140,6 +108,32 @@ final class MenuViewController: UIViewController {
         view.addSubview(coffeeButton)
     }
 
+    func createButton(title: String, imageName: String, action: Selector? = nil) -> UIButton {
+        let image = UIImage(named: imageName)
+        let button = UIButton()
+        button.layer.cornerRadius = 16
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .specialСappuccino
+        button.titleLabel?.font = UIFont(name: "Verdana-BoldItalic", size: 18)
+        button.setImage(image, for: .normal)
+        if let action = action {
+            button.addTarget(self, action: action, for: .touchUpInside)
+        }
+        return button
+    }
+
+    private func configurationElementsButton() {
+        pieButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -150, bottom: 0, right: -10)
+        pieButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 260, bottom: 0, right: 10)
+
+        beveragesButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -210, bottom: 0, right: -10)
+        beveragesButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 260, bottom: 0, right: 10)
+
+        coffeeButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -310, bottom: 0, right: -10)
+        coffeeButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 260, bottom: 0, right: 10)
+    }
+
     private func setupViews() {
         logoImageView.frame = CGRect(x: 100, y: 60, width: 175, height: 50)
         greetingLabel.frame = CGRect(x: 20, y: 147, width: 185, height: 44)
@@ -160,7 +154,7 @@ final class MenuViewController: UIViewController {
 
     @objc
     private func toTheСoffeeSelection() {
-        let coffeeConfiguratorViewController = CoffeeConfiguratorViewController()
-        navigationController?.pushViewController(coffeeConfiguratorViewController, animated: true)
+//        let coffeeConfiguratorViewController = CoffeeConfiguratorViewController()
+//        navigationController?.pushViewController(coffeeConfiguratorViewController, animated: true)
     }
 }
