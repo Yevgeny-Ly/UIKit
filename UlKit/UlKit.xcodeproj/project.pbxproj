@@ -21,6 +21,7 @@
 		DA312ACF2B7D59B10099FF36 /* ShoesProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ACE2B7D59B10099FF36 /* ShoesProduct.swift */; };
 		DA312AD12B7D624B0099FF36 /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD02B7D624B0099FF36 /* CartItemView.swift */; };
 		DA312AD32B7D65DC0099FF36 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD22B7D65DC0099FF36 /* CartItem.swift */; };
+		DA312AD52B7D75930099FF36 /* QuantityStepperControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DA312ACE2B7D59B10099FF36 /* ShoesProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesProduct.swift; sourceTree = "<group>"; };
 		DA312AD02B7D624B0099FF36 /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
 		DA312AD22B7D65DC0099FF36 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityStepperControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				DA312AC82B7D3C8B0099FF36 /* ProductCardView.swift */,
 				DA312AD02B7D624B0099FF36 /* CartItemView.swift */,
+				DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA312AD52B7D75930099FF36 /* QuantityStepperControl.swift in Sources */,
 				DA312AC02B7CCB9C0099FF36 /* CartViewController.swift in Sources */,
 				DA312AC72B7CD3CE0099FF36 /* UIFont+Verdana.swift in Sources */,
 				DA312ACF2B7D59B10099FF36 /* ShoesProduct.swift in Sources */,

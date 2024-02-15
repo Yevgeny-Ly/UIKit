@@ -9,7 +9,7 @@ final class CartItem {
     let maxQuantity: Int?
     private(set) var quantity = 0
 
-    init(product: Product, quantity: Int = 0, maxQuantity: Int? = nil) {
+    init(product: Product, quantity: Int = 1, maxQuantity: Int? = nil) {
         self.product = product
         self.quantity = quantity
         self.maxQuantity = maxQuantity
