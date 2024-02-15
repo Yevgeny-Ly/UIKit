@@ -22,6 +22,8 @@
 		DA312AD12B7D624B0099FF36 /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD02B7D624B0099FF36 /* CartItemView.swift */; };
 		DA312AD32B7D65DC0099FF36 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD22B7D65DC0099FF36 /* CartItem.swift */; };
 		DA312AD52B7D75930099FF36 /* QuantityStepperControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */; };
+		DA312AD72B7E4A970099FF36 /* DiscountCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD62B7E4A970099FF36 /* DiscountCardView.swift */; };
+		DA312AD92B7E5C7E0099FF36 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		DA312AD02B7D624B0099FF36 /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
 		DA312AD22B7D65DC0099FF36 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityStepperControl.swift; sourceTree = "<group>"; };
+		DA312AD62B7E4A970099FF36 /* DiscountCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCardView.swift; sourceTree = "<group>"; };
+		DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				DA312AC82B7D3C8B0099FF36 /* ProductCardView.swift */,
 				DA312AD02B7D624B0099FF36 /* CartItemView.swift */,
 				DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */,
+				DA312AD62B7E4A970099FF36 /* DiscountCardView.swift */,
+				DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -238,10 +244,12 @@
 				DA312ACC2B7D55BC0099FF36 /* Product.swift in Sources */,
 				93DDD1692B71134500D2D339 /* CatalogViewController.swift in Sources */,
 				DA312AC22B7CCBD80099FF36 /* ProfileViewController.swift in Sources */,
+				DA312AD92B7E5C7E0099FF36 /* SettingsButton.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
 				DA312AD12B7D624B0099FF36 /* CartItemView.swift in Sources */,
 				DA312AC92B7D3C8B0099FF36 /* ProductCardView.swift in Sources */,
+				DA312AD72B7E4A970099FF36 /* DiscountCardView.swift in Sources */,
 				DA312AD32B7D65DC0099FF36 /* CartItem.swift in Sources */,
 				DA312AC42B7CCE740099FF36 /* MarketplaceAppTabBarController.swift in Sources */,
 			);
