@@ -9,8 +9,11 @@ final class CartViewController: UIViewController {
 
     enum Constants {
         static let screenTitle = "Корзина"
+        static let orderButtonText = "Оформить заказ -"
+        static let currencyText = "₽"
         static let cartItemViewPadding = 20.0
         static let cartItemViewHeight = 157.0
+        static let confirmOrderButtonSpacing = (x: 20.0, y: 34.0)
 
         static let cartItemsMock: [CartItem] = [
             CartItem(product: Product(name: "Женские ботинки", image: "shoes", price: 4250)),
@@ -18,13 +21,36 @@ final class CartViewController: UIViewController {
         ]
     }
 
+    // MARK: - Visual Components
+
+    private let confirmOrderButton = PrimaryButton()
+
     // MARK: - Public Properties
 
-    var cartItems: [CartItem] = Constants.cartItemsMock
+    var cartItems = [CartItem]() {
+        didSet {
+            isConfirmOrderButtonEnabled = !cartItems.isEmpty
+            cartSum = cartItems.reduce(0) { $0 + $1.quantity * $1.product.price }
+        }
+    }
 
     // MARK: - Private Properties
 
     private var cartItemViews = [CartItemView]()
+    private var isConfirmOrderButtonEnabled = false {
+        didSet {
+            confirmOrderButton.isHidden = !isConfirmOrderButtonEnabled
+        }
+    }
+
+    private var cartSum = 0 {
+        didSet {
+            confirmOrderButton.setTitle(
+                "\(Constants.orderButtonText) \(cartSum) \(Constants.currencyText)",
+                for: .normal
+            )
+        }
+    }
 
     // MARK: - Life Cycle
 
@@ -37,6 +63,7 @@ final class CartViewController: UIViewController {
 
     private func setupView() {
         title = Constants.screenTitle
+        cartItems = Constants.cartItemsMock
 
         for cartItem in cartItems {
             let cartItemView = CartItemView()
@@ -44,7 +71,27 @@ final class CartViewController: UIViewController {
             view.addSubview(cartItemView)
             cartItemViews.append(cartItemView)
         }
+        view.addSubview(confirmOrderButton)
+        setupConstraints()
+    }
+
+    private func setupConstraints() {
         layoutCartItems()
+
+        confirmOrderButton.leadingAnchor.constraint(
+            equalTo: view.leadingAnchor,
+            constant: Constants.confirmOrderButtonSpacing.x
+        )
+        .isActive = true
+        view.trailingAnchor.constraint(
+            equalTo: confirmOrderButton.trailingAnchor,
+            constant: Constants.confirmOrderButtonSpacing.x
+        )
+        .isActive = true
+        view.safeAreaLayoutGuide.bottomAnchor.constraint(
+            equalTo: confirmOrderButton.bottomAnchor,
+            constant: Constants.confirmOrderButtonSpacing.y
+        ).isActive = true
     }
 
     private func layoutCartItems() {
