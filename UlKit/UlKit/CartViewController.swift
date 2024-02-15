@@ -70,6 +70,7 @@ final class CartViewController: UIViewController {
             cartItemView.cartItem = cartItem
             view.addSubview(cartItemView)
             cartItemViews.append(cartItemView)
+            cartItemView.delegate = self
         }
         view.addSubview(confirmOrderButton)
         setupConstraints()
@@ -119,5 +120,14 @@ final class CartViewController: UIViewController {
 
             previousCartItemView = cartItemView
         }
+    }
+}
+
+extension CartViewController: CartItemViewDelegate {
+    func deleteItemFromCart(_ cartItemView: CartItemView, cartItemId id: CartItem.ID) {
+        cartItems = cartItems.filter { $0.id != id }
+        cartItemViews = cartItemViews.filter { $0 != cartItemView }
+        cartItemView.removeFromSuperview()
+        layoutCartItems()
     }
 }

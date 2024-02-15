@@ -3,6 +3,10 @@
 
 import UIKit
 
+protocol CartItemViewDelegate {
+    func deleteItemFromCart(_ cartItemView: CartItemView, cartItemId id: CartItem.ID)
+}
+
 /// Панель продукта в корзине
 final class CartItemView: UIView {
     // MARK: - Constants
@@ -24,6 +28,7 @@ final class CartItemView: UIView {
     private lazy var productCardView: ProductCardView = {
         let productCard = ProductCardView()
         productCard.isAddedToCart = true
+        productCard.delegate = self
         return productCard
     }()
 
@@ -53,6 +58,8 @@ final class CartItemView: UIView {
             }
         }
     }
+
+    var delegate: CartItemViewDelegate?
 
     // MARK: - Initializers
 
@@ -127,5 +134,13 @@ final class CartItemView: UIView {
         label.font = .verdana(ofSize: Constants.productDescriptionLabelSize)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }
+}
+
+extension CartItemView: ProductCardViewDelegate {
+    func respondToCartButtonPress(_ productCardView: ProductCardView) {
+        if let cartItem {
+            delegate?.deleteItemFromCart(self, cartItemId: cartItem.id)
+        }
     }
 }

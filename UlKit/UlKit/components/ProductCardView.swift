@@ -57,7 +57,10 @@ final class ProductCardView: UIView {
             cartIconButton.setImage(isAddedToCart ? .cartIconFill : .cartIcon, for: .normal)
         }
     }
+
     var delegate: ProductCardViewDelegate?
+
+    // MARK: - Initializers
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,6 +74,8 @@ final class ProductCardView: UIView {
         setupConstraints()
     }
 
+    // MARK: - Private Methods
+
     private func setupView() {
         backgroundColor = .grayLight
         layer.cornerRadius = 20
@@ -81,7 +86,7 @@ final class ProductCardView: UIView {
 
     private func setupConstraints() {
         widthAnchor.constraint(greaterThanOrEqualToConstant: Constants.productCardMinSize.width).isActive = true
-        heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.productCardMinSize.height).isActive = true
+        widthAnchor.constraint(equalTo: heightAnchor).isActive = true
         centerXAnchor.constraint(equalTo: productImageView.centerXAnchor).isActive = true
         centerYAnchor.constraint(equalTo: productImageView.centerYAnchor).isActive = true
         cartIconButton.topAnchor.constraint(equalTo: topAnchor, constant: Constants.cartButtonPadding.y).isActive = true
