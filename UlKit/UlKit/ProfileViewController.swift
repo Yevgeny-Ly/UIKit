@@ -40,6 +40,7 @@ final class ProfileViewController: UIViewController {
         let button = SettingsButton()
         button.title = Constants.myDataButtonText
         button.image = .myProfileIcon
+        button.addTarget(self, action: #selector(openProfileSettings), for: .touchUpInside)
         return button
     }()
 
@@ -130,5 +131,11 @@ final class ProfileViewController: UIViewController {
             button.trailingAnchor.constraint(equalTo: personalDataSectionView.trailingAnchor).isActive = true
             previousSettingsButton = button
         }
+    }
+
+    @objc private func openProfileSettings() {
+        let profileViewController = UINavigationController(rootViewController: ProfileSettingsViewController())
+        profileViewController.modalPresentationStyle = .fullScreen
+        present(profileViewController, animated: true)
     }
 }

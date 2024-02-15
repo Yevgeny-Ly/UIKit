@@ -24,6 +24,8 @@
 		DA312AD52B7D75930099FF36 /* QuantityStepperControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */; };
 		DA312AD72B7E4A970099FF36 /* DiscountCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD62B7E4A970099FF36 /* DiscountCardView.swift */; };
 		DA312AD92B7E5C7E0099FF36 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */; };
+		DA312ADB2B7E67500099FF36 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ADA2B7E67500099FF36 /* ProfileSettingsViewController.swift */; };
+		DA312ADD2B7E6A490099FF36 /* PlainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ADC2B7E6A490099FF36 /* PlainTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityStepperControl.swift; sourceTree = "<group>"; };
 		DA312AD62B7E4A970099FF36 /* DiscountCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCardView.swift; sourceTree = "<group>"; };
 		DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		DA312ADA2B7E67500099FF36 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		DA312ADC2B7E6A490099FF36 /* PlainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 				93DDD1682B71134500D2D339 /* CatalogViewController.swift */,
 				DA312ABF2B7CCB9C0099FF36 /* CartViewController.swift */,
 				DA312AC12B7CCBD80099FF36 /* ProfileViewController.swift */,
+				DA312ADA2B7E67500099FF36 /* ProfileSettingsViewController.swift */,
 				93DDD16D2B71134600D2D339 /* Assets.xcassets */,
 				93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */,
 				93DDD1722B71134600D2D339 /* Info.plist */,
@@ -110,6 +115,7 @@
 				DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */,
 				DA312AD62B7E4A970099FF36 /* DiscountCardView.swift */,
 				DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */,
+				DA312ADC2B7E6A490099FF36 /* PlainTextField.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -239,11 +245,13 @@
 			files = (
 				DA312AD52B7D75930099FF36 /* QuantityStepperControl.swift in Sources */,
 				DA312AC02B7CCB9C0099FF36 /* CartViewController.swift in Sources */,
+				DA312ADD2B7E6A490099FF36 /* PlainTextField.swift in Sources */,
 				DA312AC72B7CD3CE0099FF36 /* UIFont+Verdana.swift in Sources */,
 				DA312ACF2B7D59B10099FF36 /* ShoesProduct.swift in Sources */,
 				DA312ACC2B7D55BC0099FF36 /* Product.swift in Sources */,
 				93DDD1692B71134500D2D339 /* CatalogViewController.swift in Sources */,
 				DA312AC22B7CCBD80099FF36 /* ProfileViewController.swift in Sources */,
+				DA312ADB2B7E67500099FF36 /* ProfileSettingsViewController.swift in Sources */,
 				DA312AD92B7E5C7E0099FF36 /* SettingsButton.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
