@@ -26,6 +26,8 @@
 		DA312AD92B7E5C7E0099FF36 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */; };
 		DA312ADB2B7E67500099FF36 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ADA2B7E67500099FF36 /* ProfileSettingsViewController.swift */; };
 		DA312ADD2B7E6A490099FF36 /* PlainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ADC2B7E6A490099FF36 /* PlainTextField.swift */; };
+		DA312AE12B7EA0B00099FF36 /* ProfileFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AE02B7EA0B00099FF36 /* ProfileFormData.swift */; };
+		DA312AE52B7EB11D0099FF36 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AE42B7EB11D0099FF36 /* PrimaryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		DA312ADA2B7E67500099FF36 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
 		DA312ADC2B7E6A490099FF36 /* PlainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextField.swift; sourceTree = "<group>"; };
+		DA312AE02B7EA0B00099FF36 /* ProfileFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFormData.swift; sourceTree = "<group>"; };
+		DA312AE42B7EB11D0099FF36 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 				DA312AD62B7E4A970099FF36 /* DiscountCardView.swift */,
 				DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */,
 				DA312ADC2B7E6A490099FF36 /* PlainTextField.swift */,
+				DA312AE42B7EB11D0099FF36 /* PrimaryButton.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 				DA312ACB2B7D55BC0099FF36 /* Product.swift */,
 				DA312ACE2B7D59B10099FF36 /* ShoesProduct.swift */,
 				DA312AD22B7D65DC0099FF36 /* CartItem.swift */,
+				DA312AE02B7EA0B00099FF36 /* ProfileFormData.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 				DA312AD12B7D624B0099FF36 /* CartItemView.swift in Sources */,
 				DA312AC92B7D3C8B0099FF36 /* ProductCardView.swift in Sources */,
 				DA312AD72B7E4A970099FF36 /* DiscountCardView.swift in Sources */,
+				DA312AE12B7EA0B00099FF36 /* ProfileFormData.swift in Sources */,
+				DA312AE52B7EB11D0099FF36 /* PrimaryButton.swift in Sources */,
 				DA312AD32B7D65DC0099FF36 /* CartItem.swift in Sources */,
 				DA312AC42B7CCE740099FF36 /* MarketplaceAppTabBarController.swift in Sources */,
 			);
