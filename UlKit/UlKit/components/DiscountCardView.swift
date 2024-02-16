@@ -88,7 +88,7 @@ final class DiscountCardView: UIView {
     }
 
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
+        [
             heightAnchor.constraint(equalTo: widthAnchor, multiplier: Constants.cardRatio),
             logoView.topAnchor.constraint(equalTo: topAnchor, constant: Constants.logoPadding.y),
             logoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.logoPadding.x),
@@ -112,7 +112,7 @@ final class DiscountCardView: UIView {
                 constant: Constants.discountValuePadding.y
             ),
             bottomAnchor.constraint(equalTo: cardNumberLabel.bottomAnchor, constant: Constants.cardNumberPadding.y)
-        ])
+        ].forEach { $0.isActive = true }
     }
 
     private func makeIconButton(icon: UIImage) -> UIButton {

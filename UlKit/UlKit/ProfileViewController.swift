@@ -80,7 +80,7 @@ final class ProfileViewController: UIViewController {
     }
 
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
+        [
             discountCardView.topAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.topAnchor,
                 constant: Constants.discountCardPadding.y
@@ -112,7 +112,7 @@ final class ProfileViewController: UIViewController {
             personalDataLabel.leadingAnchor.constraint(equalTo: personalDataSectionView.leadingAnchor),
             personalDataLabel.trailingAnchor.constraint(equalTo: personalDataSectionView.trailingAnchor),
             personalDataLabel.topAnchor.constraint(equalTo: personalDataSectionView.topAnchor)
-        ])
+        ].forEach { $0.isActive = true }
 
         var previousSettingsButton: UIButton?
         for button in [myDataButton, inviteFriendButton, feedbackButton] {

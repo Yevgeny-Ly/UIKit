@@ -62,11 +62,11 @@ final class SettingsButton: UIButton {
     }
 
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
+        [
             heightAnchor.constraint(equalToConstant: Constants.buttonHeight),
             borderBottomView.bottomAnchor.constraint(equalTo: bottomAnchor),
             leadingAnchor.constraint(equalTo: borderBottomView.leadingAnchor),
             trailingAnchor.constraint(equalTo: borderBottomView.trailingAnchor)
-        ])
+        ].forEach { $0.isActive = true }
     }
 }
