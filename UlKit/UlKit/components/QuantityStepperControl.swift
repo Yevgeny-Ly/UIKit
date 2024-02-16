@@ -12,7 +12,6 @@ final class QuantityStepperControl: UIView {
         static let stepperValueLabelSize = 12.0
         static let stepperValueLabelPadding = 3.0
         static let stepperValueMinWidth = 17.0
-        static let stepperButtonTitleSize = 10.0
         static let stepperButtonSize = 15.0
     }
 
@@ -90,20 +89,9 @@ final class QuantityStepperControl: UIView {
     }
 
     private func makeStepperButton() -> UIButton {
-        let button = UIButton(configuration: UIButton.Configuration.filled())
-        button.configuration?.cornerStyle = .capsule
-        button.configuration?.baseBackgroundColor = .pinkLight
-        button.configuration?.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer {
-            var attributetTitle = $0
-            attributetTitle.foregroundColor = UIColor.black
-            attributetTitle.font = UIFont.verdana(ofSize: Constants.stepperButtonTitleSize)
-            return attributetTitle
-        }
-
-        button.translatesAutoresizingMaskIntoConstraints = false
+        let button = SecondaryButton()
         button.widthAnchor.constraint(equalToConstant: Constants.stepperButtonSize).isActive = true
         button.heightAnchor.constraint(equalTo: button.widthAnchor).isActive = true
-
         return button
     }
 

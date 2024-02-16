@@ -16,8 +16,20 @@ final class CartViewController: UIViewController {
         static let confirmOrderButtonSpacing = (x: 20.0, y: 34.0)
 
         static let cartItemsMock: [CartItem] = [
-            CartItem(product: Product(name: "Женские ботинки", image: "shoes", price: 4250)),
-            CartItem(product: Product(name: "Туфли женские ", image: "shoes", price: 3500))
+            CartItem(product: ShoesProduct(
+                name: "Женские ботинки",
+                image: "shoes",
+                price: 4250,
+                availableSizes: [35, 36, 37, 38, 39],
+                size: 36
+            )),
+            CartItem(product: ShoesProduct(
+                name: "Туфли женские ",
+                image: "shoes",
+                price: 3500,
+                availableSizes: [34, 39, 40],
+                size: 34
+            ))
         ]
     }
 
@@ -66,7 +78,7 @@ final class CartViewController: UIViewController {
         cartItems = Constants.cartItemsMock
 
         for cartItem in cartItems {
-            let cartItemView = CartItemView()
+            let cartItemView = CartItemView(cartItem: cartItem)
             cartItemView.cartItem = cartItem
             view.addSubview(cartItemView)
             cartItemViews.append(cartItemView)

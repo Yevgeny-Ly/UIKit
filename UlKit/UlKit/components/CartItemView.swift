@@ -3,7 +3,7 @@
 
 import UIKit
 
-protocol CartItemViewDelegate {
+protocol CartItemViewDelegate: AnyObject {
     func deleteItemFromCart(_ cartItemView: CartItemView, cartItemId id: CartItem.ID)
 }
 
@@ -21,6 +21,8 @@ final class CartItemView: UIView {
         static let productNameLabelPaddingTop = 18.0
         static let quantityPaddingTop = 12.0
         static let sizeLabelPaddingTop = 12.0
+        static let sizeLabelPaddingBottom = 10.0
+        static let sizePickerPaddingBottom = 7.0
     }
 
     // MARK: - Visual Components
@@ -39,6 +41,15 @@ final class CartItemView: UIView {
         return label
     }()
 
+    private lazy var sizePickerView: SizePickerView = {
+        var availableSizes = [String]()
+        if let shoesProduct = cartItem.product as? ShoesProduct {
+            availableSizes = shoesProduct.availableSizes.map { "\($0)" }
+        }
+        let sizePicker = SizePickerView(availableSizes: availableSizes)
+        return sizePicker
+    }()
+
     private lazy var productNameLabel = makeProductDescriptionLabel()
     private lazy var quantityLabel = makeProductDescriptionLabel(withText: Constants.quantityLabelText)
     private lazy var sizeLabel = makeProductDescriptionLabel(withText: Constants.sizeLabelText)
@@ -48,36 +59,27 @@ final class CartItemView: UIView {
 
     // MARK: - Public Properties
 
-    var cartItem: CartItem? {
-        didSet {
-            if let cartItem {
-                productCardView.productImage = UIImage(named: cartItem.product.image)
-                productNameLabel.text = cartItem.product.name
-                quantityStepper.value = cartItem.quantity
-                priceValueLabel.text = "\(cartItem.product.price) \(Constants.currencyText)"
-            }
-        }
-    }
-
+    var cartItem: CartItem
     var delegate: CartItemViewDelegate?
 
     // MARK: - Initializers
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(cartItem: CartItem) {
+        self.cartItem = cartItem
+        super.init(frame: .zero)
         setupView()
-        setupConstraints()
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
-        setupConstraints()
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Private Methods
 
     private func setupView() {
+        setupSubviews()
+
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(productCardView)
         addSubview(productNameLabel)
@@ -86,10 +88,25 @@ final class CartItemView: UIView {
         addSubview(quantityStepper)
         addSubview(priceLabel)
         addSubview(priceValueLabel)
+        addSubview(sizePickerView)
+        setupConstraints()
+    }
+
+    private func setupSubviews() {
+        productCardView.productImage = UIImage(named: cartItem.product.image)
+        productNameLabel.text = cartItem.product.name
+        quantityStepper.value = cartItem.quantity
+        priceValueLabel.text = "\(cartItem.product.price) \(Constants.currencyText)"
+
+        if let shoesProduct = cartItem.product as? ShoesProduct {
+            if let size = shoesProduct.size {
+                sizePickerView.selectedSize = "\(size)"
+            }
+        }
     }
 
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
+        [
             productCardView.topAnchor.constraint(equalTo: topAnchor),
             productCardView.bottomAnchor.constraint(equalTo: bottomAnchor),
             productCardView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -124,8 +141,22 @@ final class CartItemView: UIView {
             ),
             priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             priceValueLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            priceValueLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
+            priceValueLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+
+            sizePickerView.leadingAnchor.constraint(
+                equalTo: productCardView.trailingAnchor,
+                constant: Constants.productCardViewPaddingRight
+            ),
+            trailingAnchor.constraint(equalTo: sizePickerView.trailingAnchor),
+            sizePickerView.topAnchor.constraint(
+                equalTo: sizeLabel.bottomAnchor,
+                constant: Constants.sizeLabelPaddingBottom
+            ),
+            priceLabel.topAnchor.constraint(
+                equalTo: sizePickerView.bottomAnchor,
+                constant: Constants.sizePickerPaddingBottom
+            )
+        ].forEach { $0.isActive = true }
     }
 
     private func makeProductDescriptionLabel(withText text: String = "") -> UILabel {
@@ -139,8 +170,6 @@ final class CartItemView: UIView {
 
 extension CartItemView: ProductCardViewDelegate {
     func respondToCartButtonPress(_ productCardView: ProductCardView) {
-        if let cartItem {
-            delegate?.deleteItemFromCart(self, cartItemId: cartItem.id)
-        }
+        delegate?.deleteItemFromCart(self, cartItemId: cartItem.id)
     }
 }
