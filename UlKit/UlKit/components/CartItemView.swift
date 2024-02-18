@@ -60,7 +60,7 @@ final class CartItemView: UIView {
     // MARK: - Public Properties
 
     var cartItem: CartItem
-    var delegate: CartItemViewDelegate?
+    weak var delegate: CartItemViewDelegate?
 
     // MARK: - Initializers
 

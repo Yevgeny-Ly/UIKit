@@ -58,7 +58,7 @@ final class ProductCardView: UIView {
         }
     }
 
-    var delegate: ProductCardViewDelegate?
+    weak var delegate: ProductCardViewDelegate?
 
     // MARK: - Initializers
 
