@@ -4,7 +4,7 @@
 import UIKit
 
 protocol ProductCardViewDelegate: AnyObject {
-    func respondToCartButtonPress(_ productCardView: ProductCardView)
+    func respondToCartButtonPress(_ productCardView: ProductCardView, product: Product)
 }
 
 /// Карточка товара
@@ -43,21 +43,40 @@ final class ProductCardView: UIView {
         return button
     }()
 
+    private let priceLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .black
+        label.font = .verdanaBold(ofSize: 10)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     // MARK: - Public Properties
 
-    var productImage: UIImage? {
+    weak var delegate: ProductCardViewDelegate?
+
+    var productImage: String? {
         didSet {
-            productImageView.image = productImage
+            productImageView.image = UIImage(named: productImage ?? "")
         }
     }
 
-    var price: Int?
+    var price: Int? {
+        didSet {
+            if let price = price {
+                priceLabel.text = "\(price) ₽"
+            } else {
+                priceLabel.text = ""
+            }
+        }
+    }
+
     var isAddedToCart: Bool = false {
         didSet {
             cartIconButton.setImage(isAddedToCart ? .cartIconFill : .cartIcon, for: .normal)
         }
     }
-    var delegate: ProductCardViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,6 +96,7 @@ final class ProductCardView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(productImageView)
         addSubview(cartIconButton)
+        addSubview(priceLabel)
     }
 
     private func setupConstraints() {
@@ -87,9 +107,18 @@ final class ProductCardView: UIView {
         cartIconButton.topAnchor.constraint(equalTo: topAnchor, constant: Constants.cartButtonPadding.y).isActive = true
         trailingAnchor.constraint(equalTo: cartIconButton.trailingAnchor, constant: Constants.cartButtonPadding.x)
             .isActive = true
+        priceLabel.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 15).isActive = true
+        priceLabel.rightAnchor.constraint(equalTo: productImageView.rightAnchor, constant: 15).isActive = true
     }
 
     @objc private func cartButtonPressed() {
-        delegate?.respondToCartButtonPress(self)
+        let productCardView = ProductCardView()
+        if let productImage = productImage,
+           let price = price
+        {
+            let product: Product = .init(name: "", image: productImage, price: price)
+            delegate?.respondToCartButtonPress(self, product: product)
+            isAddedToCart = true
+        }
     }
 }

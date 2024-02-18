@@ -3,9 +3,15 @@
 
 import UIKit
 
-final class CartViewController: UIViewController {
+class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Корзина"
+    }
+}
+
+extension CartViewController: DetailsShoesViewControllerDelegate {
+    func sendInfo(_ from: DetailsShoesViewController, product: Product) {
+        print(product)
+        print("респечатай его цену и покажи картинку")
     }
 }
