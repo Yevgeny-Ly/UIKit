@@ -116,7 +116,7 @@ final class ProductCardView: UIView {
         if let productImage = productImage,
            let price = price
         {
-            let product: Product = .init(name: "", image: productImage, price: price)
+            let product = Product(name: "", image: productImage, price: price)
             delegate?.respondToCartButtonPress(self, product: product)
             isAddedToCart = true
         }

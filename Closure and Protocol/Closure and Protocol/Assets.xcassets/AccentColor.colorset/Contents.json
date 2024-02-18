@@ -1,7 +1,6 @@
 {
-  "images" : [
+  "colors" : [
     {
-      "filename" : "close.pdf",
       "idiom" : "universal"
     }
   ],

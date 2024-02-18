@@ -4,7 +4,7 @@
 import UIKit
 
 protocol DetailsShoesViewControllerDelegate: AnyObject {
-    func sendInfo(_ from: DetailsShoesViewController, product: Product)
+    func acceptInfo(_ from: DetailsShoesViewController, product: Product)
 }
 
 /// Описывает детальный экран, где есть выбор обуви из категории
@@ -136,7 +136,7 @@ final class DetailsShoesViewController: UIViewController {
 /// передача данных в "корзину" и вызов представления с размерами обуви
 extension DetailsShoesViewController: ProductCardViewDelegate {
     func respondToCartButtonPress(_ productCardView: ProductCardView, product: Product) {
-        delegate?.sendInfo(self, product: product)
+        delegate?.acceptInfo(self, product: product)
         let sizeSelectionViewController = SizeSelectionViewController()
         sizeSelectionViewController.modalPresentationStyle = .automatic
         present(sizeSelectionViewController, animated: true)

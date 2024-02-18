@@ -16,24 +16,7 @@ final class CatalogViewController: UIViewController {
         static let blockBags = "bags"
         static let blockShoes = "shoes"
 
-        static let fontVerdanaBold = "Verdana-Bold"
         static let titleCatalog = "Каталог"
-
-        static let shoesNameImage = "womanShoes"
-        static let sandalsNameImage = "sandalsWoman"
-        static let brendsNameImage = "brends"
-        static let bagNameImage = "bagWoman"
-        static let shoesWomanNamePicture = "shoesWoman"
-
-        static let manShoesNameImage = "manShoes"
-        static let manSneakersNameImage = "manSneakers"
-        static let shoesManNameImage = "shoesMan"
-        static let bagManNameImage = "bagMan"
-
-        static let kidsSneakersNameImage = "kidsSneakers"
-        static let babySneakersNameImage = "babySneakers"
-        static let childrensSneakersNameImage = "childrensSneakers"
-        static let babyBackpackNameImage = "babyBackpack"
     }
 
     // MARK: - Private Properties
@@ -48,20 +31,19 @@ final class CatalogViewController: UIViewController {
 
     private lazy var shadowSneakersView = createShadowView()
 
-    private lazy var shoesImageView: UIImageView = createImageView(nameImage: Constants.shoesNameImage)
+    private lazy var shoesImageView: UIImageView = createImageView(image: .womanShoes)
 
-    private lazy var sneakersImageView: UIImageView = createImageView(nameImage: Constants.sandalsNameImage)
+    private lazy var sneakersImageView: UIImageView = createImageView(image: .sandalsWoman)
 
-    private lazy var brendsButton: UIButton = createButton(
-        title: Constants.blockBrands,
-        imageName: Constants.brendsNameImage
+    private lazy var brandsButton: UIButton = createButton(
+        title: Constants.blockBrands, image: .brends
     )
 
-    private lazy var bagButton: UIButton = createButton(title: Constants.blockBags, imageName: Constants.bagNameImage)
+    private lazy var bagButton: UIButton = createButton(title: Constants.blockBags, image: .bagWoman)
 
     private lazy var shoesButton: UIButton = createButton(
         title: Constants.blockShoes,
-        imageName: Constants.shoesWomanNamePicture,
+        image: .shoesWoman,
         action: #selector(goToShoesWomanDetails)
     )
 
@@ -71,7 +53,7 @@ final class CatalogViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         setupBarButtonItem()
-        configElementsButton()
+        configureElementsButton()
         configSegmentControl()
     }
 
@@ -88,7 +70,7 @@ final class CatalogViewController: UIViewController {
             categoriesSegmentedControl,
             shadowShoesView,
             shadowSneakersView,
-            brendsButton,
+            brandsButton,
             shoesButton,
             bagButton
         ] {
@@ -128,13 +110,13 @@ final class CatalogViewController: UIViewController {
             .isActive = true
         sneakersImageView.bottomAnchor.constraint(equalTo: shadowSneakersView.bottomAnchor).isActive = true
 
-        brendsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
-        brendsButton.topAnchor.constraint(equalTo: sneakersImageView.bottomAnchor, constant: 15).isActive = true
-        brendsButton.widthAnchor.constraint(equalToConstant: 345).isActive = true
-        brendsButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        brandsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
+        brandsButton.topAnchor.constraint(equalTo: sneakersImageView.bottomAnchor, constant: 15).isActive = true
+        brandsButton.widthAnchor.constraint(equalToConstant: 345).isActive = true
+        brandsButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
 
         shoesButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
-        shoesButton.topAnchor.constraint(equalTo: brendsButton.bottomAnchor, constant: 15).isActive = true
+        shoesButton.topAnchor.constraint(equalTo: brandsButton.bottomAnchor, constant: 15).isActive = true
         shoesButton.widthAnchor.constraint(equalToConstant: 345).isActive = true
         shoesButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
 
@@ -163,15 +145,15 @@ final class CatalogViewController: UIViewController {
         [cameraLogo, barcodeLogo].forEach { $0.tintColor = .black }
     }
 
-    private func createButton(title: String, imageName: String, action: Selector? = nil) -> UIButton {
+    private func createButton(title: String, image: UIImage, action: Selector? = nil) -> UIButton {
         let button = UIButton()
         button.layer.cornerRadius = 12
         button.setTitle(title, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .grayLight
-        button.titleLabel?.font = UIFont(name: Constants.fontVerdanaBold, size: 14)
-        button.setImage(UIImage(named: imageName), for: .normal)
-        if let action = action {
+        button.titleLabel?.font = .verdanaBold(ofSize: 14)
+        button.setImage(image, for: .normal)
+        if let action {
             button.addTarget(self, action: action, for: .touchUpInside)
         }
         return button
@@ -189,9 +171,9 @@ final class CatalogViewController: UIViewController {
         return view
     }
 
-    private func createImageView(nameImage: String) -> UIImageView {
+    private func createImageView(image: UIImage) -> UIImageView {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: nameImage)
+        imageView.image = image
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
@@ -199,9 +181,9 @@ final class CatalogViewController: UIViewController {
         return imageView
     }
 
-    private func configElementsButton() {
-        brendsButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -340, bottom: 0, right: -10)
-        brendsButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 245, bottom: 0, right: 10)
+    private func configureElementsButton() {
+        brandsButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -340, bottom: 0, right: -10)
+        brandsButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 245, bottom: 0, right: 10)
 
         shoesButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: -345, bottom: 0, right: -10)
         shoesButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 245, bottom: 0, right: 10)
@@ -235,20 +217,20 @@ final class CatalogViewController: UIViewController {
     private func reactsToSwitches() {
         switch categoriesSegmentedControl.selectedSegmentIndex {
         case 0:
-            shoesImageView.image = UIImage(named: Constants.shoesNameImage)
-            sneakersImageView.image = UIImage(named: Constants.sandalsNameImage)
-            shoesButton.setImage(UIImage(named: Constants.shoesWomanNamePicture), for: .normal)
-            bagButton.setImage(UIImage(named: Constants.bagNameImage), for: .normal)
+            shoesImageView.image = .womanShoes
+            sneakersImageView.image = .sandalsWoman
+            shoesButton.setImage(.shoesWoman, for: .normal)
+            bagButton.setImage(.bagWoman, for: .normal)
         case 1:
-            shoesImageView.image = UIImage(named: Constants.manShoesNameImage)
-            sneakersImageView.image = UIImage(named: Constants.manSneakersNameImage)
-            shoesButton.setImage(UIImage(named: Constants.shoesManNameImage), for: .normal)
-            bagButton.setImage(UIImage(named: Constants.bagManNameImage), for: .normal)
+            shoesImageView.image = .manShoes
+            sneakersImageView.image = .manSneakers
+            shoesButton.setImage(.shoesMan, for: .normal)
+            bagButton.setImage(.bagMan, for: .normal)
         case 2:
-            shoesImageView.image = UIImage(named: Constants.kidsSneakersNameImage)
-            sneakersImageView.image = UIImage(named: Constants.babySneakersNameImage)
-            shoesButton.setImage(UIImage(named: Constants.childrensSneakersNameImage), for: .normal)
-            bagButton.setImage(UIImage(named: Constants.babyBackpackNameImage), for: .normal)
+            shoesImageView.image = .kidsSneakers
+            sneakersImageView.image = .babySneakers
+            shoesButton.setImage(.childrensSneakers, for: .normal)
+            bagButton.setImage(.babyBackpack, for: .normal)
         default:
             break
         }

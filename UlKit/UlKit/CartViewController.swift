@@ -3,14 +3,14 @@
 
 import UIKit
 
-class CartViewController: UIViewController {
+final class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
 
 extension CartViewController: DetailsShoesViewControllerDelegate {
-    func sendInfo(_ from: DetailsShoesViewController, product: Product) {
+    func acceptInfo(_ from: DetailsShoesViewController, product: Product) {
         print(product)
         print("респечатай его цену и покажи картинку")
     }
