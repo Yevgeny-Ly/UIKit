@@ -77,7 +77,7 @@ final class CatalogViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        setupViews()
+        setupConstraints()
     }
 
     private func addSubviews() {
@@ -99,7 +99,7 @@ final class CatalogViewController: UIViewController {
 
     // MARK: - Private Methods
 
-    private func setupViews() {
+    private func setupConstraints() {
         categoriesSegmentedControl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         categoriesSegmentedControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
         categoriesSegmentedControl.heightAnchor.constraint(equalToConstant: 44).isActive = true
@@ -268,6 +268,7 @@ final class CatalogViewController: UIViewController {
     }
 }
 
+/// настройка выбора и обработки изображения из камеры
 extension CatalogViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func chooseImagePicker(source: UIImagePickerController.SourceType) {
         if UIImagePickerController.isSourceTypeAvailable(source) {

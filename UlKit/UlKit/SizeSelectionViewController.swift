@@ -80,7 +80,7 @@ final class SizeSelectionViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        setupViews()
+        setupConstraints()
     }
 
     // MARK: - Private Methods
@@ -106,7 +106,7 @@ final class SizeSelectionViewController: UIViewController {
         }
     }
 
-    private func setupViews() {
+    private func setupConstraints() {
         closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         closeButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
 

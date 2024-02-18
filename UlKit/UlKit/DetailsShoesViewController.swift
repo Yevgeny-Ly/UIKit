@@ -77,7 +77,7 @@ final class DetailsShoesViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        setupViews()
+        setupConstraints()
     }
 
     // MARK: - Private Methods
@@ -95,7 +95,7 @@ final class DetailsShoesViewController: UIViewController {
         }
     }
 
-    private func setupViews() {
+    private func setupConstraints() {
         shoesOpenToeImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
         shoesOpenToeImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
 
@@ -133,6 +133,7 @@ final class DetailsShoesViewController: UIViewController {
     }
 }
 
+/// передача данных в "корзину" и вызов представления с размерами обуви
 extension DetailsShoesViewController: ProductCardViewDelegate {
     func respondToCartButtonPress(_ productCardView: ProductCardView, product: Product) {
         delegate?.sendInfo(self, product: product)
