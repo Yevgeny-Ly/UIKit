@@ -55,13 +55,25 @@ struct ProfileFormData {
     }
 
     var isEmpty: Bool {
-        let stringValues = [name, lastName, number, footSize, email]
-        let allStringValuesEmpty = stringValues.allSatisfy {
-            if let str = $0, !str.isEmpty {
+        let mirror = Mirror(reflecting: self)
+        return mirror.children.allSatisfy { _, value in
+            switch value {
+            case let value as String:
+                return value.isEmpty
+            case Optional<Any>.some:
+                return true
+            default:
                 return false
             }
-            return true
         }
-        return allStringValuesEmpty && dateOfBirth == nil
+
+//        let stringValues = [name, lastName, number, footSize, email]
+//        let allStringValuesEmpty = stringValues.allSatisfy {
+//            if let str = $0, !str.isEmpty {
+//                return false
+//            }
+//            return true
+//        }
+//        return allStringValuesEmpty && dateOfBirth == nil
     }
 }
