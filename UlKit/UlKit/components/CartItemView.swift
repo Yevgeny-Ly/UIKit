@@ -93,7 +93,7 @@ final class CartItemView: UIView {
     }
 
     private func setupSubviews() {
-        productCardView.productImage = UIImage(named: cartItem.product.image)
+        productCardView.productImage = cartItem.product.image
         productNameLabel.text = cartItem.product.name
         quantityStepper.value = cartItem.quantity
         priceValueLabel.text = "\(cartItem.product.price) \(Constants.currencyText)"
@@ -169,7 +169,7 @@ final class CartItemView: UIView {
 }
 
 extension CartItemView: ProductCardViewDelegate {
-    func respondToCartButtonPress(_ productCardView: ProductCardView) {
+    func respondToCartButtonPress(_ productCardView: ProductCardView, product: Product) {
         delegate?.deleteItemFromCart(self, cartItemId: cartItem.id)
     }
 }

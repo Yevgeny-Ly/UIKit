@@ -43,6 +43,7 @@ final class CartViewController: UIViewController {
         didSet {
             isConfirmOrderButtonEnabled = !cartItems.isEmpty
             cartSum = cartItems.reduce(0) { $0 + $1.quantity * $1.product.price }
+            layoutCartItems()
         }
     }
 
@@ -75,7 +76,7 @@ final class CartViewController: UIViewController {
 
     private func setupView() {
         title = Constants.screenTitle
-        cartItems = Constants.cartItemsMock
+//        cartItems = Constants.cartItemsMock
 
         for cartItem in cartItems {
             let cartItemView = CartItemView(cartItem: cartItem)
@@ -141,5 +142,11 @@ extension CartViewController: CartItemViewDelegate {
         cartItemViews = cartItemViews.filter { $0 != cartItemView }
         cartItemView.removeFromSuperview()
         layoutCartItems()
+    }
+}
+
+extension CartViewController: DetailsShoesViewControllerDelegate {
+    func acceptInfo(_ from: DetailsShoesViewController, product: Product) {
+        cartItems.append(CartItem(product: product, quantity: 1))
     }
 }

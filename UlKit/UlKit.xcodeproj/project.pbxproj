@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93358DA02B7D015000880259 /* DetailsShoesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93358D9F2B7D015000880259 /* DetailsShoesViewController.swift */; };
+		93358DA22B7D762200880259 /* SizeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93358DA12B7D762200880259 /* SizeSelectionViewController.swift */; };
+		935D2CB02B8005B700C1EA6F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935D2CAF2B8005B700C1EA6F /* Product.swift */; };
 		93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1642B71134500D2D339 /* AppDelegate.swift */; };
 		93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1662B71134500D2D339 /* SceneDelegate.swift */; };
 		93DDD1692B71134500D2D339 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* CatalogViewController.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93358D9F2B7D015000880259 /* DetailsShoesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsShoesViewController.swift; sourceTree = "<group>"; };
+		93358DA12B7D762200880259 /* SizeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSelectionViewController.swift; sourceTree = "<group>"; };
+		935D2CAF2B8005B700C1EA6F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		93DDD1612B71134500D2D339 /* UlKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DDD1642B71134500D2D339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DDD1662B71134500D2D339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +103,9 @@
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
 				DA312AC32B7CCE740099FF36 /* MarketplaceAppTabBarController.swift */,
 				93DDD1682B71134500D2D339 /* CatalogViewController.swift */,
+				93358D9F2B7D015000880259 /* DetailsShoesViewController.swift */,
+				93358DA12B7D762200880259 /* SizeSelectionViewController.swift */,
+				935D2CAF2B8005B700C1EA6F /* Product.swift */,
 				DA312ABF2B7CCB9C0099FF36 /* CartViewController.swift */,
 				DA312AC12B7CCBD80099FF36 /* ProfileViewController.swift */,
 				DA312ADA2B7E67500099FF36 /* ProfileSettingsViewController.swift */,
@@ -256,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA312AD52B7D75930099FF36 /* QuantityStepperControl.swift in Sources */,
+				93358DA22B7D762200880259 /* SizeSelectionViewController.swift in Sources */,
 				DA312AC02B7CCB9C0099FF36 /* CartViewController.swift in Sources */,
 				DA312ADD2B7E6A490099FF36 /* PlainTextField.swift in Sources */,
 				DA312AC72B7CD3CE0099FF36 /* UIFont+Verdana.swift in Sources */,
@@ -267,6 +277,7 @@
 				DA312ADB2B7E67500099FF36 /* ProfileSettingsViewController.swift in Sources */,
 				DA312AE92B7ECEA30099FF36 /* SecondaryButton.swift in Sources */,
 				DA312AD92B7E5C7E0099FF36 /* SettingsButton.swift in Sources */,
+				93358DA02B7D015000880259 /* DetailsShoesViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
 				DA312AD12B7D624B0099FF36 /* CartItemView.swift in Sources */,
