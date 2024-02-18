@@ -55,7 +55,6 @@ final class ProductCardView: UIView {
     // MARK: - Public Properties
 
     weak var delegate: ProductCardViewDelegate?
-
     var productImage: String? {
         didSet {
             productImageView.image = UIImage(named: productImage ?? "")
@@ -90,6 +89,8 @@ final class ProductCardView: UIView {
         setupConstraints()
     }
 
+    // MARK: - Private Methods
+
     private func setupView() {
         backgroundColor = .grayLight
         layer.cornerRadius = 20
@@ -101,7 +102,7 @@ final class ProductCardView: UIView {
 
     private func setupConstraints() {
         widthAnchor.constraint(greaterThanOrEqualToConstant: Constants.productCardMinSize.width).isActive = true
-        heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.productCardMinSize.height).isActive = true
+        widthAnchor.constraint(equalTo: heightAnchor).isActive = true
         centerXAnchor.constraint(equalTo: productImageView.centerXAnchor).isActive = true
         centerYAnchor.constraint(equalTo: productImageView.centerYAnchor).isActive = true
         cartIconButton.topAnchor.constraint(equalTo: topAnchor, constant: Constants.cartButtonPadding.y).isActive = true

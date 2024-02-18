@@ -14,7 +14,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.backgroundColor = .systemBackground
+        setupNavigationBarTitleAppearance()
         window?.rootViewController = MarketplaceAppTabBarController()
         window?.makeKeyAndVisible()
+    }
+
+    private func setupNavigationBarTitleAppearance() {
+        UINavigationBar.appearance()
+            .titleTextAttributes = [.font: UIFont.verdanaBold(ofSize: 16) ?? UIFont.boldSystemFont(ofSize: 16)]
     }
 }

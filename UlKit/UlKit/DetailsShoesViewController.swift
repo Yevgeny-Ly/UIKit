@@ -88,7 +88,7 @@ final class DetailsShoesViewController: UIViewController {
             bootsImageView,
             sneakersImageView,
             shoesScarpinImageView,
-            converseImageView,
+            converseImageView
         ] {
             item.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(item)

@@ -20,6 +20,19 @@
 		DA312AC42B7CCE740099FF36 /* MarketplaceAppTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AC32B7CCE740099FF36 /* MarketplaceAppTabBarController.swift */; };
 		DA312AC72B7CD3CE0099FF36 /* UIFont+Verdana.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AC62B7CD3CE0099FF36 /* UIFont+Verdana.swift */; };
 		DA312AC92B7D3C8B0099FF36 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AC82B7D3C8B0099FF36 /* ProductCardView.swift */; };
+		DA312ACC2B7D55BC0099FF36 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ACB2B7D55BC0099FF36 /* Product.swift */; };
+		DA312ACF2B7D59B10099FF36 /* ShoesProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ACE2B7D59B10099FF36 /* ShoesProduct.swift */; };
+		DA312AD12B7D624B0099FF36 /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD02B7D624B0099FF36 /* CartItemView.swift */; };
+		DA312AD32B7D65DC0099FF36 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD22B7D65DC0099FF36 /* CartItem.swift */; };
+		DA312AD52B7D75930099FF36 /* QuantityStepperControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */; };
+		DA312AD72B7E4A970099FF36 /* DiscountCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD62B7E4A970099FF36 /* DiscountCardView.swift */; };
+		DA312AD92B7E5C7E0099FF36 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */; };
+		DA312ADB2B7E67500099FF36 /* ProfileSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ADA2B7E67500099FF36 /* ProfileSettingsViewController.swift */; };
+		DA312ADD2B7E6A490099FF36 /* PlainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312ADC2B7E6A490099FF36 /* PlainTextField.swift */; };
+		DA312AE12B7EA0B00099FF36 /* ProfileFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AE02B7EA0B00099FF36 /* ProfileFormData.swift */; };
+		DA312AE52B7EB11D0099FF36 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AE42B7EB11D0099FF36 /* PrimaryButton.swift */; };
+		DA312AE72B7ECDDD0099FF36 /* SizePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AE62B7ECDDD0099FF36 /* SizePickerView.swift */; };
+		DA312AE92B7ECEA30099FF36 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA312AE82B7ECEA30099FF36 /* SecondaryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +51,19 @@
 		DA312AC32B7CCE740099FF36 /* MarketplaceAppTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceAppTabBarController.swift; sourceTree = "<group>"; };
 		DA312AC62B7CD3CE0099FF36 /* UIFont+Verdana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Verdana.swift"; sourceTree = "<group>"; };
 		DA312AC82B7D3C8B0099FF36 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
+		DA312ACB2B7D55BC0099FF36 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		DA312ACE2B7D59B10099FF36 /* ShoesProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesProduct.swift; sourceTree = "<group>"; };
+		DA312AD02B7D624B0099FF36 /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
+		DA312AD22B7D65DC0099FF36 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityStepperControl.swift; sourceTree = "<group>"; };
+		DA312AD62B7E4A970099FF36 /* DiscountCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCardView.swift; sourceTree = "<group>"; };
+		DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		DA312ADA2B7E67500099FF36 /* ProfileSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewController.swift; sourceTree = "<group>"; };
+		DA312ADC2B7E6A490099FF36 /* PlainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextField.swift; sourceTree = "<group>"; };
+		DA312AE02B7EA0B00099FF36 /* ProfileFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFormData.swift; sourceTree = "<group>"; };
+		DA312AE42B7EB11D0099FF36 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		DA312AE62B7ECDDD0099FF36 /* SizePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePickerView.swift; sourceTree = "<group>"; };
+		DA312AE82B7ECEA30099FF36 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +96,7 @@
 		93DDD1632B71134500D2D339 /* UlKit */ = {
 			isa = PBXGroup;
 			children = (
+				DA312ACD2B7D59930099FF36 /* models */,
 				DA312ACA2B7D3C910099FF36 /* components */,
 				DA312AC52B7CD3AD0099FF36 /* extensions */,
 				93DDD1642B71134500D2D339 /* AppDelegate.swift */,
@@ -81,6 +108,7 @@
 				935D2CAF2B8005B700C1EA6F /* Product.swift */,
 				DA312ABF2B7CCB9C0099FF36 /* CartViewController.swift */,
 				DA312AC12B7CCBD80099FF36 /* ProfileViewController.swift */,
+				DA312ADA2B7E67500099FF36 /* ProfileSettingsViewController.swift */,
 				93DDD16D2B71134600D2D339 /* Assets.xcassets */,
 				93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */,
 				93DDD1722B71134600D2D339 /* Info.plist */,
@@ -100,8 +128,27 @@
 			isa = PBXGroup;
 			children = (
 				DA312AC82B7D3C8B0099FF36 /* ProductCardView.swift */,
+				DA312AD02B7D624B0099FF36 /* CartItemView.swift */,
+				DA312AD42B7D75930099FF36 /* QuantityStepperControl.swift */,
+				DA312AD62B7E4A970099FF36 /* DiscountCardView.swift */,
+				DA312AD82B7E5C7E0099FF36 /* SettingsButton.swift */,
+				DA312ADC2B7E6A490099FF36 /* PlainTextField.swift */,
+				DA312AE42B7EB11D0099FF36 /* PrimaryButton.swift */,
+				DA312AE62B7ECDDD0099FF36 /* SizePickerView.swift */,
+				DA312AE82B7ECEA30099FF36 /* SecondaryButton.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		DA312ACD2B7D59930099FF36 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				DA312ACB2B7D55BC0099FF36 /* Product.swift */,
+				DA312ACE2B7D59B10099FF36 /* ShoesProduct.swift */,
+				DA312AD22B7D65DC0099FF36 /* CartItem.swift */,
+				DA312AE02B7EA0B00099FF36 /* ProfileFormData.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,16 +264,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA312AD52B7D75930099FF36 /* QuantityStepperControl.swift in Sources */,
 				93358DA22B7D762200880259 /* SizeSelectionViewController.swift in Sources */,
 				DA312AC02B7CCB9C0099FF36 /* CartViewController.swift in Sources */,
+				DA312ADD2B7E6A490099FF36 /* PlainTextField.swift in Sources */,
 				DA312AC72B7CD3CE0099FF36 /* UIFont+Verdana.swift in Sources */,
+				DA312ACF2B7D59B10099FF36 /* ShoesProduct.swift in Sources */,
+				DA312ACC2B7D55BC0099FF36 /* Product.swift in Sources */,
 				93DDD1692B71134500D2D339 /* CatalogViewController.swift in Sources */,
+				DA312AE72B7ECDDD0099FF36 /* SizePickerView.swift in Sources */,
 				DA312AC22B7CCBD80099FF36 /* ProfileViewController.swift in Sources */,
-				935D2CB02B8005B700C1EA6F /* Product.swift in Sources */,
+				DA312ADB2B7E67500099FF36 /* ProfileSettingsViewController.swift in Sources */,
+				DA312AE92B7ECEA30099FF36 /* SecondaryButton.swift in Sources */,
+				DA312AD92B7E5C7E0099FF36 /* SettingsButton.swift in Sources */,
 				93358DA02B7D015000880259 /* DetailsShoesViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
+				DA312AD12B7D624B0099FF36 /* CartItemView.swift in Sources */,
 				DA312AC92B7D3C8B0099FF36 /* ProductCardView.swift in Sources */,
+				DA312AD72B7E4A970099FF36 /* DiscountCardView.swift in Sources */,
+				DA312AE12B7EA0B00099FF36 /* ProfileFormData.swift in Sources */,
+				DA312AE52B7EB11D0099FF36 /* PrimaryButton.swift in Sources */,
+				DA312AD32B7D65DC0099FF36 /* CartItem.swift in Sources */,
 				DA312AC42B7CCE740099FF36 /* MarketplaceAppTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
