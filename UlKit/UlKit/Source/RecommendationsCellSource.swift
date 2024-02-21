@@ -5,9 +5,9 @@ import UIKit
 
 /// Источник данных для рекомендаций
 struct RecommendationsCellSource {
-    // MARK: - Public Methods
-
-    let image: UIImage
+    /// Аватарка пользователя
+    let imageUser: String
+    /// Имя пользователя
     let nameUser: String
 }
 

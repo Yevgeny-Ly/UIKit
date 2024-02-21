@@ -4,7 +4,7 @@
 import UIKit
 
 /// Контроллер табличного представвления уведомлений
-class NoticesViewController: UIViewController {
+final class NoticesViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
@@ -28,29 +28,29 @@ class NoticesViewController: UIViewController {
 
     private let tableView = UITableView(frame: .zero, style: .plain)
 
-    private let noticesCellSource: [CellTypeNotification] = [
+    private let noticesCellSource: [NotificationItemType] = [
         .picture([
-            PictureCellSource(avatar: .girlAndLavender, comment: CommentInformation(
+            PictureCellSource(avatarImage: "girlAndLavender", comment: CommentInformation(
                 nameUser: "lavanda123",
                 commentText: "понравлся ваш комментарий: «Очень красиво»"
-            ), image: .galitsynTrail),
+            ), imagePost: "galitsynTrail"),
             PictureCellSource(
-                avatar: .girlAndLavender,
+                avatarImage: "girlAndLavender",
                 comment: CommentInformation(
                     nameUser: "lavanda123",
                     commentText: "упомянул(-а) вас в комметарии: @rm Спасибо"
                 ),
-                image: .galitsynTrail
+                imagePost: "galitsynTrail"
             )
         ]),
 
         .button([
             ButtonCellSource(
-                avatar: .guy,
-                comment: CommentInformation(
+                avatarName: "guy", buttonTitle: "Подписаться",
+                comment: СommentaryInformation(
                     nameUser: "12miho",
                     commentText: "появился(-ась) в RMLink. Вы можете быть знакомы"
-                ), buttonTitle: "Подписаться"
+                )
             )
         ])
     ]
@@ -111,6 +111,8 @@ class NoticesViewController: UIViewController {
     }
 }
 
+// MARK: - Extensions
+
 extension NoticesViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         noticesCellSource.count
@@ -135,7 +137,7 @@ extension NoticesViewController: UITableViewDataSource {
                 for: indexPath
             ) as? NotificationsPictureViewCell else { return UITableViewCell() }
             let source = sources[indexPath.row]
-            cell.configurationCell(data: source)
+            cell.configure(data: source)
             return cell
 
         case let .button(sources):
@@ -144,11 +146,13 @@ extension NoticesViewController: UITableViewDataSource {
                 for: indexPath
             ) as? NotificationsButtonViewCell else { return UITableViewCell() }
             let source = sources[indexPath.row]
-            cell.configurationCell(data: source)
+            cell.configure(data: source)
             return cell
         }
     }
 }
+
+// MARK: - Extensions
 
 extension NoticesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

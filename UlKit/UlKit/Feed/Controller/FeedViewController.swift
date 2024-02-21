@@ -36,47 +36,53 @@ final class FeedViewController: UIViewController {
 
     private let tableView = UITableView(frame: .zero, style: .plain)
 
+    /// mock значения
     private lazy var rowsType: [FeedItemType] = [
         .stories([
-            StoriesCellSource(image: .girl, nameUser: "Ваша история", isAddStoriesButton: true, isNewStory: false),
             StoriesCellSource(
-                image: .girlAndLavender,
+                avatarImage: "girl",
+                nameUser: "Ваша история",
+                isAddStoriesButton: true,
+                isNewStory: false
+            ),
+            StoriesCellSource(
+                avatarImage: "girlAndLavender",
                 nameUser: "lavanda123",
                 isAddStoriesButton: false,
                 isNewStory: false
             ),
             StoriesCellSource(
-                image: .girlAndLavender,
+                avatarImage: "girlAndLavender",
                 nameUser: "lavanda123",
                 isAddStoriesButton: false,
                 isNewStory: false
             ),
             StoriesCellSource(
-                image: .girlAndLavender,
+                avatarImage: "girlAndLavender",
                 nameUser: "lavanda123",
                 isAddStoriesButton: false,
                 isNewStory: false
             ),
             StoriesCellSource(
-                image: .girlAndLavender,
+                avatarImage: "girlAndLavender",
                 nameUser: "lavanda123",
                 isAddStoriesButton: false,
                 isNewStory: false
             ),
             StoriesCellSource(
-                image: .girlAndLavender,
+                avatarImage: "girlAndLavender",
                 nameUser: "lavanda123",
                 isAddStoriesButton: false,
                 isNewStory: false
             ),
             StoriesCellSource(
-                image: .girlAndLavender,
+                avatarImage: "girlAndLavender",
                 nameUser: "lavanda123",
                 isAddStoriesButton: false,
                 isNewStory: false
             ),
             StoriesCellSource(
-                image: .girlAndLavender,
+                avatarImage: "girlAndLavender",
                 nameUser: "lavanda123",
                 isAddStoriesButton: false,
                 isNewStory: false
@@ -84,9 +90,9 @@ final class FeedViewController: UIViewController {
         ]),
 
         .post([PostCellSource(
-            imageUser: .guyAndHorses,
+            imageUser: "guyAndHorses",
             nameUser: "tur_v_dagestan",
-            image: [.dagestanForest],
+            postImage: ["dagestanForest"],
             numberLikes: Constants.numberLikes,
             comment: CommentInfo(
                 nameUser: "tur_v_dagestan",
@@ -95,16 +101,16 @@ final class FeedViewController: UIViewController {
         )]),
 
         .recommendations([
-            RecommendationsCellSource(image: .crimea, nameUser: "crimea_082"),
-            RecommendationsCellSource(image: .woman, nameUser: "mary_pol"),
-            RecommendationsCellSource(image: .woman, nameUser: "mary_pol")
+            RecommendationsCellSource(imageUser: "crimea", nameUser: "crimea_082"),
+            RecommendationsCellSource(imageUser: "woman", nameUser: "mary_pol"),
+            RecommendationsCellSource(imageUser: "woman", nameUser: "mary_pol")
         ]),
 
         .post([
             PostCellSource(
-                imageUser: .guyAndHorses,
+                imageUser: "guyAndHorses",
                 nameUser: "tur_v_dagestan",
-                image: [.dagestanMountains, .dagestanForest],
+                postImage: ["dagestanMountains", "dagestanMountains"],
                 numberLikes: Constants.numberLikes,
                 comment: CommentInfo(
                     nameUser: "tur_v_dagestan",
@@ -172,8 +178,8 @@ final class FeedViewController: UIViewController {
 
         messagesIconButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
         messagesIconButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
 
+        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
@@ -192,8 +198,9 @@ extension FeedViewController: UITableViewDataSource {
         switch cell {
         case .stories, .post, .recommendations:
             return 1
+        default:
+            rowsType.count - 1
         }
-        return rowsType.count - 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -213,7 +220,7 @@ extension FeedViewController: UITableViewDataSource {
                 withIdentifier: FeedPostsViewCell.reuseIdentifier,
                 for: indexPath
             ) as? FeedPostsViewCell else { return UITableViewCell() }
-            cell.configurationCellPosts(data: post)
+            cell.configure(data: post)
             return cell
 
         case let .recommendations(recommendation):
@@ -221,11 +228,13 @@ extension FeedViewController: UITableViewDataSource {
                 withIdentifier: FeedRecommendationsViewCell.reuseIdentifier,
                 for: indexPath
             ) as? FeedRecommendationsViewCell else { return UITableViewCell() }
-            cell.configurationCellRecommendations(data: recommendation)
+            cell.configure(data: recommendation)
             return cell
         }
     }
 }
+
+// MARK: - Extensions
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

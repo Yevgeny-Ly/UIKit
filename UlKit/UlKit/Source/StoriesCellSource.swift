@@ -5,11 +5,13 @@ import UIKit
 
 /// Источник данных для историй
 struct StoriesCellSource {
-    // MARK: - Public Methods
-
-    let image: UIImage?
+    /// Аватарка пользователя
+    let avatarImage: String
+    /// Имя пользователя
     let nameUser: String
+    ///  Добавлять ли кнопку
     let isAddStoriesButton: Bool
+    ///  Добавлять ли историю
     let isNewStory: Bool
 }
 

@@ -10,6 +10,9 @@ final class FeedPostsViewCell: UITableViewCell {
     enum Constants {
         static var fontVerdana = "Verdana"
         static var fontVerdanaBold = "Verdana-Bold"
+        static var lableCommentary = "Комментировать..."
+        static var labelTimerPost = "10 минут назад"
+        static var labelLike = "Нравится: "
     }
 
     // MARK: - Visual Components
@@ -101,7 +104,7 @@ final class FeedPostsViewCell: UITableViewCell {
 
     private let commenTextLabel: UILabel = {
         let label = UILabel()
-        label.text = "Комментировать..."
+        label.text = Constants.lableCommentary
         label.textColor = .systemGray3
         label.font = UIFont(name: Constants.fontVerdana, size: 10)
         label.textAlignment = .center
@@ -111,7 +114,7 @@ final class FeedPostsViewCell: UITableViewCell {
 
     private let timePostLabel: UILabel = {
         let label = UILabel()
-        label.text = "10 минут назад"
+        label.text = Constants.labelTimerPost
         label.textColor = .systemGray3
         label.font = UIFont(name: Constants.fontVerdana, size: 10)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -133,6 +136,7 @@ final class FeedPostsViewCell: UITableViewCell {
 
     // MARK: - Private Properties
 
+    private var loadedImages: [UIImage] = []
     private var postData: [PostCellSource] = []
 
     // MARK: - Initializers
@@ -145,21 +149,26 @@ final class FeedPostsViewCell: UITableViewCell {
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        addView()
+        setupConstraints()
     }
 
     // MARK: - Public Methods
 
-    func configurationCellPosts(data: [PostCellSource]) {
+    func configure(data: [PostCellSource]) {
         postData = data
         for (index, item) in data.enumerated() {
             pageControl.tag = index
-            userImage.image = item.imageUser
+            userImage.image = UIImage(named: item.imageUser)
             nickNameLabel.text = item.nameUser
 
-            let postImages = item.image
+            let postImages = item.postImage
             if !postImages.isEmpty {
-                postImage.image = postImages.first
+                if let firstImageName = postImages.first, let firstImage = UIImage(named: firstImageName) {
+                    postImage.image = firstImage
+                }
+
                 if postImages.count > 1 {
                     pageControl.numberOfPages = postImages.count
                     pageControl.currentPage = 0
@@ -172,7 +181,7 @@ final class FeedPostsViewCell: UITableViewCell {
                 pageControl.isHidden = true
             }
 
-            likesLabel.text = "Нравится: \(item.numberLikes)"
+            likesLabel.text = "\(Constants.labelLike)configurationCellPosts \(item.numberLikes)"
 
             if let comment = item.comment {
                 customizesLabel(with: comment)
@@ -212,54 +221,97 @@ final class FeedPostsViewCell: UITableViewCell {
     }
 
     private func setupConstraints() {
-        userImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
-        userImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
-        userImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        userImage.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        setupNickNameLabelConstraints()
+        setupShareButtonConstraints()
+        setupPostImageConstraints()
+        setupPageControlConstraints()
+        setupHeartButtonConstraints()
+        setupCommentButtonConstraints()
+        setupSendButtonConstraints()
+        setupBookmarkButtonConstraints()
+        setupLikesLabelConstraints()
+        setupCommentLabelConstraints()
+        setupMyImageViewConstraints()
+        setupCommenTextLabelConstraints()
+        setupUserImageConstraints()
+        setupTimePostLabelConstraints()
+    }
 
+    private func setupNickNameLabelConstraints() {
         nickNameLabel.centerYAnchor.constraint(equalTo: userImage.centerYAnchor).isActive = true
         nickNameLabel.leftAnchor.constraint(equalTo: userImage.rightAnchor, constant: 10).isActive = true
+    }
 
+    private func setupShareButtonConstraints() {
         shareButton.centerYAnchor.constraint(equalTo: nickNameLabel.centerYAnchor).isActive = true
         shareButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
+    }
 
+    private func setupPostImageConstraints() {
         postImage.topAnchor.constraint(equalTo: nickNameLabel.bottomAnchor, constant: 20).isActive = true
         postImage.heightAnchor.constraint(equalToConstant: 239).isActive = true
         postImage.widthAnchor.constraint(equalToConstant: 375).isActive = true
+    }
 
+    private func setupPageControlConstraints() {
         pageControl.centerXAnchor.constraint(equalTo: postImage.centerXAnchor).isActive = true
         pageControl.centerYAnchor.constraint(equalTo: sendButton.centerYAnchor).isActive = true
+    }
 
+    private func setupHeartButtonConstraints() {
         heartButton.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 10).isActive = true
         heartButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+    }
 
+    private func setupCommentButtonConstraints() {
         commentButton.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 10).isActive = true
         commentButton.leftAnchor.constraint(equalTo: heartButton.rightAnchor, constant: 12).isActive = true
+    }
 
+    private func setupSendButtonConstraints() {
         sendButton.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 10).isActive = true
         sendButton.leftAnchor.constraint(equalTo: commentButton.rightAnchor, constant: 12).isActive = true
+    }
 
+    private func setupBookmarkButtonConstraints() {
         bookmarkButton.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 10).isActive = true
         bookmarkButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
+    }
 
+    private func setupLikesLabelConstraints() {
         likesLabel.topAnchor.constraint(equalTo: bookmarkButton.bottomAnchor, constant: 10).isActive = true
         likesLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         likesLabel.widthAnchor.constraint(equalToConstant: 107).isActive = true
         likesLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+    }
 
+    private func setupCommentLabelConstraints() {
         commentLabel.topAnchor.constraint(equalTo: likesLabel.bottomAnchor, constant: 10).isActive = true
         commentLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         commentLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
         commentLabel.widthAnchor.constraint(equalToConstant: 361).isActive = true
+    }
 
+    private func setupMyImageViewConstraints() {
         myImageView.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 15).isActive = true
         myImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         myImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         myImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+    }
 
+    private func setupCommenTextLabelConstraints() {
         commenTextLabel.centerYAnchor.constraint(equalTo: myImageView.centerYAnchor).isActive = true
         commenTextLabel.leftAnchor.constraint(equalTo: myImageView.rightAnchor, constant: 5).isActive = true
+    }
 
+    private func setupUserImageConstraints() {
+        userImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        userImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        userImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        userImage.widthAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+
+    private func setupTimePostLabelConstraints() {
         timePostLabel.topAnchor.constraint(equalTo: commenTextLabel.bottomAnchor, constant: 10).isActive = true
         timePostLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         timePostLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
@@ -269,17 +321,15 @@ final class FeedPostsViewCell: UITableViewCell {
     @objc
     private func pageControlValueChanged(_ sender: UIPageControl) {
         let currentPage = sender.currentPage
-        if let item = postData[safe: sender.tag] {
-            let postImages = item.image
-            if currentPage < postImages.count {
-                postImage.image = postImages[currentPage]
+        if sender.tag < postData.count {
+            let item = postData[sender.tag]
+            if loadedImages.isEmpty {
+                loadedImages = item.postImage.map { UIImage(contentsOfFile: $0) ?? UIImage() }
+            }
+
+            if currentPage < loadedImages.count {
+                postImage.image = loadedImages[currentPage]
             }
         }
-    }
-}
-
-extension Array {
-    subscript(safe index: Int) -> Element? {
-        indices.contains(index) ? self[index] : nil
     }
 }

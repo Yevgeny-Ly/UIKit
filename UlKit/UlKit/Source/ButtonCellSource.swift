@@ -1,28 +1,24 @@
-// PostCellSource.swift
+// ButtonCellSource.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// Источник данных для постов
-struct PostCellSource {
+/// Источник данных для ячейки с кнопкой
+struct ButtonCellSource {
     /// Аватарка пользователя
-    let imageUser: String
-    /// Имя пользователя
-    let nameUser: String
-    /// Картинка для поста
-    let postImage: [String]
-    /// Количество лайков
-    let numberLikes: Int
+    let avatarName: String
+    /// Название кнопки
+    let buttonTitle: String
     /// Комментарий пользователя
-    let comment: CommentInfo?
+    let comment: СommentaryInformation?
 }
 
 /// Источник данных для подраздела комментарии
-struct CommentInfo {
+struct СommentaryInformation {
     /// Имя пользователя в комментариях
     let nameUser: String
     /// Комментарий пользователя
     let commentText: String
 }
 
-typealias PostsSourceTypealias = [PostCellSource]
+typealias ButtonCellTypealias = [ButtonCellSource]

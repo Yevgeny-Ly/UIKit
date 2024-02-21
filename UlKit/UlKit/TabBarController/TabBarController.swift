@@ -1,7 +1,7 @@
 // TabBarController.swift
 // Copyright © RoadMap. All rights reserved.
 
-/// Настраивает tab bar
+/// Настраивает TabBar
 import UIKit
 
 final class TabBarController: UITabBarController {

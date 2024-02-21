@@ -37,7 +37,9 @@ final class FeedStoriesViewCell: UITableViewCell {
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        addView()
+        setupConstraints()
     }
 
     // MARK: - Public Methods
@@ -45,7 +47,7 @@ final class FeedStoriesViewCell: UITableViewCell {
     func configurationCellStories(data: [StoriesCellSource]) {
         for item in data {
             let userImage = UIImageView()
-            userImage.image = item.image
+            userImage.image = UIImage(named: item.avatarImage)
             userImage.contentMode = .scaleAspectFit
             userImage.translatesAutoresizingMaskIntoConstraints = false
             scrollView.addSubview(userImage)
@@ -64,16 +66,13 @@ final class FeedStoriesViewCell: UITableViewCell {
                 scrollView.addSubview(addStoryButton)
 
                 addStoryButton.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: -15).isActive = true
+                addStoryButton.leftAnchor.constraint(equalTo: userImage.leftAnchor, constant: 30).isActive = true
                 addStoryButton.rightAnchor.constraint(equalTo: userImage.rightAnchor, constant: 1).isActive = true
-                addStoryButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
-                addStoryButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
             }
 
             userImage.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5).isActive = true
             userImage.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: Constants.spacingX)
                 .isActive = true
-            userImage.heightAnchor.constraint(equalToConstant: 60).isActive = true
-            userImage.widthAnchor.constraint(equalToConstant: 60).isActive = true
 
             Constants.spacingX += 75
 

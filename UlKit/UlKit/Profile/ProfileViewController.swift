@@ -4,7 +4,7 @@
 import UIKit
 
 /// Контроллер профиля
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     // MARK: - Life Cycle
 
     override func viewDidLoad() {

@@ -4,7 +4,7 @@
 import UIKit
 
 /// Настройка ячейки с кнопкой
-class NotificationsButtonViewCell: UITableViewCell {
+final class NotificationsButtonViewCell: UITableViewCell {
     // MARK: - Constants
 
     enum Constants {
@@ -14,13 +14,13 @@ class NotificationsButtonViewCell: UITableViewCell {
 
     // MARK: - Visual Components
 
-    let avatarImageView: UIImageView = {
+    private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
-    let commentLabel: UILabel = {
+    private let commentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: Constants.fontVerdana, size: 12)
         label.numberOfLines = 0
@@ -28,7 +28,7 @@ class NotificationsButtonViewCell: UITableViewCell {
         return label
     }()
 
-    let subscribeButton: UIButton = {
+    private let subscribeButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .buttonSubscription
         button.titleLabel?.font = UIFont(name: Constants.fontVerdanaBold, size: 10)
@@ -51,13 +51,15 @@ class NotificationsButtonViewCell: UITableViewCell {
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        addViews()
+        setupConstraints()
     }
 
     // MARK: - Public Methods
 
-    func configurationCell(data: ButtonCellSource) {
-        avatarImageView.image = data.avatar
+    func configure(data: ButtonCellSource) {
+        avatarImageView.image = UIImage(named: data.avatarName)
         subscribeButton.setTitle(data.buttonTitle, for: .normal)
 
         if let comment = data.comment {
@@ -67,7 +69,7 @@ class NotificationsButtonViewCell: UITableViewCell {
 
     // MARK: - Private Methods
 
-    private func customizesLabel(with comment: CommentInformation) {
+    private func customizesLabel(with comment: СommentaryInformation) {
         let string = comment.nameUser + " " + comment.commentText
         let attributedString = NSMutableAttributedString(string: string)
         let range = NSRange(location: .zero, length: comment.nameUser.count)

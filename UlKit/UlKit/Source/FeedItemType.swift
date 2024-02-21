@@ -5,9 +5,10 @@ import UIKit
 
 /// Перечисления с вариантами постов
 enum FeedItemType {
-    // MARK: - Public Methods
-
+    ///  Истории
     case stories(StoriesSourceTypealias)
+    /// Посты
     case post(PostsSourceTypealias)
+    /// Рекомендации
     case recommendations(RecommendationsCellTypealias)
 }

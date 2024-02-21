@@ -1,28 +1,24 @@
-// PostCellSource.swift
+// PictureCellSource.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// Источник данных для постов
-struct PostCellSource {
+/// Источник данных для ячейки с картинкой
+struct PictureCellSource {
     /// Аватарка пользователя
-    let imageUser: String
-    /// Имя пользователя
-    let nameUser: String
-    /// Картинка для поста
-    let postImage: [String]
-    /// Количество лайков
-    let numberLikes: Int
+    let avatarImage: String
     /// Комментарий пользователя
-    let comment: CommentInfo?
+    let comment: CommentInformation?
+    /// Картинка поста
+    let imagePost: String
 }
 
 /// Источник данных для подраздела комментарии
-struct CommentInfo {
+struct CommentInformation {
     /// Имя пользователя в комментариях
     let nameUser: String
     /// Комментарий пользователя
     let commentText: String
 }
 
-typealias PostsSourceTypealias = [PostCellSource]
+typealias PictureCellTypealias = [PictureCellSource]
