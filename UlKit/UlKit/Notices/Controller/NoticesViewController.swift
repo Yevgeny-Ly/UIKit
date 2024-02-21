@@ -30,13 +30,13 @@ final class NoticesViewController: UIViewController {
 
     private let noticesCellSource: [NotificationItemType] = [
         .picture([
-            PictureCellSource(avatarImage: "girlAndLavender", comment: CommentInformation(
+            PictureCellSource(avatarImage: "girlAndLavender", comment: PictureCellSource.CommentInformation(
                 nameUser: "lavanda123",
                 commentText: "понравлся ваш комментарий: «Очень красиво»"
             ), imagePost: "galitsynTrail"),
             PictureCellSource(
                 avatarImage: "girlAndLavender",
-                comment: CommentInformation(
+                comment: PictureCellSource.CommentInformation(
                     nameUser: "lavanda123",
                     commentText: "упомянул(-а) вас в комметарии: @rm Спасибо"
                 ),
@@ -47,7 +47,7 @@ final class NoticesViewController: UIViewController {
         .button([
             ButtonCellSource(
                 avatarName: "guy", buttonTitle: "Подписаться",
-                comment: СommentaryInformation(
+                comment: ButtonCellSource.СommentaryInformation(
                     nameUser: "12miho",
                     commentText: "появился(-ась) в RMLink. Вы можете быть знакомы"
                 )

@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Источник данных для рекомендаций
+/// Рекомендации для пользователя
 struct RecommendationsCellSource {
     /// Аватарка пользователя
     let imageUser: String

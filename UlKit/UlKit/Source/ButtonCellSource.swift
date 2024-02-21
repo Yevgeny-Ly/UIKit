@@ -11,14 +11,14 @@ struct ButtonCellSource {
     let buttonTitle: String
     /// Комментарий пользователя
     let comment: СommentaryInformation?
-}
 
-/// Источник данных для подраздела комментарии
-struct СommentaryInformation {
-    /// Имя пользователя в комментариях
-    let nameUser: String
-    /// Комментарий пользователя
-    let commentText: String
+    /// Источник данных для подраздела комментарии
+    struct СommentaryInformation {
+        /// Имя пользователя в комментариях
+        let nameUser: String
+        /// Комментарий пользователя
+        let commentText: String
+    }
 }
 
 typealias ButtonCellTypealias = [ButtonCellSource]

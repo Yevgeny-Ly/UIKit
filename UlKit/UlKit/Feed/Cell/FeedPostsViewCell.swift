@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Настройка ячейки постов
+/// Ячейки постов
 final class FeedPostsViewCell: UITableViewCell {
     // MARK: - Constants
 
@@ -156,7 +156,7 @@ final class FeedPostsViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configure(data: [PostCellSource]) {
+    func configure(with data: [PostCellSource]) {
         postData = data
         for (index, item) in data.enumerated() {
             pageControl.tag = index
@@ -208,7 +208,7 @@ final class FeedPostsViewCell: UITableViewCell {
         contentView.addSubview(pageControl)
     }
 
-    private func customizesLabel(with comment: CommentInfo) {
+    private func customizesLabel(with comment: PostCellSource.CommentInfo) {
         let string = comment.nameUser + " " + comment.commentText
         let attributedString = NSMutableAttributedString(string: string)
         let range = NSRange(location: .zero, length: comment.nameUser.count)

@@ -11,14 +11,14 @@ struct PictureCellSource {
     let comment: CommentInformation?
     /// Картинка поста
     let imagePost: String
-}
 
-/// Источник данных для подраздела комментарии
-struct CommentInformation {
-    /// Имя пользователя в комментариях
-    let nameUser: String
-    /// Комментарий пользователя
-    let commentText: String
+    /// Источник данных для подраздела комментарии
+    struct CommentInformation {
+        /// Имя пользователя в комментариях
+        let nameUser: String
+        /// Комментарий пользователя
+        let commentText: String
+    }
 }
 
 typealias PictureCellTypealias = [PictureCellSource]

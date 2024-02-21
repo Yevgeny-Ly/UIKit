@@ -15,14 +15,14 @@ struct PostCellSource {
     let numberLikes: Int
     /// Комментарий пользователя
     let comment: CommentInfo?
-}
 
-/// Источник данных для подраздела комментарии
-struct CommentInfo {
-    /// Имя пользователя в комментариях
-    let nameUser: String
-    /// Комментарий пользователя
-    let commentText: String
+    /// Источник данных для подраздела комментарии
+    struct CommentInfo {
+        /// Имя пользователя в комментариях
+        let nameUser: String
+        /// Комментарий пользователя
+        let commentText: String
+    }
 }
 
 typealias PostsSourceTypealias = [PostCellSource]

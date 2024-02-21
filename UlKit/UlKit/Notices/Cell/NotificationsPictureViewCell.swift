@@ -66,7 +66,7 @@ final class NotificationsPictureViewCell: UITableViewCell {
 
     // MARK: - Private Methods
 
-    private func customizesLabel(with comment: CommentInformation) {
+    private func customizesLabel(with comment: PictureCellSource.CommentInformation) {
         let string = comment.nameUser + " " + comment.commentText
         let attributedString = NSMutableAttributedString(string: string)
         let range = NSRange(location: .zero, length: comment.nameUser.count)

@@ -94,7 +94,7 @@ final class FeedViewController: UIViewController {
             nameUser: "tur_v_dagestan",
             postImage: ["dagestanForest"],
             numberLikes: Constants.numberLikes,
-            comment: CommentInfo(
+            comment: PostCellSource.CommentInfo(
                 nameUser: "tur_v_dagestan",
                 commentText: "Насладитесь красотой природой. Забронировать тур в Дагестан можно уже сейчас!"
             )
@@ -112,7 +112,7 @@ final class FeedViewController: UIViewController {
                 nameUser: "tur_v_dagestan",
                 postImage: ["dagestanMountains", "dagestanMountains"],
                 numberLikes: Constants.numberLikes,
-                comment: CommentInfo(
+                comment: PostCellSource.CommentInfo(
                     nameUser: "tur_v_dagestan",
                     commentText: "Насладитесь красотой природой. Забронировать тур в Дагестан можно уже сейчас!"
                 )
@@ -220,7 +220,7 @@ extension FeedViewController: UITableViewDataSource {
                 withIdentifier: FeedPostsViewCell.reuseIdentifier,
                 for: indexPath
             ) as? FeedPostsViewCell else { return UITableViewCell() }
-            cell.configure(data: post)
+            cell.configure(with: post)
             return cell
 
         case let .recommendations(recommendation):
@@ -228,7 +228,7 @@ extension FeedViewController: UITableViewDataSource {
                 withIdentifier: FeedRecommendationsViewCell.reuseIdentifier,
                 for: indexPath
             ) as? FeedRecommendationsViewCell else { return UITableViewCell() }
-            cell.configure(data: recommendation)
+            cell.configure(with: recommendation)
             return cell
         }
     }

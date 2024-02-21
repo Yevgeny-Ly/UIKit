@@ -69,7 +69,7 @@ final class NotificationsButtonViewCell: UITableViewCell {
 
     // MARK: - Private Methods
 
-    private func customizesLabel(with comment: СommentaryInformation) {
+    private func customizesLabel(with comment: ButtonCellSource.СommentaryInformation) {
         let string = comment.nameUser + " " + comment.commentText
         let attributedString = NSMutableAttributedString(string: string)
         let range = NSRange(location: .zero, length: comment.nameUser.count)

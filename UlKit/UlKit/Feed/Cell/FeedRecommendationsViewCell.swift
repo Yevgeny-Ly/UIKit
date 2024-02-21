@@ -64,7 +64,7 @@ final class FeedRecommendationsViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configure(data: [RecommendationsCellSource]) {
+    func configure(with data: [RecommendationsCellSource]) {
         var totalWidth: CGFloat = Constants.spacingX
 
         for item in data {
