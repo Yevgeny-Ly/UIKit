@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Модель рекомендаций
+/// Источник данных для рекомендаций
 struct RecommendationsCellSource {
     // MARK: - Public Methods
 

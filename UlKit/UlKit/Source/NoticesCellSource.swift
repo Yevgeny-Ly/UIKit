@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Варианты ячеек
+/// Перечисления ячеек
 enum CellTypeNotification {
     // MARK: - Public Methods
 
@@ -11,7 +11,7 @@ enum CellTypeNotification {
     case button(ButtonCellTypealias)
 }
 
-/// Модель ячейки с картинкой
+/// Источник данных для ячейки с картинкой
 struct PictureCellSource {
     // MARK: - Public Methods
 
@@ -22,7 +22,7 @@ struct PictureCellSource {
 
 typealias PictureCellTypealias = [PictureCellSource]
 
-/// Модель ячейки с кнопкой
+/// Источник данных для ячейки с кнопкой
 struct ButtonCellSource {
     // MARK: - Public Methods
 

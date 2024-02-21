@@ -3,10 +3,10 @@
 
 import UIKit
 
-/// Экран табличного представвления уведомлений
+/// Контроллер табличного представвления уведомлений
 class NoticesViewController: UIViewController {
     // MARK: - Constants
- 
+
     enum Constants {
         static var fontVerdana = "Verdana"
         static var fontVerdanaBold = "Verdana-Bold"

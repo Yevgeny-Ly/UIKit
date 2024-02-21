@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Настройка для ячейки рекомендаций
+/// Настройка ячейки рекомендаций
 final class FeedRecommendationsViewCell: UITableViewCell {
     // MARK: - Constants
 

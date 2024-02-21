@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Экран профиля
+/// Контроллер профиля
 class ProfileViewController: UIViewController {
     // MARK: - Life Cycle
 

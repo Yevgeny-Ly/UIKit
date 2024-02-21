@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// настройка для ячейки историй
+/// Настройка ячейки историй
 final class FeedStoriesViewCell: UITableViewCell {
     // MARK: - Constants
 

@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Настройка ячейки c изображением поста в правой части
+/// Настройка ячейки c изображением поста
 final class NotificationsPictureViewCell: UITableViewCell {
     // MARK: - Constants
 

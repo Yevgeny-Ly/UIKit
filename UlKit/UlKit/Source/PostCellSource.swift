@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Модель постов
+/// Источник данных для постов
 struct PostCellSource {
     // MARK: - Public Methods
 

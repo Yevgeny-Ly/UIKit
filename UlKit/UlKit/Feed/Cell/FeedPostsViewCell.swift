@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Настройка для ячейки постов
+/// Настройка ячейки постов
 final class FeedPostsViewCell: UITableViewCell {
     // MARK: - Constants
 

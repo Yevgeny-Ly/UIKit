@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Модель историй
+/// Источник данных для историй
 struct StoriesCellSource {
     // MARK: - Public Methods
 

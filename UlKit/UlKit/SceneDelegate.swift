@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// Класс scene
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
@@ -12,8 +13,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
+        customizesScene(windowScene: windowScene)
+    }
 
+    func customizesScene(windowScene: UIWindowScene) {
+        window = UIWindow(windowScene: windowScene)
         let viewController = TabBarController()
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()

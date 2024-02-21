@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Настройка ячейки с кнопкой "подписаться"  в правой части
+/// Настройка ячейки с кнопкой
 class NotificationsButtonViewCell: UITableViewCell {
     // MARK: - Constants
 

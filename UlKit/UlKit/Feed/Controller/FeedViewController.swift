@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Экран табличного представления ленты
+/// Контроллер табличного представления ленты
 final class FeedViewController: UIViewController {
     // MARK: - Constants
 

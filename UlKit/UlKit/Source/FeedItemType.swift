@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Кейсы с вариантами постов контента
+/// Перечисления с вариантами постов
 enum FeedItemType {
     // MARK: - Public Methods
 
