@@ -241,11 +241,11 @@ extension FeedViewController: UITableViewDelegate {
         let cell = rowsType[indexPath.section]
         switch cell {
         case .stories:
-            return Constants.heightCellStories
+            return UITableView.automaticDimension
         case let .post(postCellSource):
-            return Constants.heightCellPosts
+            return UITableView.automaticDimension
         case .recommendations:
-            return Constants.heightCellRecommendations
+            return UITableView.automaticDimension
         }
     }
 }
