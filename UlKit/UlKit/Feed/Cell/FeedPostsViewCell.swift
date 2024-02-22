@@ -164,21 +164,22 @@ final class FeedPostsViewCell: UITableViewCell {
             nickNameLabel.text = item.nameUser
 
             let postImages = item.postImage
-            if !postImages.isEmpty {
+            switch postImages.count {
+            case 0:
+                pageControl.isHidden = true
+            case 1:
                 if let firstImageName = postImages.first, let firstImage = UIImage(named: firstImageName) {
                     postImage.image = firstImage
                 }
-
-                if postImages.count > 1 {
-                    pageControl.numberOfPages = postImages.count
-                    pageControl.currentPage = 0
-                    pageControl.isHidden = false
-                    pageControl.addTarget(self, action: #selector(pageControlValueChanged), for: .valueChanged)
-                } else {
-                    pageControl.isHidden = true
-                }
-            } else {
                 pageControl.isHidden = true
+            default:
+                if let firstImageName = postImages.first, let firstImage = UIImage(named: firstImageName) {
+                    postImage.image = firstImage
+                }
+                pageControl.numberOfPages = postImages.count
+                pageControl.currentPage = 0
+                pageControl.isHidden = false
+                pageControl.addTarget(self, action: #selector(pageControlValueChanged), for: .valueChanged)
             }
 
             likesLabel.text = "\(Constants.labelLike)configurationCellPosts \(item.numberLikes)"

@@ -169,7 +169,6 @@ final class FeedViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.reloadData()
     }
 
     private func setupConstraints() {
@@ -186,7 +185,7 @@ final class FeedViewController: UIViewController {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Подписываюсь на DataSourse для таблицы
 
 extension FeedViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -234,18 +233,18 @@ extension FeedViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Подписываюсь на Delegate для таблицы
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell = rowsType[indexPath.section]
         switch cell {
         case .stories:
-            return UITableView.automaticDimension
+            return Constants.heightCellStories
         case let .post(postCellSource):
-            return UITableView.automaticDimension
+            return Constants.heightCellPosts
         case .recommendations:
-            return UITableView.automaticDimension
+            return Constants.heightCellRecommendations
         }
     }
 }

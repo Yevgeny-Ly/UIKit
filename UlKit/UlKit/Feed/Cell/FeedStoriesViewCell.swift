@@ -9,6 +9,7 @@ final class FeedStoriesViewCell: UITableViewCell {
 
     enum Constants {
         static var spacingX: CGFloat = 10
+        static var spacingNewUnits: CGFloat = 75
         static var heightContentSize: CGFloat = 100
         static var fontVerdana = "Verdana"
     }
@@ -74,7 +75,7 @@ final class FeedStoriesViewCell: UITableViewCell {
             userImage.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: Constants.spacingX)
                 .isActive = true
 
-            Constants.spacingX += 75
+            Constants.spacingX += Constants.spacingNewUnits
 
             nickNameLabel.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 10).isActive = true
             nickNameLabel.leftAnchor.constraint(equalTo: userImage.leftAnchor).isActive = true

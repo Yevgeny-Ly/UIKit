@@ -111,7 +111,7 @@ final class NoticesViewController: UIViewController {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Подписываюсь на DataSourse для таблицы
 
 extension NoticesViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -152,7 +152,7 @@ extension NoticesViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Подписываюсь на Delegate для таблицы
 
 extension NoticesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
