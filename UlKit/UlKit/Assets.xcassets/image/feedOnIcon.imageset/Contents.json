@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "feedOnIcon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
