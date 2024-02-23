@@ -1,7 +1,7 @@
 // PostStoriesCellSource.swift
 // Copyright © RoadMap. All rights reserved.
 
-import UIKit
+import Foundation
 
 /// Источник данных для историй
 struct PostStoriesCellSource {

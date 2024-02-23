@@ -13,14 +13,9 @@ final class ProfileHeaderViewCell: UITableViewCell {
         static let sizeFontBig: CGFloat = 14
         static let fontVerdana = "Verdana"
         static let fontVerdanaBold = "Verdana-Bold"
-        static let labelNamePerson = "Мария Иванова"
-        static let labelStatusUser = "Консультант"
         static let link = "www.spacex.com"
-        static let labeQuantitylPublication = "67"
         static let labelPublication = "\n публикации"
-        static let labeQuantitylSubscribers = "458"
         static let labelSubscribers = "\n подписчики"
-        static let labeQuantitylSubscriptions = "120"
         static let labelSubscriptions = "\n подписки"
         static let labelModify = "Изменить"
         static let labelShareProfile = "Поделиться профилем"
@@ -37,7 +32,6 @@ final class ProfileHeaderViewCell: UITableViewCell {
 
     private let userNameLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.labelNamePerson
         label.font = UIFont(name: Constants.fontVerdanaBold, size: Constants.sizeFontBig)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,9 +44,8 @@ final class ProfileHeaderViewCell: UITableViewCell {
         return button
     }()
 
-    private let statusUserLabel: UILabel = {
+    private let bioUserLabel: UILabel = {
         let label = UILabel()
-        label.text = Constants.labelStatusUser
         label.font = UIFont(name: Constants.fontVerdana, size: Constants.sizeFontBig)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -64,69 +57,62 @@ final class ProfileHeaderViewCell: UITableViewCell {
         button.setTitleColor(.link, for: .normal)
         button.titleLabel?.font = UIFont(name: Constants.fontVerdana, size: Constants.sizeFontBig)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handlesClickLinkButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(clickLinkButtonHandler), for: .touchUpInside)
         return button
+    }()
+
+    private let publicationsNumberLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: Constants.fontVerdanaBold, size: Constants.sizeFontBig)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     private lazy var publicationsButton: UIButton = {
         let button = UIButton(type: .system)
-
-        let numberPublications = NSMutableAttributedString(string: Constants.labeQuantitylPublication, attributes: [
-            .font: UIFont(name: Constants.fontVerdanaBold, size: Constants.sizeFontBig) ?? UIFont(),
-            .foregroundColor: UIColor.black
-        ])
-
-        let publicationsText = NSMutableAttributedString(string: Constants.labelPublication, attributes: [
-            .font: UIFont(name: Constants.fontVerdana, size: Constants.sizeFontSmall) ?? UIFont(),
-            .foregroundColor: UIColor.gray
-        ])
-
-        numberPublications.append(publicationsText)
-        button.setAttributedTitle(numberPublications, for: .normal)
+        button.setTitle(Constants.labelPublication, for: .normal)
+        button.titleLabel?.font = UIFont(name: Constants.fontVerdana, size: Constants.sizeFontSmall)
+        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
         button.translatesAutoresizingMaskIntoConstraints = false
 
         return button
+    }()
+
+    private let subscribersNumberLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: Constants.fontVerdanaBold, size: Constants.sizeFontBig)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     private lazy var subscribersButton: UIButton = {
         let button = UIButton(type: .system)
-
-        let numberSubscribers = NSMutableAttributedString(string: Constants.labeQuantitylSubscribers, attributes: [
-            .font: UIFont(name: Constants.fontVerdanaBold, size: Constants.sizeFontBig) ?? UIFont(),
-            .foregroundColor: UIColor.black
-        ])
-
-        let subscribersText = NSMutableAttributedString(string: Constants.labelSubscribers, attributes: [
-            .font: UIFont(name: Constants.fontVerdana, size: Constants.sizeFontSmall) ?? UIFont(),
-            .foregroundColor: UIColor.gray
-        ])
-
-        numberSubscribers.append(subscribersText)
-        button.setAttributedTitle(numberSubscribers, for: .normal)
+        button.setTitle(Constants.labelSubscribers, for: .normal)
+        button.titleLabel?.font = UIFont(name: Constants.fontVerdana, size: Constants.sizeFontSmall)
+        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
         button.translatesAutoresizingMaskIntoConstraints = false
-
         return button
+    }()
+
+    private let subscriptionsNumberLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: Constants.fontVerdanaBold, size: Constants.sizeFontBig)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        return label
     }()
 
     private lazy var subscriptionsButton: UIButton = {
         let button = UIButton(type: .system)
-
-        let numberSubscriptions = NSMutableAttributedString(string: Constants.labeQuantitylSubscriptions, attributes: [
-            .font: UIFont(name: Constants.fontVerdanaBold, size: Constants.sizeFontBig) ?? UIFont(),
-            .foregroundColor: UIColor.black
-        ])
-
-        let subscriptionsText = NSMutableAttributedString(string: Constants.labelSubscriptions, attributes: [
-            .font: UIFont(name: Constants.fontVerdana, size: Constants.sizeFontSmall) ?? UIFont(),
-            .foregroundColor: UIColor.gray
-        ])
-
-        numberSubscriptions.append(subscriptionsText)
-        button.setAttributedTitle(numberSubscriptions, for: .normal)
+        button.setTitle(Constants.labelSubscriptions, for: .normal)
+        button.titleLabel?.font = UIFont(name: Constants.fontVerdana, size: Constants.sizeFontSmall)
+        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -172,7 +158,9 @@ final class ProfileHeaderViewCell: UITableViewCell {
 
     // MARK: - Private Properties
 
-    private var presentWebViewClosure: (() -> Void) = {}
+    private var webView: WKWebView?
+    private var pageLink: URL?
+    private var presentWebViewClosure: ((URL) -> Void)?
 
     // MARK: - Initializers
 
@@ -191,10 +179,20 @@ final class ProfileHeaderViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configure(presentWebViewClosure: @escaping () -> Void) {
+    func configure(link: String, _ info: ProfileInfo, presentWebViewClosure: @escaping (URL) -> Void) {
+        userImageView.image = UIImage(named: info.avatarName)
+        userNameLabel.text = info.userName
+        bioUserLabel.text = info.bioPerson
+        publicationsNumberLabel.text = String(info.postsNumber)
+        subscribersNumberLabel.text = String(info.subscribersNumber)
+        subscriptionsNumberLabel.text = String(info.subscriptionsNumber)
+
+        if let url = URL(string: link) {
+            pageLink = url
+        }
         self.presentWebViewClosure = presentWebViewClosure
         let button = UIButton()
-        button.addTarget(self, action: #selector(handlesClickLinkButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(clickLinkButtonHandler), for: .touchUpInside)
         contentView.addSubview(button)
     }
 
@@ -204,10 +202,13 @@ final class ProfileHeaderViewCell: UITableViewCell {
         contentView.addSubview(userImageView)
         contentView.addSubview(userNameLabel)
         contentView.addSubview(addProfilePhotoButton)
-        contentView.addSubview(statusUserLabel)
+        contentView.addSubview(bioUserLabel)
         contentView.addSubview(linkButton)
+        contentView.addSubview(publicationsNumberLabel)
         contentView.addSubview(publicationsButton)
+        contentView.addSubview(subscribersNumberLabel)
         contentView.addSubview(subscribersButton)
+        contentView.addSubview(subscriptionsNumberLabel)
         contentView.addSubview(subscriptionsButton)
         contentView.addSubview(changesButton)
         contentView.addSubview(shareProfileButton)
@@ -220,8 +221,11 @@ final class ProfileHeaderViewCell: UITableViewCell {
         setupUserNameLabelConstraints()
         setupStatusUserLabelConstraints()
         setupLinkLabelConstraints()
+        setupPublicationsNumberConstraints()
         setupPublicationsButtonConstraints()
+        setupSubscribeNumberConstraints()
         setupSubscribersButtonConstraints()
+        setupSubscriptionsNumberConsstraints()
         setupSubscriptionsButtonConstraints()
         setupChangesButtonConstraints()
         setupShareProfileButtonConstraints()
@@ -250,38 +254,64 @@ final class ProfileHeaderViewCell: UITableViewCell {
     }
 
     private func setupStatusUserLabelConstraints() {
-        statusUserLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 10).isActive = true
-        statusUserLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15).isActive = true
-        statusUserLabel.widthAnchor.constraint(equalToConstant: 298).isActive = true
-        statusUserLabel.heightAnchor.constraint(equalToConstant: 14).isActive = true
+        bioUserLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 10).isActive = true
+        bioUserLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15).isActive = true
+        bioUserLabel.widthAnchor.constraint(equalToConstant: 298).isActive = true
+        bioUserLabel.heightAnchor.constraint(equalToConstant: 14).isActive = true
     }
 
     private func setupLinkLabelConstraints() {
-        linkButton.topAnchor.constraint(equalTo: statusUserLabel.bottomAnchor, constant: 10).isActive = true
+        linkButton.topAnchor.constraint(equalTo: bioUserLabel.bottomAnchor, constant: 10).isActive = true
         linkButton.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         linkButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         linkButton.heightAnchor.constraint(equalToConstant: 17).isActive = true
     }
 
+    private func setupPublicationsNumberConstraints() {
+        publicationsNumberLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        publicationsNumberLabel.leftAnchor.constraint(equalTo: userImageView.rightAnchor, constant: 55).isActive = true
+        publicationsNumberLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        publicationsNumberLabel.heightAnchor.constraint(equalToConstant: 12).isActive = true
+    }
+
     private func setupPublicationsButtonConstraints() {
-        publicationsButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        publicationsButton.topAnchor.constraint(equalTo: publicationsNumberLabel.bottomAnchor, constant: 5)
+            .isActive = true
         publicationsButton.leftAnchor.constraint(equalTo: userImageView.rightAnchor, constant: 45).isActive = true
         publicationsButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        publicationsButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        publicationsButton.heightAnchor.constraint(equalToConstant: 12).isActive = true
+    }
+
+    private func setupSubscribeNumberConstraints() {
+        subscribersNumberLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        subscribersNumberLabel.leftAnchor.constraint(equalTo: publicationsNumberLabel.rightAnchor, constant: 25)
+            .isActive = true
+        subscribersNumberLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        subscribersNumberLabel.heightAnchor.constraint(equalToConstant: 12).isActive = true
     }
 
     private func setupSubscribersButtonConstraints() {
-        subscribersButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        subscribersButton.topAnchor.constraint(equalTo: subscribersNumberLabel.bottomAnchor, constant: 5)
+            .isActive = true
         subscribersButton.leftAnchor.constraint(equalTo: publicationsButton.rightAnchor, constant: 5).isActive = true
         subscribersButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        subscribersButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        subscribersButton.heightAnchor.constraint(equalToConstant: 12).isActive = true
+    }
+
+    private func setupSubscriptionsNumberConsstraints() {
+        subscriptionsNumberLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        subscriptionsNumberLabel.leftAnchor.constraint(equalTo: subscribersNumberLabel.rightAnchor, constant: 25)
+            .isActive = true
+        subscriptionsNumberLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        subscriptionsNumberLabel.heightAnchor.constraint(equalToConstant: 12).isActive = true
     }
 
     private func setupSubscriptionsButtonConstraints() {
-        subscriptionsButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        subscriptionsButton.topAnchor.constraint(equalTo: subscriptionsNumberLabel.bottomAnchor, constant: 5)
+            .isActive = true
         subscriptionsButton.leftAnchor.constraint(equalTo: subscribersButton.rightAnchor, constant: 5).isActive = true
         subscriptionsButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        subscriptionsButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        subscriptionsButton.heightAnchor.constraint(equalToConstant: 12).isActive = true
     }
 
     private func setupChangesButtonConstraints() {
@@ -306,7 +336,11 @@ final class ProfileHeaderViewCell: UITableViewCell {
     }
 
     @objc
-    private func handlesClickLinkButton() {
-        presentWebViewClosure()
+    private func clickLinkButtonHandler() {
+        if let url = pageLink,
+           let presentWebViewClosure = presentWebViewClosure
+        {
+            presentWebViewClosure(url)
+        }
     }
 }

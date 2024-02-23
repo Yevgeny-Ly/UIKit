@@ -1,7 +1,7 @@
 // NoticesCellSource.swift
 // Copyright © RoadMap. All rights reserved.
 
-import UIKit
+import Foundation
 
 /// Перечисления ячеек
 enum NotificationItemType {

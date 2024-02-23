@@ -1,7 +1,7 @@
 // PictureCellSource.swift
 // Copyright © RoadMap. All rights reserved.
 
-import UIKit
+import Foundation
 
 /// Источник данных для ячейки с картинкой
 struct PictureCellSource {

@@ -1,7 +1,7 @@
 // FeedItemType.swift
 // Copyright © RoadMap. All rights reserved.
 
-import UIKit
+import Foundation
 
 /// Перечисления с вариантами постов
 enum FeedItemType {

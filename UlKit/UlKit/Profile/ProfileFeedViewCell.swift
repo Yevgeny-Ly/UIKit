@@ -5,6 +5,12 @@ import UIKit
 
 /// Настройка ячейки ленты профиля
 final class ProfileFeedViewCell: UITableViewCell {
+    // MARK: - Constants
+
+    enum Constants {
+        static let labelIdentifierCell = "ProfileFeedCell"
+    }
+
     // MARK: - Visual Components
 
     private let collectionView: UICollectionView = {
@@ -49,7 +55,7 @@ final class ProfileFeedViewCell: UITableViewCell {
     private func setupCollectionView() {
         collectionView.register(
             ProfileFeedCollectionCell.self,
-            forCellWithReuseIdentifier: "ProfileFeedCell"
+            forCellWithReuseIdentifier: Constants.labelIdentifierCell
         )
         collectionView.dataSource = self
         collectionView.delegate = self

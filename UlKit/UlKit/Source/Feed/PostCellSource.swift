@@ -1,7 +1,7 @@
 // PostCellSource.swift
 // Copyright © RoadMap. All rights reserved.
 
-import UIKit
+import Foundation
 
 /// Источник данных для постов
 struct PostCellSource {

@@ -10,7 +10,7 @@ final class ProfileViewController: UIViewController {
 
     enum Constants {
         static let heightCellHeader: CGFloat = 220
-        static let heightCellStories: CGFloat = 80
+        static let heightCellStories: CGFloat = 110
         static let heightCellFeed: CGFloat = 375
     }
 
@@ -48,6 +48,15 @@ final class ProfileViewController: UIViewController {
             ProfileFeedCellSource(postImage: "earth")
         ])
     ]
+
+    private var informationProfile = ProfileInfo(
+        avatarName: "girl",
+        userName: "Мария Иванова",
+        bioPerson: "Консультант",
+        postsNumber: 67,
+        subscribersNumber: 458,
+        subscriptionsNumber: 120
+    )
 
     // MARK: - Life Cycle
 
@@ -97,6 +106,36 @@ final class ProfileViewController: UIViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
+
+    func presentModalWebView(url: URL) {
+        let viewController = UIViewController()
+
+        let webView = WKWebView(frame: UIScreen.main.bounds)
+        let request = URLRequest(url: url)
+        webView.load(request)
+
+        let closeButton = UIButton()
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.setImage(UIImage(named: "closeButtonX"), for: .normal)
+        closeButton.addTarget(self, action: #selector(closeModalWebView), for: .touchUpInside)
+
+        viewController.view = webView
+        viewController.view.addSubview(closeButton)
+
+        closeButton.topAnchor.constraint(equalTo: viewController.view.topAnchor, constant: 90).isActive = true
+        closeButton.leftAnchor.constraint(equalTo: viewController.view.leftAnchor, constant: 10).isActive = true
+        closeButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        closeButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+
+        present(navigationController, animated: true, completion: nil)
+    }
+
+    @objc func closeModalWebView() {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - Подписываюсь на Data Source для таблицы
@@ -107,16 +146,11 @@ extension ProfileViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let cell = rowsType[section]
-        switch cell {
-        case .header, .feed, .stories:
-            return 1
-        }
+        1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = rowsType[indexPath.section]
-        switch row {
+        switch rowsType[indexPath.section] {
         case .header:
             guard let cell = tableView
                 .dequeueReusableCell(
@@ -125,20 +159,13 @@ extension ProfileViewController: UITableViewDataSource {
                 ) as? ProfileHeaderViewCell
             else { return UITableViewCell() }
 
-            cell.configure {
-                let webView = WKWebView(frame: UIScreen.main.bounds)
-                let url = URL(string: "https://www.spacex.com")!
-                let request = URLRequest(url: url)
-                webView.load(request)
-
-                let viewController = UIViewController()
-                viewController.view = webView
-
-                let navigationController = UINavigationController(rootViewController: viewController)
-                navigationController.modalPresentationStyle = .fullScreen
-
-                self.present(navigationController, animated: true, completion: nil)
-            }
+            cell.configure(
+                link: "https://www.spacex.com",
+                informationProfile,
+                presentWebViewClosure: { [weak self] url in
+                    self?.presentModalWebView(url: url)
+                }
+            )
             return cell
 
         case let .stories(stories):

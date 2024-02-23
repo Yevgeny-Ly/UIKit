@@ -1,7 +1,7 @@
 // ButtonCellSource.swift
 // Copyright © RoadMap. All rights reserved.
 
-import UIKit
+import Foundation
 
 /// Источник данных для ячейки с кнопкой
 struct ButtonCellSource {

@@ -1,7 +1,7 @@
 // RecommendationsCellSource.swift
 // Copyright © RoadMap. All rights reserved.
 
-import UIKit
+import Foundation
 
 /// Рекомендации для пользователя
 struct RecommendationsCellSource {
