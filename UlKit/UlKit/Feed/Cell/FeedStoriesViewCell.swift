@@ -2,6 +2,7 @@
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
+import WebKit
 
 /// Настройка ячейки историй
 final class FeedStoriesViewCell: UITableViewCell {
@@ -45,7 +46,7 @@ final class FeedStoriesViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func configurationCellStories(data: [StoriesCellSource]) {
+    func configure(with data: [StoriesCellSource]) {
         for item in data {
             let userImage = UIImageView()
             userImage.image = UIImage(named: item.avatarImage)
@@ -80,9 +81,8 @@ final class FeedStoriesViewCell: UITableViewCell {
             nickNameLabel.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 10).isActive = true
             nickNameLabel.leftAnchor.constraint(equalTo: userImage.leftAnchor).isActive = true
             nickNameLabel.rightAnchor.constraint(equalTo: userImage.rightAnchor).isActive = true
-
-            scrollView.contentSize = CGSize(width: Constants.spacingX, height: Constants.heightContentSize)
         }
+        scrollView.contentSize = CGSize(width: Constants.spacingX, height: Constants.heightContentSize)
     }
 
     // MARK: - Private Methods
