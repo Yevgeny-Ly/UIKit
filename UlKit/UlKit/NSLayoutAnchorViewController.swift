@@ -28,22 +28,22 @@ final class NSLayoutAnchorViewController: UIViewController {
         return view
     }()
 
-    private let redView: UIView = {
-        let view = UIView()
+    private let redView: CustomView = {
+        let view = CustomView()
         view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    private let yellowView: UIView = {
-        let view = UIView()
+    private let yellowView: CustomView = {
+        let view = CustomView()
         view.backgroundColor = .yellow
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    private let greenView: UIView = {
-        let view = UIView()
+    private let greenView: CustomView = {
+        let view = CustomView()
         view.backgroundColor = .green
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -55,13 +55,6 @@ final class NSLayoutAnchorViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
-    }
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        redView.layer.cornerRadius = redView.frame.size.width / 2.0
-        yellowView.layer.cornerRadius = yellowView.frame.size.width / 2.0
-        greenView.layer.cornerRadius = greenView.frame.size.width / 2.0
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

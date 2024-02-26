@@ -28,22 +28,22 @@ final class StackViewViewController: UIViewController {
         return view
     }()
 
-    private let redView: UIView = {
-        let view = UIView()
+    private let redView: CustomView = {
+        let view = CustomView()
         view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    private let yellowView: UIView = {
-        let view = UIView()
+    private let yellowView: CustomView = {
+        let view = CustomView()
         view.backgroundColor = .yellow
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
-    private let greenView: UIView = {
-        let view = UIView()
+    private let greenView: CustomView = {
+        let view = CustomView()
         view.backgroundColor = .green
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -62,11 +62,6 @@ final class StackViewViewController: UIViewController {
         setupConstraints()
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        roundsCornersViews()
-    }
-
     // MARK: - Private Methods
 
     private func setupStackView() {
@@ -75,12 +70,6 @@ final class StackViewViewController: UIViewController {
             axis: .vertical,
             spacing: 5
         )
-    }
-
-    private func roundsCornersViews() {
-        redView.layer.cornerRadius = redView.frame.size.width / 2.0
-        yellowView.layer.cornerRadius = yellowView.frame.size.width / 2.0
-        greenView.layer.cornerRadius = greenView.frame.size.width / 2.0
     }
 
     private func setupViews() {
