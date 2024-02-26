@@ -211,7 +211,7 @@ extension FeedViewController: UITableViewDataSource {
                 withIdentifier: FeedStoriesViewCell.reuseIdentifier,
                 for: indexPath
             ) as? FeedStoriesViewCell else { return UITableViewCell() }
-            cell.configurationCellStories(data: story)
+            cell.configure(with: story)
             return cell
 
         case let .post(post):
