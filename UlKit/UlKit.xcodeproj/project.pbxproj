@@ -7,19 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		934FF76D2B8B21AF000BF517 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FF76C2B8B21AF000BF517 /* UIStackView+Extension.swift */; };
+		934FF76F2B8B29B8000BF517 /* NSLayoutAnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FF76E2B8B29B8000BF517 /* NSLayoutAnchorViewController.swift */; };
+		934FF7712B8B398E000BF517 /* StackViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FF7702B8B398E000BF517 /* StackViewViewController.swift */; };
+		934FF7732B8B623D000BF517 /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934FF7722B8B623D000BF517 /* StoryboardViewController.swift */; };
+		938A45422B8CA5620028CEA8 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938A45412B8CA5620028CEA8 /* CustomView.swift */; };
 		93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1642B71134500D2D339 /* AppDelegate.swift */; };
 		93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1662B71134500D2D339 /* SceneDelegate.swift */; };
-		93DDD1692B71134500D2D339 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* ViewController.swift */; };
+		93DDD1692B71134500D2D339 /* ChoiceLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DDD1682B71134500D2D339 /* ChoiceLayoutViewController.swift */; };
 		93DDD16C2B71134500D2D339 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16A2B71134500D2D339 /* Main.storyboard */; };
 		93DDD16E2B71134600D2D339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16D2B71134600D2D339 /* Assets.xcassets */; };
 		93DDD1712B71134600D2D339 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		934FF76C2B8B21AF000BF517 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		934FF76E2B8B29B8000BF517 /* NSLayoutAnchorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutAnchorViewController.swift; sourceTree = "<group>"; };
+		934FF7702B8B398E000BF517 /* StackViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewViewController.swift; sourceTree = "<group>"; };
+		934FF7722B8B623D000BF517 /* StoryboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardViewController.swift; sourceTree = "<group>"; };
+		938A45412B8CA5620028CEA8 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		93DDD1612B71134500D2D339 /* UlKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UlKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DDD1642B71134500D2D339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93DDD1662B71134500D2D339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		93DDD1682B71134500D2D339 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		93DDD1682B71134500D2D339 /* ChoiceLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceLayoutViewController.swift; sourceTree = "<group>"; };
 		93DDD16B2B71134500D2D339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93DDD16D2B71134600D2D339 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93DDD1702B71134600D2D339 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,11 +68,16 @@
 			children = (
 				93DDD1642B71134500D2D339 /* AppDelegate.swift */,
 				93DDD1662B71134500D2D339 /* SceneDelegate.swift */,
-				93DDD1682B71134500D2D339 /* ViewController.swift */,
+				93DDD1682B71134500D2D339 /* ChoiceLayoutViewController.swift */,
+				934FF76E2B8B29B8000BF517 /* NSLayoutAnchorViewController.swift */,
+				934FF7702B8B398E000BF517 /* StackViewViewController.swift */,
+				934FF7722B8B623D000BF517 /* StoryboardViewController.swift */,
+				938A45412B8CA5620028CEA8 /* CustomView.swift */,
 				93DDD16A2B71134500D2D339 /* Main.storyboard */,
 				93DDD16D2B71134600D2D339 /* Assets.xcassets */,
 				93DDD16F2B71134600D2D339 /* LaunchScreen.storyboard */,
 				93DDD1722B71134600D2D339 /* Info.plist */,
+				934FF76C2B8B21AF000BF517 /* UIStackView+Extension.swift */,
 			);
 			path = UlKit;
 			sourceTree = "<group>";
@@ -181,8 +196,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93DDD1692B71134500D2D339 /* ViewController.swift in Sources */,
+				93DDD1692B71134500D2D339 /* ChoiceLayoutViewController.swift in Sources */,
+				938A45422B8CA5620028CEA8 /* CustomView.swift in Sources */,
+				934FF76D2B8B21AF000BF517 /* UIStackView+Extension.swift in Sources */,
+				934FF76F2B8B29B8000BF517 /* NSLayoutAnchorViewController.swift in Sources */,
 				93DDD1652B71134500D2D339 /* AppDelegate.swift in Sources */,
+				934FF7712B8B398E000BF517 /* StackViewViewController.swift in Sources */,
+				934FF7732B8B623D000BF517 /* StoryboardViewController.swift in Sources */,
 				93DDD1672B71134500D2D339 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
