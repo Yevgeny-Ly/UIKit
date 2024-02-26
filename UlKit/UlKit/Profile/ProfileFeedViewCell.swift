@@ -85,7 +85,7 @@ extension ProfileFeedViewCell: UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "ProfileFeedCell",
+            withReuseIdentifier: Constants.labelIdentifierCell,
             for: indexPath
         ) as? ProfileFeedCollectionCell else {
             return UICollectionViewCell()
